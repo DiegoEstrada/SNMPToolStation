@@ -1,0 +1,60 @@
+{% extends 'adminlte/base.html' %}
+
+{% block content %}
+<body>
+    <div class=" box ">
+            <div class="box-body">
+                        <h1  class="box-title text-center "  >Agentes Registrados</h1> <hr>
+                        <table  class="table table-striped table-bordered table-hover text-center">
+                            <thead class="text-center">
+                                <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">IP</th>
+                                        <th scope="col">Conexion</th>
+                                        <th scope="col">Interfaces</th>
+                                        <th scope="col">Eliminar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                            <th scope="row"> <a href="{% url 'ver' %}">1</a></th>
+                                            <td>Mark</td>
+                                            <td>192.168.0.91</td>
+                                            <td>Up</td>
+                                            <td>4</td>
+                                            <td><i class="glyphicon glyphicon-trash"></i> <span></span></td>
+                                    </tr>
+                                    <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+                                            <td>192.168.100.7</td>
+                                            <td>Up</td>
+                                            <td>2</td>
+                                            <td><i class="glyphicon glyphicon-trash"></i> <span></span></td>
+                                    </tr>
+                                    <tr>
+                                            <th scope="row">3</th>
+                                            <td>Edward</td>
+                                            <td>192.168.100.3</td>
+                                            <td>Down</td>
+                                            <td>3</td>
+                                            <td><i class="glyphicon glyphicon-trash"></i> <span></span></td>
+                                    </tr>
+                            </tbody>
+                        </table>
+            </div>
+            <div class="box-footer">
+                        <div class= "col-sm-10"></div>
+                        <a class=" col-sm-2 btn btn-primary " href="{% url 'agregar' %}" role="button">
+                            <i class="glyphicon glyphicon-plus"></i>  Agregar Agente 
+                        </a>
+            </div>
+
+            
+    </div>
+    
+    
+</body>
+    
+{% endblock %}

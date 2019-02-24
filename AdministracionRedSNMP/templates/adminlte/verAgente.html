@@ -1,0 +1,118 @@
+{% extends 'adminlte/base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+    <div class="fluidcontainer">
+        
+    </div>
+    <div class=" box ">
+        <div class="box-header">
+                <h1 class="box-title text-center"> Estado del Agente </h1> <hr>
+        </div>
+        <div class="box-body">
+            <h3 class="box-title text-center"> Nombre </h3> <hr>
+            <table  class="table table-striped table-bordered table-hover ">
+                    <thead class="text-center">
+                        <tr>
+                                <th scope="col"><b>Infromación</b></th>
+                                <th scope="col"><b>Descripción</b></th>
+                                
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                    <td> nombre del host</td>
+                                    <td>pavilion-dm4</td>
+                            </tr>
+                            <tr>
+                                    <td>IP</td>
+                                    <td>192.168.0.4</td>
+                            </tr>
+                            <tr>
+                                    <td>Nombre y version del SO</td>
+                                    <td>Ubuntu 18.04 LTS</td>
+                            </tr>
+                            <tr>
+                                    <td>Numero de interfaces de red</td>
+                                    <td>5</td>
+                            </tr>
+                            <tr>
+                                    <td>Tiempo de actividad</td>
+                                    <td>21432324 ms</td>
+                            </tr>
+                            <tr>
+                                    <td>Ubicación</td>
+                                    <td>Laboratorio de Redes Escom-IPN</td>
+                            </tr>
+                            <tr>
+                                    <td>Contacto</td>
+                                    <td>5576120976</td>
+                            </tr>
+                            
+                    </tbody>
+                </table>
+           
+        </div>        
+        <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                        title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                
+            </div>
+
+        <div class="container-fluid ">
+            <h1 class ="box-title text-center">Gráficas de Monitoreo</h1>
+            <hr>
+
+            <div class="card text-center">
+                    <img class="  center-block" src="{% static 'image.jpeg' %}" alt="Grafica" style="width:80%">
+                    <div class="container ">
+                      <h5><b>Trafico de red </b></h5>
+                      <p>Comentario</p>
+                    </div>
+            </div> 
+            <hr>
+
+            <div class="card text-center">
+                    <img class="  center-block" src="{% static 'image.jpeg' %}" alt="Grafica" style="width:80%">
+                    <div class="container ">
+                      <h5><b>Trafico de red </b></h5>
+                      <p>Comentario</p>
+                    </div>
+            </div> 
+            <hr>
+
+            <div class="card text-center">
+                    <img class="  center-block" src="{% static 'image.jpeg' %}" alt="Grafica" style="width:80%">
+                    <div class="container ">
+                      <h5><b>Trafico de red </b></h5>
+                      <p>Comentario</p>
+                    </div>
+            </div> 
+            <hr>
+
+            <div class="card text-center">
+                    <img class="  center-block" src="{% static 'image.jpeg' %}" alt="Grafica" style="width:80%">
+                    <div class="container ">
+                      <h5><b>Trafico de red </b></h5>
+                      <p>Comentario</p>
+                    </div>
+            </div> 
+            <hr>
+
+            <div class="card text-center">
+                    <img class="  center-block" src="{% static 'image.jpeg' %}" alt="Grafica" style="width:80%">
+                    <div class="container ">
+                      <h5><b>Trafico de red </b></h5>
+                      <p>Comentario</p>
+                    </div>
+            </div> 
+            <hr>
+        </div>
+    </div>
+    
+    
+</body>
+    
+{% endblock %}
