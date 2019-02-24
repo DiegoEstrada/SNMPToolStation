@@ -1,0 +1,27 @@
+#sudo python3 install pip3
+#sudo pip install virtualenv
+#virtualenv nombreEntorno --python=python3
+source examen/bin/activate
+sudo apt-get install python3-dev
+sudo apt-get install python3-dev libmysqlclient-dev
+#pip freeze 
+pip install pysnmp
+pip install rrdtool
+pip install mysqlclient
+#Modificar el siguiente archivo del servidor de mysql para poder cotectarse /etc/mysql/my.cnf Agregando
+#[client]
+#database = db_name
+#user = db_user
+#password = db_password
+#default-character-set = utf8
+#REINICIAR el servicio despues de esto 
+#service mysql restart
+pip install Django
+pip install pillow
+pip install django-mysql
+pip install django-adminlte2
+#pip install django-sb-admin
+#django-admin startproject AdministracionRedSNMP
+python manage.py createsuperuser
+
+python manage.py runserver
