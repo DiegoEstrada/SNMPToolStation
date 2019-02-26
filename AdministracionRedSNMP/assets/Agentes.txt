@@ -1,3 +1,2 @@
-Usuario,localhost,2,161,gr_4cm3,gr_4cm3Usuario
-Root,localhost,2,161,gr_4cm3,gr_4cm3Root
-Diego,localhost,2,161,gr_4cm3,gr_4cm3Diego
+192.168.0.1,2,161,gr_4cm3,gr_4cm3192.168.0.1
+

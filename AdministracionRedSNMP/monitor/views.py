@@ -25,8 +25,12 @@ def verAgentes(request):
     for linea in lineas:
         #print(linea)
         array = linea.split(",")
+        print(array)
         oidINterfaces = '1.3.6.1.2.1.2.1.0'
-        interfaces = SnmpGet.consultaSNMP(str(array[4]),str(array[1]),int(str(array[3])),int(str(array[2])),oidINterfaces)
+        #interfaces = "Down"
+        
+        interfaces = SnmpGet.consultaSNMP(str(array[3]),str(array[0]),int(str(array[2])),int(str(array[1])),oidINterfaces)
+        print(interfaces)
         status = int(interfaces)
         if status>0:
             status="Up"
@@ -35,13 +39,13 @@ def verAgentes(request):
 
         #print(interfaces)
 
-        diccionario = {'nombre':str(array[0]),
-                        'host':str(array[1]),
-                       'version':str(array[2]),
-                       'puerto':str(array[3]),
+        diccionario = {'nombre':str(array[4]),
+                        'host':str(array[0]),
+                       'version':str(array[1]),
+                       'puerto':str(array[2]),
                        'status':str(status),
                        'interfaces':str(interfaces),
-                       'grupo':str(array[4])}
+                       'grupo':str(array[3])}
 
         lista.append(diccionario)
     retorno = {'lista':lista}
@@ -80,38 +84,7 @@ def obtenerInfo(request, nombreHost):
 
 
 
-def devuelveAgentes():
-    #print("Oro vos")
-    archivo = open(ruta, 'r')
-    lineas=archivo.readlines()
-    #contenido = str(hostname) + ',' + str(versionSNMP) + ',' + str(puerto) + ',' + str(comunidad) + ',' + str(nombreBase)+'\n'
-    #bandera = False
-    lista = [];
-    for linea in lineas:
-        array = linea.split(",")
-        oidINterfaces = '1.3.6.1.2.1.2.1.0'
-        interfaces = consultaSNMP(str(array[3]),str(array[0]),int(str(array[2])),int(str(array[1])),oidINterfaces)
-        status = int(interfaces);
-        if status>0:
-            status="Up"
-        else:
-            status="Down"
 
-        #print(interfaces)
-
-        diccionario = {'host':str(array[0]),
-                       'version':str(array[1]),
-                       'puerto':str(array[2]),
-                       'status':str(status),
-                       'interfaces':str(interfaces),
-                       'grupo':str(array[3])}
-
-        lista.append(diccionario)
-
-
-    print(lista)
-    archivo.close()
-    return  
 
 
 ##Not used to HTTP ###
