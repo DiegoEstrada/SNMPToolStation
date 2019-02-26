@@ -6,7 +6,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('Agentes', views.verAgentes, name='agentes'),
     path('Agregar', views.agregarAgente, name='agregar'),
-    path('Ver', views.verAgente, name='ver'),
+    path('Ver', views.obtenerInfo, name='ver'),
+    #path('Ver/<local>', views.obtenerInfo, name='ver'),
     path('<int:pk>/detalles/', views.estadoAgente, name='detalle'),
     
 ]

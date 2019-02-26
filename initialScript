@@ -25,3 +25,7 @@ pip install django-adminlte2
 python manage.py createsuperuser
 
 python manage.py runserver
+
+
+Poner Atencion a django.py 
+Contiene la sincronizacion entre archivos para registrar y para cargar los datos
