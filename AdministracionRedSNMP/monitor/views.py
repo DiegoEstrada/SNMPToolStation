@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 from . import SnmpGet
-from . import Grafica1
+#from . import Grafica1
 import json
 
 # Create your views here.
@@ -44,8 +44,7 @@ def verAgentes(request):
                        'grupo':str(array[4])}
 
         lista.append(diccionario)
-    retorno = {'resultado':lista}
-    print(lista)
+    retorno = {'lista':lista}
     archivo.close()
     return render(request, 'adminlte/agentes.html',context=retorno)
 
@@ -58,22 +57,25 @@ def verAgente(request):
 def estadoAgente(request):
     return render(request, 'adminlte/verAgente.html')
 
-def obtenerInfo(request):
+def obtenerInfo(request, nombreHost):
 
-    hostname = "localhost"
-    #hostname = str(local)
+    """hostname = "localhost"
+    hostname = str(local)
     puerto = 161
     versionSNMP = 2
-    comunidad = 'gr_4cm3'
+    comunidad = 'gr_4cm3'"""
+    print(nombreHost)
 
     
 
-    diccionario={'descripcion':SnmpGet.consultaSNMP(comunidad,hostname,puerto,versionSNMP, '1.3.6.1.2.1.1.1.0'), 'icmp':SnmpGet.consultaSNMP(comunidad,hostname,puerto,int(2),'1.3.6.1.2.1.5.1.0 ')}
+    #diccionario={'descripcion':SnmpGet.consultaSNMP(comunidad,hostname,puerto,versionSNMP, '1.3.6.1.2.1.1.1.0'), 'icmp':SnmpGet.consultaSNMP(comunidad,hostname,puerto,int(2),'1.3.6.1.2.1.5.1.0 ')}
+    diccionario = {'host': nombreHost}
     #jsonArray = json.dumps(diccionario)
     #json_Serialized = serializers.serialize('json',jsonArray)
     
     #print(diccionario)
-    context = {'object':diccionario}
+    #context = {'object':diccionario}
+    context = diccionario
     return render(request,'adminlte/verAgente.html',context)
 
 
