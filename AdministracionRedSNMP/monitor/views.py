@@ -5,12 +5,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 from . import SnmpGet
-#from . import Grafica1
+from . import Grafica
+from threading import *
 import json
+import os
+import time
 
 # Create your views here.
 def index(request):
-
+    lanzaProceso2()
     return render(request, 'adminlte/index.html')
 
 def verAgentes(request):
@@ -84,7 +87,87 @@ def obtenerInfo(request, nombreHost):
 
 
 
-
-
-
 ##Not used to HTTP ###
+
+
+
+def lanzaProceso1():
+    pid=os.fork()
+    if pid:
+        # parent
+        #while True:
+        print("I'm the parent DJANGO")
+            #time.sleep(0.5)    
+    else:
+        # child
+        #while True:
+            print("I'm just a child Grafica 1")
+            Grafica.iniciarGrafica1('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
+            #time.sleep(0.5)
+
+    #hilo1 = Timer(5.0,Grafica1.iniciarGrafica1('localhost',2,161,'gr_4cm3','gr_4cm3localhost'))
+    #hilo1.daemon = True
+    #hilo1.start()
+    print("Sigo Adelante")
+    return
+
+def lanzaProceso2():
+    pid=os.fork()
+    if pid:
+        # parent
+        print("I'm the parent Django")   
+    else:
+        # child
+            print("I'm just a child Grafica 2")
+            Grafica.iniciarGrafica2('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
+
+    print("Sigo Adelante")
+    return
+
+
+def lanzaProceso3():
+    pid=os.fork()
+    if pid:
+        # parent
+        print("I'm the parent Django")   
+    else:
+        # child
+            print("I'm just a child Grafica 3")
+            Grafica.iniciarGrafica3('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
+
+    print("Sigo Adelante")
+    return
+
+
+def lanzaProceso4():
+    pid=os.fork()
+    if pid:
+        # parent
+        print("I'm the parent Django")   
+    else:
+        # child
+            print("I'm just a child Grafica 4")
+            Grafica.iniciarGrafica4('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
+
+    print("Sigo Adelante")
+    return
+
+
+def lanzaProceso5():
+    pid=os.fork()
+    if pid:
+        # parent
+        print("I'm the parent Django")   
+    else:
+        # child
+            print("I'm just a child Grafica 5")
+            Grafica.iniciarGrafica5('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
+
+    print("Sigo Adelante")
+    return
+
+
+
+
+
+
