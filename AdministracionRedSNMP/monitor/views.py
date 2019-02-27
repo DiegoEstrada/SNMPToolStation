@@ -10,6 +10,7 @@ from threading import *
 import json
 import os
 import time
+from . import forms
 
 # Create your views here.
 def index(request):
@@ -17,46 +18,97 @@ def index(request):
     return render(request, 'adminlte/index.html')
 
 def verAgentes(request):
+    if request.method == 'GET':
+        a = staticfiles_storage.path("Agentes.txt")
+        #a = url = static('Agentes.txt')
+        archivo = open(a, 'r')
+        lineas=archivo.readlines()
+        #print(lineas)
+        lista = []
 
-    a = staticfiles_storage.path("Agentes.txt")
-    #a = url = static('Agentes.txt')
-    archivo = open(a, 'r')
-    lineas=archivo.readlines()
-    #print(lineas)
-    lista = []
+        for linea in lineas:
+            #print(linea)
+            array = linea.split(",")
+            print(array)
+            oidINterfaces = '1.3.6.1.2.1.2.1.0'
+            #interfaces = "Down"
+            
+            interfaces = SnmpGet.consultaSNMP(str(array[3]),str(array[0]),int(str(array[2])),int(str(array[1])),oidINterfaces)
+            print(interfaces)
+            status = int(interfaces)
+            if status>0:
+                status="Up"
+            else:
+                status="Down"
 
-    for linea in lineas:
-        #print(linea)
-        array = linea.split(",")
-        print(array)
-        oidINterfaces = '1.3.6.1.2.1.2.1.0'
-        #interfaces = "Down"
-        
-        interfaces = SnmpGet.consultaSNMP(str(array[3]),str(array[0]),int(str(array[2])),int(str(array[1])),oidINterfaces)
-        print(interfaces)
-        status = int(interfaces)
-        if status>0:
-            status="Up"
-        else:
-            status="Down"
+            #print(interfaces)
 
-        #print(interfaces)
+            diccionario = {'nombre':str(array[4]),
+                            'host':str(array[0]),
+                        'version':str(array[1]),
+                        'puerto':str(array[2]),
+                        'status':str(status),
+                        'interfaces':str(interfaces),
+                        'grupo':str(array[3])}
 
-        diccionario = {'nombre':str(array[4]),
-                        'host':str(array[0]),
-                       'version':str(array[1]),
-                       'puerto':str(array[2]),
-                       'status':str(status),
-                       'interfaces':str(interfaces),
-                       'grupo':str(array[3])}
+            lista.append(diccionario)
+        retorno = {'lista':lista}
+        archivo.close()
+    elif request.method == 'POST':
+        agentForm = forms.newAgentForm(request.POST)
+        nuevaLinea = ""
+        if agentForm.is_valid():
+            nuevaLinea = agentForm.cleaned_data['hostname'] + ',' + str(agentForm.cleaned_data['version']) + ',' + agentForm.cleaned_data['puerto'] + ',' + agentForm.cleaned_data['grupo'] + ',' + agentForm.cleaned_data['grupo'] + agentForm.cleaned_data['hostname'] +'\n'
 
-        lista.append(diccionario)
-    retorno = {'lista':lista}
-    archivo.close()
+        # ESCRITURA DEL ARCHIVO
+        a = staticfiles_storage.path("Agentes.txt")
+        archivo = open(a, 'a')
+        archivo.write(nuevaLinea)
+        archivo.close()
+
+        # LECTURA NUEVOS AGENTES
+        a = staticfiles_storage.path("Agentes.txt")
+        #a = url = static('Agentes.txt')
+        archivo = open(a, 'r')
+        lineas=archivo.readlines()
+        #print(lineas)
+        lista = []
+
+        for linea in lineas:
+            #print(linea)
+            array = linea.split(",")
+            print(array)
+            oidINterfaces = '1.3.6.1.2.1.2.1.0'
+            #interfaces = "Down"
+            
+            interfaces = SnmpGet.consultaSNMP(str(array[3]),str(array[0]),int(str(array[2])),int(str(array[1])),oidINterfaces)
+            #print(interfaces)
+            status = int(interfaces)
+            if status>0:
+                status="Up"
+            else:
+                status="Down"
+
+            #print(interfaces)
+
+            diccionario = {'nombre':str(array[4]),
+                            'host':str(array[0]),
+                        'version':str(array[1]),
+                        'puerto':str(array[2]),
+                        'status':str(status),
+                        'interfaces':str(interfaces),
+                        'grupo':str(array[3])}
+
+            lista.append(diccionario)
+        retorno = {'lista':lista}
+        archivo.close()
+    
     return render(request, 'adminlte/agentes.html',context=retorno)
 
 def agregarAgente(request):
-    return render(request, 'adminlte/agregarAgente.html')
+    agentForm = forms.newAgentForm()
+    context = {'agentForm': agentForm}
+    return render(request, 'adminlte/agregarAgente.html', context)
 
 def verAgente(request):
     return render(request, 'adminlte/verAgente.html')
@@ -71,16 +123,16 @@ def obtenerInfo(request, nombreHost):
     puerto = 161
     versionSNMP = 2
     comunidad = 'gr_4cm3'"""
-    print(nombreHost)
-
-    
+    #print(nombreHost)
+    diccionario = {'host': nombreHost}
 
     #diccionario={'descripcion':SnmpGet.consultaSNMP(comunidad,hostname,puerto,versionSNMP, '1.3.6.1.2.1.1.1.0'), 'icmp':SnmpGet.consultaSNMP(comunidad,hostname,puerto,int(2),'1.3.6.1.2.1.5.1.0 ')}
-    diccionario = {'host': nombreHost}
+    #diccionario = {} ## AQUI VA LA LLAMADA A LA FUNCIÓN
     #jsonArray = json.dumps(diccionario)
     #json_Serialized = serializers.serialize('json',jsonArray)
     
-    #print(diccionario)
+    # DEBERIA MOSTRAR INFO DEL AGENTE
+    print(diccionario)
     #context = {'object':diccionario}
     context = diccionario
     return render(request,'adminlte/verAgente.html',context)
