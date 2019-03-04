@@ -15,11 +15,14 @@ from . import ObtenerInformacion
 
 # Create your views here.
 def index(request):
-    #lanzaProceso1()
-    #lanzaProceso2()
-    #lanzaProceso3()
-    #lanzaProceso4()
-    #lanzaProceso5()
+    grafica = Grafica.Grafica('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
+    
+    lanzarGrafica(1,grafica)
+    lanzarGrafica(2,grafica)
+    lanzarGrafica(3,grafica)
+    lanzarGrafica(4,grafica)
+    lanzarGrafica(5,grafica)
+
     return render(request, 'adminlte/index.html')
 
 def verAgentes(request):
@@ -169,78 +172,33 @@ def obtenerInfoAgenteByHostname(hostname):
         return None
 
 
-
-def lanzaProceso1():
+def lanzarGrafica(id,grafica):
+    
     pid=os.fork()
     if pid:
         # parent
-        #while True:
-        print("I'm the parent DJANGO")
-            #time.sleep(0.5)    
+        print("I'm the parent, Django")   
     else:
         # child
-        #while True:
-            print("I'm just a child Grafica 1")
-            Grafica.iniciarGrafica1('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
-            #time.sleep(0.5)
-
-    #hilo1 = Timer(5.0,Grafica1.iniciarGrafica1('localhost',2,161,'gr_4cm3','gr_4cm3localhost'))
-    #hilo1.daemon = True
-    #hilo1.start()
-    print("Sigo Adelante")
-    return
-
-def lanzaProceso2():
-    pid=os.fork()
-    if pid:
-        # parent
-        print("I'm the parent Django")   
-    else:
-        # child
-            print("I'm just a child Grafica 2")
-            Grafica.iniciarGrafica2('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
-
-    print("Sigo Adelante")
-    return
-
-
-def lanzaProceso3():
-    pid=os.fork()
-    if pid:
-        # parent
-        print("I'm the parent Django")   
-    else:
-        # child
-            print("I'm just a child Grafica 3")
-            Grafica.iniciarGrafica3('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
-
-    print("Sigo Adelante")
-    return
-
-
-def lanzaProceso4():
-    pid=os.fork()
-    if pid:
-        # parent
-        print("I'm the parent Django")   
-    else:
-        # child
-            print("I'm just a child Grafica 4")
-            Grafica.iniciarGrafica4('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
-
-    print("Sigo Adelante")
-    return
-
-
-def lanzaProceso5():
-    pid=os.fork()
-    if pid:
-        # parent
-        print("I'm the parent Django")   
-    else:
-        # child
-            print("I'm just a child Grafica 5")
-            Grafica.iniciarGrafica5('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
+            print("I'm just a child Grafica ")
+            if int(id)==1:
+                #print("UNO")
+                grafica.getTraficoRed()
+            elif int(id)==2:
+                #print("DOS")
+                grafica.getICMP()
+            elif int(id)==3:
+                #print("TRES")
+                grafica.getSegmentosTCP()
+            elif int(id)==4:
+                #print("CUATRO")
+                grafica.getDatagramasIP()
+            elif int(id)==5:
+                #print("TRES")
+                grafica.getRespuestasPING()
+            else:
+                print("Opcion invalida")
+            
 
     print("Sigo Adelante")
     return

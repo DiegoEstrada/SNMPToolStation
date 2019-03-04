@@ -13,49 +13,49 @@
                 <h1 class="box-title text-center"> Estado del Agente </h1> <hr>
         </div>
         <div class="box-body">
-            <h3 class="box-title text-center"> {{ host }} </h3> <hr>
-            <table  class="table table-striped table-bordered table-hover ">
-                    <thead class="text-center">
-                        <tr>
-                                <th scope="col"><b>Infromación</b></th>
-                                <th scope="col"><b>Descripción</b></th>
+                <h3 class="box-title text-center"> {{ nombreHost }} </h3> <hr>
+                <table  class="table table-striped table-bordered table-hover ">
+                        <thead class="text-center">
+                            <tr>
+                                    <th scope="col"><b>Infromación</b></th>
+                                    <th scope="col"><b>Descripción</b></th>
+                                    
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                        <td>Nombre del host</td>
+                                        <td>{{ nombreHost }}</td>
+                                </tr>
+                                <tr>
+                                        <td> IP</td>
+                                        <td>{{ detallesAgente.host }}</td>
+                                </tr>
+                                <tr>
+                                        <td>Sistema Operativo</td>
+                                        <td>{{ detallesAgente.so }}</td>
+                                </tr>
+                                <tr>
+                                        <td>Numero de interfaces de red</td>
+                                        <td>{{ detallesAgente.interfaces }}</td>
+                                </tr>
+                                <tr>
+                                        <td>Tiempo de actividad</td>
+                                        <td>{{ detallesAgente.tiempoReinicio }} ms</td>
+                                </tr>
+                                <tr>
+                                        <td>Ubicación</td>
+                                        <td>{{ detallesAgente.locacion }}</td>
+                                </tr>
+                                <tr>
+                                        <td>Contacto</td>
+                                        <td>{{ detallesAgente.contacto }}</td>
+                                </tr>
                                 
-                        </tr>
-                    </thead>
-                    <tbody>
-                            <tr>
-                                    <td> nombre del host</td>
-                                    <td>pavilion-dm4</td>
-                            </tr>
-                            <tr>
-                                    <td>IP</td>
-                                    <td>192.168.0.4</td>
-                            </tr>
-                            <tr>
-                                    <td>Nombre y version del SO</td>
-                                    <td>Ubuntu 18.04 LTS</td>
-                            </tr>
-                            <tr>
-                                    <td>Numero de interfaces de red</td>
-                                    <td>5</td>
-                            </tr>
-                            <tr>
-                                    <td>Tiempo de actividad</td>
-                                    <td>21432324 ms</td>
-                            </tr>
-                            <tr>
-                                    <td>Ubicación</td>
-                                    <td>Laboratorio de Redes Escom-IPN</td>
-                            </tr>
-                            <tr>
-                                    <td>Contacto</td>
-                                    <td>5576120976</td>
-                            </tr>
-                            
-                    </tbody>
-                </table>
-           
-        </div>        
+                        </tbody>
+                    </table>
+               
+            </div>             
         <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
@@ -68,46 +68,46 @@
             <hr>
 
             <div class="card text-center">
-                    <img class="  center-block" src="{% static 'gr_4cm3localhosticmp.png' %}" alt="Grafica" style="width:80%">
+                    <img class="  center-block" src="{% static 'gr_4cm3localhostTraficoRed.png' %}" alt="Grafica" style="width:50%">
                     <div class="container ">
                       <h5><b>Trafico de red </b></h5>
-                      <p>Comentario</p>
+                      <p>Bytes/s</p>
                     </div>
             </div> 
             <hr>
 
             <div class="card text-center">
-                    <img class="  center-block" src="{% static 'image.jpeg' %}" alt="Grafica" style="width:80%">
+                    <img class="  center-block" src="{% static 'gr_4cm3localhostRespuestasPING.png' %}" alt="Grafica" style="width:50%">
                     <div class="container ">
-                      <h5><b>Trafico de red </b></h5>
-                      <p>Comentario</p>
+                      <h5><b>Respuestas Ping </b></h5>
+                      <p>Respuestas/s</p>
                     </div>
             </div> 
             <hr>
 
             <div class="card text-center">
-                    <img class="  center-block" src="{% static 'image.jpeg' %}" alt="Grafica" style="width:80%">
+                    <img class="  center-block" src="{% static 'gr_4cm3localhostSegmentosTCP.png' %}" alt="Grafica" style="width:50%">
                     <div class="container ">
-                      <h5><b>Trafico de red </b></h5>
-                      <p>Comentario</p>
+                      <h5><b>Segmentos TCP </b></h5>
+                      <p>Conexiones/s</p>
                     </div>
             </div> 
             <hr>
 
             <div class="card text-center">
-                    <img class="  center-block" src="{% static 'image.jpeg' %}" alt="Grafica" style="width:80%">
+                    <img class="  center-block" src="{% static 'gr_4cm3localhostDatagramasIP.png' %}" alt="Grafica" style="width:50%">
                     <div class="container ">
-                      <h5><b>Trafico de red </b></h5>
-                      <p>Comentario</p>
+                      <h5><b>Datagramas IP </b></h5>
+                      <p>Datagramas/s</p>
                     </div>
             </div> 
             <hr>
 
             <div class="card text-center">
-                    <img class="  center-block" src="{% static 'image.jpeg' %}" alt="Grafica" style="width:80%">
+                    <img class="  center-block" src="{% static 'gr_4cm3localhostEstadisticaICMP.png' %}" alt="Grafica" style="width:50%">
                     <div class="container ">
-                      <h5><b>Trafico de red </b></h5>
-                      <p>Comentario</p>
+                      <h5><b>Estadistica ICMP </b></h5>
+                      <p>Paquetes/s</p>
                     </div>
             </div> 
             <hr>
