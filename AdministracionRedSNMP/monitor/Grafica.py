@@ -2,14 +2,7 @@ import sys
 import rrdtool
 import time
 from . import SnmpGet 
-total_input_traffic = 0
-total_output_traffic = 0
-input_ping = 0
-output_ping= 0
-input_udp = 0
-output_udp = 0
-input_tcp = 0
-output_tcp= 0
+
 
 def iniciarGrafica1(hostname,versionSNMP,puerto,comunidad,nombreBase):
     ret = rrdtool.create('assets/'+nombreBase+'red.rrd',
@@ -21,11 +14,11 @@ def iniciarGrafica1(hostname,versionSNMP,puerto,comunidad,nombreBase):
     tiempoInicial = int(time.time())
     while 1:
         if (contadorDeGraficación < 1):
-            ret = rrdtool.graph(nombreBase + "red.png",
+            ret = rrdtool.graph('assets/'+nombreBase + "red.png",
                                 "--start", str(tiempoInicial),  # Abrir XML y checar un valor válido y existente
                                 #                "--end", "N",
-                                "--vertical-label=Bytes/s",
-                                "DEF:inoctets=" + nombreBase + "red.rrd:inoctets:AVERAGE",
+                                "--vertical-label=Equipo2TICMP",
+                                "DEF:inoctets=" +'assets/'+ nombreBase + "red.rrd:inoctets:AVERAGE",
                                 "AREA:inoctets#00FF00:InTrafico")
             contadorDeGraficación = 5
             tiempoInicial = int(time.time())
@@ -33,7 +26,7 @@ def iniciarGrafica1(hostname,versionSNMP,puerto,comunidad,nombreBase):
             total_input_traffic = int(SnmpGet.consultaSNMP(comunidad, hostname, puerto, versionSNMP, '1.3.6.1.2.1.2.2.1.10.1'))# el 3 es de grupo de interfaz y checar si funciona la inalambrica en la interfaz 3
             valor = "N:" + str(total_input_traffic)
             print(valor)
-            rrdtool.update(nombreBase + "red.rrd", valor)
+            rrdtool.update('assets/'+nombreBase + "red.rrd", valor)
             #rrdtool.dump(nombreBase + 'red.rrd', nombreBase + 'red.xml')
             time.sleep(1)
             contadorDeGraficación -= 1
@@ -76,7 +69,7 @@ def iniciarGrafica2(hostname,versionSNMP,puerto,comunidad,nombreBase):
 
 
 def iniciarGrafica3(hostname,versionSNMP,puerto,comunidad,nombreBase):
-    ret = rrdtool.create(nombreBase+'tcp.rrd',
+    ret = rrdtool.create('assets/'+nombreBase+'tcp.rrd',
                          "--start", 'N',  # N de now.
                          "--step", '1',
                          "DS:inconexiones:COUNTER:600:U:U",
@@ -87,12 +80,12 @@ def iniciarGrafica3(hostname,versionSNMP,puerto,comunidad,nombreBase):
     tiempoInicial = int(time.time())
     while 1:
         if (contadorDeGraficación < 1):
-            ret = rrdtool.graph(nombreBase + "tcp.png",
+            ret = rrdtool.graph('assets/'+nombreBase + "tcp.png",
                                 "--start", str(tiempoInicial),  # Abrir XML y checar un valor válido y existente
                                 #                "--end", "N",
                                 "--vertical-label=Bytes/s",
-                                "DEF:inconexiones=" + nombreBase + "tcp.rrd:inconexiones:AVERAGE",
-                                "DEF:outconexiones=" + nombreBase + "tcp.rrd:outconexiones:AVERAGE",
+                                "DEF:inconexiones=" + 'assets/' + nombreBase + "tcp.rrd:inconexiones:AVERAGE",
+                                "DEF:outconexiones=" + 'assets/' + nombreBase + "tcp.rrd:outconexiones:AVERAGE",
                                 "AREA:inconexiones#00FF00:InTCP",
                                 "LINE1:outconexiones#0000FF:OutTCP")
             contadorDeGraficación = 5
@@ -102,7 +95,7 @@ def iniciarGrafica3(hostname,versionSNMP,puerto,comunidad,nombreBase):
             output_tcp= int(SnmpGet.consultaSNMP(comunidad, hostname, puerto, versionSNMP, '1.3.6.1.2.1.6.11.0'))
             valor = "N:" + str(input_tcp) + ':' + str(output_tcp)
             print(valor)
-            rrdtool.update(nombreBase + "tcp.rrd", valor)
+            rrdtool.update('assets/'+nombreBase + "tcp.rrd", valor)
             #rrdtool.dump(nombreBase + 'tcp.rrd', nombreBase + 'tcp.xml')
             time.sleep(1)
             contadorDeGraficación -= 1
@@ -110,7 +103,7 @@ def iniciarGrafica3(hostname,versionSNMP,puerto,comunidad,nombreBase):
 
 
 def iniciarGrafica4(hostname,versionSNMP,puerto,comunidad,nombreBase):
-    ret = rrdtool.create(nombreBase+'udp.rrd',
+    ret = rrdtool.create('assets/'+nombreBase+'udp.rrd',
                          "--start", 'N',  # N de now.
                          "--step", '1',
                          "DS:inconexiones:COUNTER:600:U:U",
@@ -121,12 +114,12 @@ def iniciarGrafica4(hostname,versionSNMP,puerto,comunidad,nombreBase):
     tiempoInicial = int(time.time())
     while 1:
         if (contadorDeGraficación < 1):
-            ret = rrdtool.graph(nombreBase + "udp.png",
+            ret = rrdtool.graph('assets/'+nombreBase + "udp.png",
                                 "--start", str(tiempoInicial),  # Abrir XML y checar un valor válido y existente
                                 #                "--end", "N",
                                 "--vertical-label=Bytes/s",
-                                "DEF:inconexiones=" + nombreBase + "udp.rrd:inconexiones:AVERAGE",
-                                "DEF:outconexiones=" + nombreBase + "udp.rrd:outconexiones:AVERAGE",
+                                "DEF:inconexiones=" + 'assets/'+nombreBase + "udp.rrd:inconexiones:AVERAGE",
+                                "DEF:outconexiones=" + 'assets/'+nombreBase + "udp.rrd:outconexiones:AVERAGE",
                                 "AREA:inconexiones#00FF00:InUDP",
                                 "LINE1:outconexiones#0000FF:OutUDP")
             contadorDeGraficación = 5
@@ -136,7 +129,7 @@ def iniciarGrafica4(hostname,versionSNMP,puerto,comunidad,nombreBase):
             output_udp= int(SnmpGet.consultaSNMP(comunidad, hostname, puerto, versionSNMP, '1.3.6.1.2.1.7.4.0'))
             valor = "N:" + str(input_udp) + ':' + str(output_udp)
             print(valor)
-            rrdtool.update(nombreBase + "udp.rrd", valor)
+            rrdtool.update('assets/'+nombreBase + "udp.rrd", valor)
             #rrdtool.dump(nombreBase + 'udp.rrd', nombreBase + 'udp.xml')
             time.sleep(1)
             contadorDeGraficación -= 1
@@ -144,7 +137,7 @@ def iniciarGrafica4(hostname,versionSNMP,puerto,comunidad,nombreBase):
 
 
 def iniciarGrafica5(hostname,versionSNMP,puerto,comunidad,nombreBase):
-    ret = rrdtool.create(nombreBase+'ping.rrd',
+    ret = rrdtool.create('assets/'+nombreBase+'ping.rrd',
                          "--start", 'N',  # N de now.
                          "--step", '1',
                          "DS:inconexiones:GAUGE:600:U:U",
@@ -155,12 +148,12 @@ def iniciarGrafica5(hostname,versionSNMP,puerto,comunidad,nombreBase):
     tiempoInicial = int(time.time())
     while 1:
         if (contadorDeGraficación < 1):
-            ret = rrdtool.graph(nombreBase + "ping.png",
+            ret = rrdtool.graph('assets/'+nombreBase + "ping.png",
                                 "--start", str(tiempoInicial),  # Abrir XML y checar un valor válido y existente
                                 #                "--end", "N",
                                 "--vertical-label=Conexiones/s",
-                                "DEF:inconexiones=" + nombreBase + "ping.rrd:inconexiones:AVERAGE",
-                                "DEF:outconexiones=" + nombreBase + "ping.rrd:outconexiones:AVERAGE",
+                                "DEF:inconexiones=" + 'assets/'+nombreBase + "ping.rrd:inconexiones:AVERAGE",
+                                "DEF:outconexiones=" + 'assets/'+nombreBase + "ping.rrd:outconexiones:AVERAGE",
                                 "AREA:inconexiones#00FF00:In ping",
                                 "LINE1:outconexiones#0000FF:Out ping")
             contadorDeGraficación = 3
@@ -170,7 +163,7 @@ def iniciarGrafica5(hostname,versionSNMP,puerto,comunidad,nombreBase):
             output_ping= int(SnmpGet.consultaSNMP(comunidad, hostname, puerto, versionSNMP, '1.3.6.1.2.1.5.20.0'))
             valor = "N:" + str(input_ping) + ':' + str(output_ping)
             print(valor)
-            rrdtool.update(nombreBase + "ping.rrd", valor)
+            rrdtool.update('assets/'+nombreBase + "ping.rrd", valor)
             #rrdtool.dump(nombreBase + 'ping.rrd', nombreBase + 'ping.xml')
             time.sleep(1)
             contadorDeGraficación -= 1

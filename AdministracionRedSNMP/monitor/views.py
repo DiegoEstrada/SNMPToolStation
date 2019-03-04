@@ -11,10 +11,15 @@ import json
 import os
 import time
 from . import forms
+from . import ObtenerInformacion
 
 # Create your views here.
 def index(request):
-    lanzaProceso2()
+    #lanzaProceso1()
+    #lanzaProceso2()
+    #lanzaProceso3()
+    #lanzaProceso4()
+    #lanzaProceso5()
     return render(request, 'adminlte/index.html')
 
 def verAgentes(request):
@@ -124,22 +129,44 @@ def obtenerInfo(request, nombreHost):
     versionSNMP = 2
     comunidad = 'gr_4cm3'"""
     #print(nombreHost)
-    diccionario = {'host': nombreHost}
+    data = obtenerInfoAgenteByHostname(nombreHost)
+    #diccionario = {'host': nombreHost}
+    #print(data)
+    detallesAgente =ObtenerInformacion.obtenerInfo(data[0], data[2], data[1], data[3])
+    print("DETALLES")
+    print(detallesAgente)
+    context = {'detallesAgente':detallesAgente,
+                'nombreHost': nombreHost}
 
-    #diccionario={'descripcion':SnmpGet.consultaSNMP(comunidad,hostname,puerto,versionSNMP, '1.3.6.1.2.1.1.1.0'), 'icmp':SnmpGet.consultaSNMP(comunidad,hostname,puerto,int(2),'1.3.6.1.2.1.5.1.0 ')}
-    #diccionario = {} ## AQUI VA LA LLAMADA A LA FUNCIÓN
+    #diccionario = ObtenerInformacion.obtenerInfo()
     #jsonArray = json.dumps(diccionario)
     #json_Serialized = serializers.serialize('json',jsonArray)
     
     # DEBERIA MOSTRAR INFO DEL AGENTE
-    print(diccionario)
+    #print(diccionario)
     #context = {'object':diccionario}
-    context = diccionario
+    #context = diccionario
     return render(request,'adminlte/verAgente.html',context)
 
 
-
 ##Not used to HTTP ###
+
+
+def obtenerInfoAgenteByHostname(hostname):
+    a = staticfiles_storage.path("Agentes.txt")
+    #a = url = static('Agentes.txt')
+    archivo = open(a, 'r')
+    lineas=archivo.readlines()
+    #print(lineas)
+    lista = []
+
+    for linea in lineas:
+        print(linea)
+        array = linea.split(",")
+        if hostname == array[4]:
+            return array
+    else:
+        return None
 
 
 

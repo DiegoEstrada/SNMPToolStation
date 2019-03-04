@@ -18,3 +18,9 @@ def consultaSNMP(comunidad, host,puerto,version, oid):
             varB = (' = '.join([x.prettyPrint() for x in varBind]))
             resultado = varB.split()[2]
     return resultado
+
+
+
+res = consultaSNMP('equipo2_4cm3','10.100.72.207',161,2,'1.3.6.1.2.1.1.5')
+print(res)
+	
