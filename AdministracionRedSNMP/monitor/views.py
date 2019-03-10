@@ -4,8 +4,9 @@ from django.core import serializers
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
+from django.core.mail import send_mail
 from . import SnmpGet
-#from . import Grafica
+from . import Grafica
 from threading import *
 import json
 import os
@@ -15,14 +16,14 @@ from . import ObtenerInformacion
 
 # Create your views here.
 def index(request):
-    """grafica = Grafica.Grafica('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
-    
+    grafica = Grafica.Grafica('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
+    """
     lanzarGrafica(1,grafica)
     lanzarGrafica(2,grafica)
     lanzarGrafica(3,grafica)
     lanzarGrafica(4,grafica)
-    lanzarGrafica(5,grafica)"""
-
+    lanzarGrafica(5,grafica)
+    """
     return render(request, 'adminlte/index.html')
 
 def verAgentes(request):
@@ -152,6 +153,26 @@ def obtenerInfo(request, nombreHost):
     return render(request,'adminlte/verAgente.html',context)
 
 
+def verProyeccion(request):
+    res = 0
+    #res = sendEmail('diegoestradag97@gmail.com')
+    print(res)
+    dic = {'resCorreo':res}
+    return render(request,'adminlte/verProyeccion.html',context=dic)
+
+
+def sendEmail(email):
+
+    subject = 'SNMP Tool Monitor Notification '
+    message = 'Its probably that your computer fail' 
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = []
+    recipient_list.append(str(email))
+    res = send_mail(subject,message,email_from,recipient_list,)
+
+    return res 
+
+
 ##Not used to HTTP ###
 
 
@@ -172,7 +193,7 @@ def obtenerInfoAgenteByHostname(hostname):
         return None
 
 
-"""def lanzarGrafica(id,grafica):
+def lanzarGrafica(id,grafica):
     
     pid=os.fork()
     if pid:
@@ -201,7 +222,7 @@ def obtenerInfoAgenteByHostname(hostname):
             
 
     print("Sigo Adelante")
-    return"""
+    return
 
 
 

@@ -7,6 +7,7 @@ class Agent(models.Model):
     version = models.PositiveSmallIntegerField(null=False)
     puerto = models.IntegerField(null=False)
     grupo = models.TextField(max_length=50, null=False)
+    email = models.EmailField(max_length=254, null=False, default="samplemail@hotmail.com")
     
 
 class Image(models.Model):

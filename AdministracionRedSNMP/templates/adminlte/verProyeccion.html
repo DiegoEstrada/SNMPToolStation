@@ -1,0 +1,14 @@
+{% extends 'adminlte/base.html' %}
+
+{% block content %}
+<h1>Proyecciones de Agentes</h1>
+    <section>
+        <p>Prueba Recepcion de Correo desde el cliente</p>
+            {% if resCorreo %}
+            <script>alert("Correo enviado a PASAPARAMETRO CORREO Exitosamente")</script>
+            {% else %}
+            <script>alert("No fue posible notificar  a PASAPARAMETRO CORREO sobre el estado de AGENTE")</script>
+            {% endif %}
+        
+    </section>
+{% endblock %}
