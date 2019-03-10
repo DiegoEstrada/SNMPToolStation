@@ -172,7 +172,7 @@ def obtenerInfoAgenteByHostname(hostname):
         return None
 
 
-def lanzarGrafica(id,grafica):
+"""def lanzarGrafica(id,grafica):
     
     pid=os.fork()
     if pid:
@@ -201,7 +201,7 @@ def lanzarGrafica(id,grafica):
             
 
     print("Sigo Adelante")
-    return
+    return"""
 
 
 
