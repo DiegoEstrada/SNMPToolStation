@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 from . import SnmpGet
-from . import Grafica
+#from . import Grafica
 from threading import *
 import json
 import os
@@ -15,13 +15,13 @@ from . import ObtenerInformacion
 
 # Create your views here.
 def index(request):
-    grafica = Grafica.Grafica('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
+    """grafica = Grafica.Grafica('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
     
     lanzarGrafica(1,grafica)
     lanzarGrafica(2,grafica)
     lanzarGrafica(3,grafica)
     lanzarGrafica(4,grafica)
-    lanzarGrafica(5,grafica)
+    lanzarGrafica(5,grafica)"""
 
     return render(request, 'adminlte/index.html')
 

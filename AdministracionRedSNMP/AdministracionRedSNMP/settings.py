@@ -86,7 +86,12 @@ WSGI_APPLICATION = 'AdministracionRedSNMP.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'snmptoolstation',
+        'USER': 'jorge',
+        'PASSWORD': '123',
+        'HOST': '127.0.0.1',
+        'PORT': '3306'
         #'OPTIONS': {
         #    'read_default_file': '/etc/mysql/my.cnf',
         #},
