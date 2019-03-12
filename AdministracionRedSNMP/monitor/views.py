@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponse
 from django.core import serializers
 from django.conf import settings
@@ -13,10 +13,11 @@ import os
 import time
 from . import forms
 from . import ObtenerInformacion
+from .models import *
 
 # Create your views here.
 def index(request):
-    grafica = Grafica.Grafica('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
+    #grafica = Grafica.Grafica('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
     """
     lanzarGrafica(1,grafica)
     lanzarGrafica(2,grafica)
@@ -28,21 +29,11 @@ def index(request):
 
 def verAgentes(request):
     if request.method == 'GET':
-        a = staticfiles_storage.path("Agentes.txt")
-        #a = url = static('Agentes.txt')
-        archivo = open(a, 'r')
-        lineas=archivo.readlines()
-        #print(lineas)
+        agents = Agent.objects.all()
         lista = []
-
-        for linea in lineas:
-            #print(linea)
-            array = linea.split(",")
-            print(array)
+        for agent in agents:
             oidINterfaces = '1.3.6.1.2.1.2.1.0'
-            #interfaces = "Down"
-            
-            interfaces = SnmpGet.consultaSNMP(str(array[3]),str(array[0]),int(str(array[2])),int(str(array[1])),oidINterfaces)
+            interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
             print(interfaces)
             status = int(interfaces)
             if status>0:
@@ -50,67 +41,54 @@ def verAgentes(request):
             else:
                 status="Down"
 
-            #print(interfaces)
-
-            diccionario = {'nombre':str(array[4]),
-                            'host':str(array[0]),
-                        'version':str(array[1]),
-                        'puerto':str(array[2]),
+            diccionario = {'nombre':str(agent.name),
+                            'host':str(agent.hostname),
+                        'version':str(agent.version),
+                        'puerto':str(agent.puerto),
                         'status':str(status),
                         'interfaces':str(interfaces),
-                        'grupo':str(array[3])}
+                        'grupo':str(agent.grupo)}
 
             lista.append(diccionario)
         retorno = {'lista':lista}
-        archivo.close()
+
     elif request.method == 'POST':
         agentForm = forms.newAgentForm(request.POST)
-        nuevaLinea = ""
         if agentForm.is_valid():
-            nuevaLinea = agentForm.cleaned_data['hostname'] + ',' + str(agentForm.cleaned_data['version']) + ',' + agentForm.cleaned_data['puerto'] + ',' + agentForm.cleaned_data['grupo'] + ',' + agentForm.cleaned_data['grupo'] + agentForm.cleaned_data['hostname'] +'\n'
-
-        # ESCRITURA DEL ARCHIVO
-        a = staticfiles_storage.path("Agentes.txt")
-        archivo = open(a, 'a')
-        archivo.write(nuevaLinea)
-        archivo.close()
-
-        # LECTURA NUEVOS AGENTES
-        a = staticfiles_storage.path("Agentes.txt")
-        #a = url = static('Agentes.txt')
-        archivo = open(a, 'r')
-        lineas=archivo.readlines()
-        #print(lineas)
-        lista = []
-
-        for linea in lineas:
-            #print(linea)
-            array = linea.split(",")
-            print(array)
-            oidINterfaces = '1.3.6.1.2.1.2.1.0'
-            #interfaces = "Down"
+            name = agentForm.cleaned_data['name']
+            hostname =  agentForm.cleaned_data['hostname']
+            version = int(agentForm.cleaned_data['version'])
+            puerto = int(agentForm.cleaned_data['puerto'])
+            grupo = agentForm.cleaned_data['grupo']
+            email = agentForm.cleaned_data['email']
             
-            interfaces = SnmpGet.consultaSNMP(str(array[3]),str(array[0]),int(str(array[2])),int(str(array[1])),oidINterfaces)
-            #print(interfaces)
+        
+        # Guardado en base de datos
+        newAgent = Agent(name, hostname, version, puerto, grupo, email)
+        newAgent.save()
+
+        agents = Agent.objects.all()
+        lista = []
+        for agent in agents:
+            oidINterfaces = '1.3.6.1.2.1.2.1.0'
+            interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
+            print(interfaces)
             status = int(interfaces)
             if status>0:
                 status="Up"
             else:
                 status="Down"
 
-            #print(interfaces)
-
-            diccionario = {'nombre':str(array[4]),
-                            'host':str(array[0]),
-                        'version':str(array[1]),
-                        'puerto':str(array[2]),
+            diccionario = {'nombre':str(agent.name),
+                            'host':str(agent.hostname),
+                        'version':str(agent.version),
+                        'puerto':str(agent.puerto),
                         'status':str(status),
                         'interfaces':str(interfaces),
-                        'grupo':str(array[3])}
+                        'grupo':str(agent.grupo)}
 
             lista.append(diccionario)
         retorno = {'lista':lista}
-        archivo.close()
     
     return render(request, 'adminlte/agentes.html',context=retorno)
 
@@ -125,31 +103,16 @@ def verAgente(request):
 def estadoAgente(request):
     return render(request, 'adminlte/verAgente.html')
 
-def obtenerInfo(request, nombreHost):
-
-    """hostname = "localhost"
-    hostname = str(local)
-    puerto = 161
-    versionSNMP = 2
-    comunidad = 'gr_4cm3'"""
-    #print(nombreHost)
-    data = obtenerInfoAgenteByHostname(nombreHost)
-    #diccionario = {'host': nombreHost}
-    #print(data)
-    detallesAgente =ObtenerInformacion.obtenerInfo(data[0], data[2], data[1], data[3])
-    print("DETALLES")
-    print(detallesAgente)
-    context = {'detallesAgente':detallesAgente,
-                'nombreHost': nombreHost}
-
-    #diccionario = ObtenerInformacion.obtenerInfo()
-    #jsonArray = json.dumps(diccionario)
-    #json_Serialized = serializers.serialize('json',jsonArray)
+def obtenerInfo(request, name):
+    try:
+        agent = Agent.objects.get(pk=name)
+        detallesAgente = ObtenerInformacion.obtenerInfo(agent.hostname, agent.puerto, agent.version, agent.grupo)
+    except agent.DoesNotExist:
+        raise Http404("Agente no encontrado!")
     
-    # DEBERIA MOSTRAR INFO DEL AGENTE
-    #print(diccionario)
-    #context = {'object':diccionario}
-    #context = diccionario
+    context = {'detallesAgente':detallesAgente,
+                'nombreHost': name}
+
     return render(request,'adminlte/verAgente.html',context)
 
 
@@ -174,24 +137,6 @@ def sendEmail(email):
 
 
 ##Not used to HTTP ###
-
-
-def obtenerInfoAgenteByHostname(hostname):
-    a = staticfiles_storage.path("Agentes.txt")
-    #a = url = static('Agentes.txt')
-    archivo = open(a, 'r')
-    lineas=archivo.readlines()
-    #print(lineas)
-    lista = []
-
-    for linea in lineas:
-        print(linea)
-        array = linea.split(",")
-        if hostname == array[4]:
-            return array
-    else:
-        return None
-
 
 def lanzarGrafica(id,grafica):
     
@@ -223,9 +168,3 @@ def lanzarGrafica(id,grafica):
 
     print("Sigo Adelante")
     return
-
-
-
-
-
-
