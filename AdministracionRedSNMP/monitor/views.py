@@ -7,6 +7,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.mail import send_mail
 from . import SnmpGet
 from . import Grafica
+import logging
 from threading import *
 import json
 import os
@@ -17,6 +18,8 @@ from .models import *
 
 # Create your views here.
 def index(request):
+    logging.basicConfig(filename='monitor/snmpTool.log',format='%(levelname)s: %(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',level=logging.DEBUG)
+
     #grafica = Grafica.Grafica('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
     """
     lanzarGrafica(1,grafica)
@@ -25,6 +28,8 @@ def index(request):
     lanzarGrafica(4,grafica)
     lanzarGrafica(5,grafica)
     """
+
+    testLogInfo("Testing Log")
     return render(request, 'adminlte/index.html')
 
 def verAgentes(request):
@@ -124,6 +129,12 @@ def verProyeccion(request):
     return render(request,'adminlte/verProyeccion.html',context=dic)
 
 
+
+
+
+##Not used to HTTP ###
+
+
 def sendEmail(email):
 
     subject = 'SNMP Tool Monitor Notification '
@@ -135,8 +146,8 @@ def sendEmail(email):
 
     return res 
 
-
-##Not used to HTTP ###
+def testLogInfo(message):
+    logging.info(message)
 
 def lanzarGrafica(id,grafica):
     
