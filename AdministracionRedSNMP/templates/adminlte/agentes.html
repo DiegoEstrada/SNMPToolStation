@@ -24,7 +24,7 @@
                                             <td>{{ elem.host }}</td>
                                             <td>{{ elem.status }}</td>
                                             <td>{{ elem.interfaces }}</td>
-                                            <td><i class="glyphicon glyphicon-trash"></i> <span></span></td>
+                                            <td><a href="{% url 'borrar' elem.nombre %}"><i class="glyphicon glyphicon-trash"></i> <span></span></a></td>
                                     </tr>
                                     {% endfor %}
                             </tbody>

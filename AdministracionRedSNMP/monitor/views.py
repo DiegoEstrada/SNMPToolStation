@@ -133,11 +133,22 @@ def verProyeccion(request):
     return render(request,'adminlte/verProyeccion.html',context=dic)
 
 
-
+def deleteAgent(request, name):
+    # CHANGE TO HTTP DELETE METHOD
+    if request.method == 'GET':
+        try:
+            agent = Agent.objects.get(pk=name)
+            agent.delete()
+            success = True
+        except agent.DoesNotExist:
+            success = False
+            raise Http404("Agente no encontrado!")
+        entry = False
+    context = {'success': success, 'entry': entry}
+    return render(request,'adminlte/index.html',context=context)
 
 
 ##Not used to HTTP ###
-
 
 def getAgentsAvailable():
     li = []

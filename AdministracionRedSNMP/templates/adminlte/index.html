@@ -1,5 +1,11 @@
 {% extends 'adminlte/base.html' %}
 
 {% block content %}
+{% if entry == False and success %}
+    <script>alert('Agente eliminado satisfactoriamente')</script>
+{% elif entry == False and not success %}
+    <script>alert('Hubo un error al eliminar el agente')</script>
+{% else %}
+{% endif %}
 <h1>Carrusel e Info</h1>
 {% endblock %}
