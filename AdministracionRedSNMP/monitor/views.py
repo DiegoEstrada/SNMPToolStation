@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.mail import send_mail
 from . import SnmpGet
-from . import Grafica
+#from . import Grafica
 import logging
 from threading import *
 import json
@@ -127,7 +127,7 @@ def verProyeccion(request):
     print(res)
 
     #agents = getAgentsAvailable()
-    agents  = ['DiegoEG','Agente Local']
+    agents  = getAgentsAvailable()
 
     dic = {'resCorreo':res, 'agentes':agents}
     return render(request,'adminlte/verProyeccion.html',context=dic)
@@ -151,7 +151,22 @@ def deleteAgent(request, name):
 ##Not used to HTTP ###
 
 def getAgentsAvailable():
+    agents = Agent.objects.all()
     li = []
+    d = {}
+    for agent in agents:
+        d['name'] = agent.name
+        d['hostname'] = agent.hostname
+        d['version'] = agent.version
+        d['puerto'] = agent.puerto
+        d['grupo'] = agent.puerto
+        d['email'] = agent.email
+        li.append(d)
+        
+
+    print("Lista")
+    print(li)
+    
     return li
 
 
