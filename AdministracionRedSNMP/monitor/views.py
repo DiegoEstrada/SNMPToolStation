@@ -125,7 +125,11 @@ def verProyeccion(request):
     res = 0
     #res = sendEmail('diegoestradag97@gmail.com')
     print(res)
-    dic = {'resCorreo':res}
+
+    #agents = getAgentsAvailable()
+    agents  = ['DiegoEG','Agente Local']
+
+    dic = {'resCorreo':res, 'agentes':agents}
     return render(request,'adminlte/verProyeccion.html',context=dic)
 
 
@@ -133,6 +137,11 @@ def verProyeccion(request):
 
 
 ##Not used to HTTP ###
+
+
+def getAgentsAvailable():
+    li = []
+    return li
 
 
 def sendEmail(email):

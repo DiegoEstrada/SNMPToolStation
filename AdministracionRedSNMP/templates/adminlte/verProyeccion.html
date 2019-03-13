@@ -1,14 +1,84 @@
 {% extends 'adminlte/base.html' %}
+{% load static %}
 
 {% block content %}
-<h1>Proyecciones de Agentes</h1>
-    <section>
-        <p>Prueba Recepcion de Correo desde el cliente</p>
-            {% if resCorreo %}
-            <script>alert("Correo enviado a PASAPARAMETRO CORREO Exitosamente")</script>
-            {% else %}
-            <script>alert("No fue posible notificar  a PASAPARAMETRO CORREO sobre el estado de AGENTE")</script>
-            {% endif %}
+<body>
+    
+
+    <h1>Proyecciones de Agentes</h1>
+    <!--
+        <section>
+            <p>Prueba Recepcion de Correo desde el cliente</p>
+                {% if resCorreo %}
+                <script>alert("Correo enviado a PASAPARAMETRO CORREO Exitosamente")</script>
+                {% else %}
+                <script>alert("No fue posible notificar  a PASAPARAMETRO CORREO sobre el estado de AGENTE")</script>
+                {% endif %}
+            
+        </section>
+
+    -->
+
+        <div class="fluidcontainer">
+            <h3 class="text-center">Proyecciones de Rendimiento</h3>
+        </div>
         
-    </section>
+
+            {%for elem in agentes%}
+            <div class="box">
+                <div class="box-body">
+                        <h5 class=" box-title text-center">{{elem}}</h5>
+
+                        <div class="container-fluid ">
+                                <h1 class ="box-title text-center">Gráficas de Tendencia</h1>
+                                <hr>
+                    
+                                <div class="card text-center">
+                                        <img class="  center-block" src="{% static 'gr_4cm3localhostTraficoRed.png' %}" alt="TendenciaCPU" style="width:50%">
+                                        <div class="container ">
+                                          <h5><b>Uso de CPU </b></h5>
+                                          <p>Umbral máximo </p>
+                                        </div>
+                                </div> 
+                                <hr>
+                    
+                                <div class="card text-center">
+                                        <img class="  center-block" src="{% static 'gr_4cm3localhostRespuestasPING.png' %}" alt="TendenciaRAM" style="width:50%">
+                                        <div class="container ">
+                                          <h5><b>Uso de Memoria RAM</b></h5>
+                                          <p>Umbral máximo </p>
+                                        </div>
+                                </div> 
+                                <hr>
+                    
+                                <div class="card text-center">
+                                        <img class="  center-block" src="{% static 'gr_4cm3localhostSegmentosTCP.png' %}" alt="TendenciaHD" style="width:50%">
+                                        <div class="container ">
+                                          <h5><b>Uso de Disco Duro</b></h5>
+                                          <p>Umbral máximo </p>
+                                        </div>
+                                </div> 
+                                <hr>
+                    
+                                
+                    
+                                
+                        </div>
+                </div>
+
+            </div>
+            <hr>
+            <br>  
+            {% endfor %}
+        
+        
+
+
+    
+</div>
+
+
+
+</body>
+
 {% endblock %}
