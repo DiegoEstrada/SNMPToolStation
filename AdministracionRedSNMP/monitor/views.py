@@ -7,6 +7,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.mail import send_mail
 from . import SnmpGet
 from . import Grafica
+from . import Thrend
 import logging
 from threading import *
 import json
@@ -16,9 +17,11 @@ from . import forms
 from . import ObtenerInformacion
 from .models import *
 
+logging.basicConfig(filename='monitor/snmpTool.log',format='%(levelname)s: %(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',level=logging.DEBUG)
+
 # Create your views here.
 def index(request):
-    logging.basicConfig(filename='monitor/snmpTool.log',format='%(levelname)s: %(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',level=logging.DEBUG)
+    
 
     #grafica = Grafica.Grafica('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
     """
@@ -39,7 +42,7 @@ def verAgentes(request):
         for agent in agents:
             oidINterfaces = '1.3.6.1.2.1.2.1.0'
             interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
-            print(interfaces)
+            #print(interfaces)
             status = int(interfaces)
             if status>0:
                 status="Up"
@@ -77,7 +80,7 @@ def verAgentes(request):
         for agent in agents:
             oidINterfaces = '1.3.6.1.2.1.2.1.0'
             interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
-            print(interfaces)
+            #print(interfaces)
             status = int(interfaces)
             if status>0:
                 status="Up"
@@ -125,9 +128,18 @@ def verProyeccion(request):
     res = 0
     #res = sendEmail('diegoestradag97@gmail.com')
     print(res)
-
+    
     #agents = getAgentsAvailable()
-    agents  = ['DiegoEG','Agente Local']
+    agents  = ['DiegoEG']
+
+    trend = Thrend.Thrend('192.168.100.4',2,161,'gr_4cm3','DiegoEG')
+    trend.iniciarArchivos()
+    lanzarProyecciones("CPU",trend)
+
+    
+    
+    #lanzarProyecciones("RAM",trend)
+    #lanzarProyecciones("HD",trend)
 
     dic = {'resCorreo':res, 'agentes':agents}
     return render(request,'adminlte/verProyeccion.html',context=dic)
@@ -144,16 +156,22 @@ def getAgentsAvailable():
     return li
 
 
-def sendEmail(email):
+def sendEmail(email,subject,message):
 
-    subject = 'SNMP Tool Monitor Notification '
-    message = 'Its probably that your computer fail' 
+    #subject = 'Evidencia 3 '
+    #message = 'Equipo 10 Grupo 4CM3' 
     email_from = settings.EMAIL_HOST_USER
     recipient_list = []
     recipient_list.append(str(email))
     res = send_mail(subject,message,email_from,recipient_list,)
-
-    return res 
+    if res:
+        print("Correo Electronico enviado a "+email)
+        logging.info("Correo Electronico enviado a "+email)
+    else: 
+        print("Ocurrió un error al enviar el correo elcronico a "+email)
+        logging.info("Ocurrió un error al enviar el correo elcronico a "+email)
+    
+    return  
 
 def testLogInfo(message):
     logging.info(message)
@@ -186,5 +204,33 @@ def lanzarGrafica(id,grafica):
                 print("Opcion invalida")
             
 
+    print("Sigo Adelante")
+    return
+
+
+
+def lanzarProyecciones(id,proyeccion):
+    pid=os.fork()
+    if pid:
+        # parent
+        print("I'm the parent, Django")   
+       
+    else:
+        # child
+            print("I'm just a child Proyecion ")
+            if id=="CPU":
+                print("CPU")
+                proyeccion.prediccionCPU()
+            elif id=="RAM":
+                print("RAM")
+                proyeccion.prediccionRAM()
+            elif id=="HD":
+                print("HD")
+                proyeccion.prediccionHD()
+          
+            else:
+                print("Opcion invalida")
+            
+    
     print("Sigo Adelante")
     return

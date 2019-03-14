@@ -1,13 +1,15 @@
-import SnmpGet 
+from . import SnmpGet 
+from . import views
 import time
 import rrdtool
 import os
 
 """Class to steect possible failures in CPU RAM and HD"""
 OIDRAM = "1.3.6.1.4.1.2021.4.6.0"
-#__OIDCPU = "1.3.6.1.4.1.2021.11.9.0"
-OIDCPU = "1.3.6.1.2.1.25.3.3.1.2.1281"
+OIDCPU = "1.3.6.1.4.1.2021.11.9.0"
+#Examen usado OIDCPU = "1.3.6.1.2.1.25.3.3.1.2.1281"
 OIDHD = "1.3.6.1.2.1.25.2.3.1.6.6"
+dicUmbrales = {'CPU1':0}
 
 class Thrend:
 	
@@ -64,21 +66,21 @@ class Thrend:
 	                        '--lower-limit', '0',
 	                        '--upper-limit', '100',
 	                         "DEF:carga=assets/"+self.idAgente+"CPU.rdd:CPUload:AVERAGE",
-	                         "CDEF:umbral25=carga,25,LT,0,carga,IF",
-	                         "CDEF:umbral40=carga,40,LT,0,carga,IF",
-	                         "CDEF:umbral55=carga,55,LT,0,carga,IF",
+	                         "CDEF:umbral19=carga,19,LT,0,carga,IF",
+	                         "CDEF:umbral24=carga,24,LT,0,carga,IF",
+	                         "CDEF:umbral30=carga,30,LT,0,carga,IF",
 	                         "VDEF:cargaMAX=carga,MAXIMUM",
 	                         "VDEF:cargaMIN=carga,MINIMUM",
 	                         "VDEF:cargaSTDEV=carga,STDEV",
 	                         "VDEF:CPUavg=carga,AVERAGE",
 	                         "VDEF:CPUlast=carga,LAST",
-	                         "AREA:carga#00FF00:Uso de CPU entre 0% y 25%",
-	                         "AREA:umbral25#236CE0:Uso de CPU entre 26% y 40%",
-	                         "AREA:umbral40#FFFF02:Uso de CPU entre 41% y 55%",
-	                         "AREA:umbral55#FF1900:Uso de CPU entre 41% y 55%",
-	                         "HRULE:25#236CE0:",
-	                         "HRULE:40#FFFF02:",
-	                         "HRULE:55#FF1900:",
+	                         "AREA:carga#00FF00:Uso de CPU entre 0% y 19%",
+	                         "AREA:umbral19#236CE0:Uso de CPU entre 20% y 24%",
+	                         "AREA:umbral24#FFFF02:Uso de CPU entre 25% y 30%",
+	                         "AREA:umbral30#FF1900:Uso de CPU mayor de 30 %",
+	                         "HRULE:19#236CE0:",
+	                         "HRULE:24#FFFF02:",
+	                         "HRULE:30#FF1900:",
 	                         "PRINT:cargaMAX:%6.2lf %S",
 	                         "GPRINT:cargaMIN:%6.2lf %SMIN",
 	                         "GPRINT:cargaSTDEV:%6.2lf %SSTDEV",
@@ -102,17 +104,26 @@ class Thrend:
 
 			ultimo_valor=float(ret['print[0]'])
 
-			if (ultimo_valor> 25 and not umbralCP1):
-				print("Sobrepasa Primer Umbral ")
+			if (ultimo_valor> 19 and not umbralCP1):
+				print("Sobrepasa Primer Umbral LOCAL")
+				views.logging.info("La CPU supero el primer umbral READY")
+				views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 1 Superado")
 				umbralCP1 = True
+				#return 1
 
-			if (ultimo_valor> 40 and not umbralCP2):
-				print("SObrepasa Segundo Umbral")
+			if (ultimo_valor> 24 and not umbralCP2):
+				print("Sobrepasa Segundo Umbral")
+				views.logging.info("La CPU supero el segundo umbral SET")
+				views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 2 Superado")
 				umbralCP2 = True
+				#return 2
 
-			if (ultimo_valor> 55 and not umbralCP3):
+			if (ultimo_valor> 30 and not umbralCP3):
 				print("Sobrepasa Tercer Umbral")
+				views.logging.info("La CPU supero el tercer umbral GO")
+				views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 3 Superado")
 				umbralCP3 = True
+				#return 3
 
 
 	
@@ -274,14 +285,16 @@ class Thrend:
 					umbralHD3 = True
 
 
+	def getUmbral(self, umbral):
+		return 1
 
-
+"""
 def main():
-	trend = Thrend('8.12.0.200',2,1024,'variation/linux-full-walk','DiegoEG')
+	trend = Thrend('localhost',2,161,'gr_4cm3','DiegoEG')
 	trend.iniciarArchivos()
-	trend.prediccionCPU()
-	#trend.prediccionHD()
-	#trend.prediccionHD()
+	trend.prediccionHD()
 
 if __name__ == '__main__':
 	main()
+    
+"""

@@ -76,3 +76,134 @@ Traceback (most recent call last):
   File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 528, in invalid_block_tag
     get_text_list(["'%s'" % p for p in parse_until], 'or'),
 django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 35: 'static', expected 'empty' or 'endfor'. Did you forget to register or load this tag?
+INFO: 03/13/2019 01:21:23 PM Testing Log
+WARNING: 03/13/2019 01:21:26 PM Not Found: /favicon.ico
+ERROR: 03/13/2019 01:21:36 PM Internal Server Error: /Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 41, in verAgentes
+    interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+ERROR: 03/13/2019 01:23:30 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 132, in verProyeccion
+    trend = Thrend('localhost',2,161,'gr_4cm3','DiegoEG')
+NameError: name 'Thrend' is not defined
+INFO: 03/13/2019 01:34:17 PM Testing Log
+ERROR: 03/13/2019 01:34:20 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 134, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 211, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 50, in prediccionCPU
+    tiempo_final = int(rrdtool.last("assets/"+self.idAgente+"CPU.rdd"))
+rrdtool.OperationalError: opening 'assets/DiegoEGCPU.rdd': No such file or directory
+INFO: 03/13/2019 01:37:56 PM Testing Log
+INFO: 03/13/2019 01:38:11 PM Testing Log
+INFO: 03/13/2019 01:40:34 PM Testing Log
+INFO: 03/13/2019 01:51:06 PM Testing Log
+ERROR: 03/13/2019 01:51:13 PM Internal Server Error: /Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 42, in verAgentes
+    interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+WARNING: 03/13/2019 01:51:37 PM Not Found: /favicon.ico
+WARNING: 03/13/2019 01:51:40 PM Not Found: /favicon.ico
+INFO: 03/13/2019 01:51:47 PM Testing Log
+WARNING: 03/13/2019 01:51:49 PM Not Found: /favicon.ico
+INFO: 03/13/2019 01:58:09 PM Testing Log
+INFO: 03/13/2019 02:10:12 PM Testing Log
+WARNING: 03/13/2019 02:10:13 PM Not Found: /favicon.ico
+INFO: 03/13/2019 02:11:02 PM Testing Log
+WARNING: 03/13/2019 02:11:07 PM Not Found: /favicon.ico
+ERROR: 03/13/2019 02:11:09 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    l#anzarProyecciones("RAM",trend)
+NameError: name 'l' is not defined
+INFO: 03/13/2019 02:11:24 PM Testing Log
+INFO: 03/13/2019 02:34:33 PM Testing Log
+INFO: 03/13/2019 02:47:53 PM Testing Log
+INFO: 03/13/2019 02:48:34 PM Testing Log
+INFO: 03/13/2019 02:52:55 PM Testing Log
+INFO: 03/13/2019 11:23:14 PM Testing Log
+ERROR: 03/13/2019 11:23:30 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 135, in verProyeccion
+    umbral = lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 217, in lanzarProyecciones
+    umbral = proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 53, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+INFO: 03/13/2019 11:24:20 PM Testing Log
+INFO: 03/13/2019 11:24:57 PM Testing Log
+ERROR: 03/13/2019 11:25:02 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 135, in verProyeccion
+    umbral = lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 217, in lanzarProyecciones
+    umbral = proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 53, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+ValueError: invalid literal for int() with base 10: 'No'
+INFO: 03/13/2019 11:45:54 PM Testing Log
+INFO: 03/13/2019 11:53:12 PM Testing Log
+INFO: 03/13/2019 11:53:31 PM La CPU supero el primer umbral READY
+INFO: 03/14/2019 12:03:51 AM Testing Log
+INFO: 03/14/2019 12:05:13 AM Testing Log
+INFO: 03/14/2019 12:08:07 AM Testing Log
+INFO: 03/14/2019 12:09:11 AM La CPU supero el primer umbral READY
+INFO: 03/14/2019 12:09:16 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/14/2019 12:09:42 AM La CPU supero el segundo umbral SET
+INFO: 03/14/2019 12:09:46 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/14/2019 12:10:11 AM La CPU supero el tercer umbral GO
+INFO: 03/14/2019 12:10:16 AM Correo Electronico enviado a jorgecast29@gmail.com
