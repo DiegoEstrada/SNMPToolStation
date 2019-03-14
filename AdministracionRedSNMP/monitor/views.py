@@ -9,7 +9,6 @@ from . import SnmpGet
 from . import Grafica
 from . import Thrend
 import logging
-from threading import *
 import json
 import os
 import time
@@ -135,24 +134,50 @@ def verProyeccion(request):
     trend = Thrend.Thrend('192.168.100.4',2,161,'gr_4cm3','DiegoEG')
     trend.iniciarArchivos()
     lanzarProyecciones("CPU",trend)
-
     
     
     #lanzarProyecciones("RAM",trend)
     #lanzarProyecciones("HD",trend)
+    agents  = getAgentsAvailable()
 
     dic = {'resCorreo':res, 'agentes':agents}
     return render(request,'adminlte/verProyeccion.html',context=dic)
 
 
-
+def deleteAgent(request, name):
+    # CHANGE TO HTTP DELETE METHOD
+    if request.method == 'GET':
+        try:
+            agent = Agent.objects.get(pk=name)
+            agent.delete()
+            success = True
+        except agent.DoesNotExist:
+            success = False
+            raise Http404("Agente no encontrado!")
+        entry = False
+    context = {'success': success, 'entry': entry}
+    return render(request,'adminlte/index.html',context=context)
 
 
 ##Not used to HTTP ###
 
-
 def getAgentsAvailable():
+    agents = Agent.objects.all()
     li = []
+    d = {}
+    for agent in agents:
+        d['name'] = agent.name
+        d['hostname'] = agent.hostname
+        d['version'] = agent.version
+        d['puerto'] = agent.puerto
+        d['grupo'] = agent.puerto
+        d['email'] = agent.email
+        li.append(d)
+        
+
+    print("Lista")
+    print(li)
+    
     return li
 
 
