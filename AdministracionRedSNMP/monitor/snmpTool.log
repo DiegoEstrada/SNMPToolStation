@@ -207,3 +207,1575 @@ INFO: 03/14/2019 12:09:42 AM La CPU supero el segundo umbral SET
 INFO: 03/14/2019 12:09:46 AM Correo Electronico enviado a jorgecast29@gmail.com
 INFO: 03/14/2019 12:10:11 AM La CPU supero el tercer umbral GO
 INFO: 03/14/2019 12:10:16 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/14/2019 12:24:55 AM Testing Log
+INFO: 03/14/2019 12:25:31 AM La CPU supero el primer umbral READY
+INFO: 03/14/2019 12:25:36 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/14/2019 12:25:51 AM La CPU supero el segundo umbral SET
+INFO: 03/14/2019 12:25:56 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/16/2019 10:11:58 PM Testing Log
+WARNING: 03/16/2019 10:11:59 PM Not Found: /favicon.ico
+WARNING: 03/16/2019 10:12:01 PM Not Found: /static 'updtaeImg.js'
+ERROR: 03/16/2019 10:12:07 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 248, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 55, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+ERROR: 03/16/2019 10:13:14 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 248, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 55, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+ERROR: 03/16/2019 10:14:31 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 248, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 55, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+WARNING: 03/16/2019 10:20:05 PM Not Found: /favicon.ico
+ERROR: 03/16/2019 10:20:10 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 248, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 55, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+ERROR: 03/16/2019 10:21:18 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 248, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 55, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+ERROR: 03/16/2019 10:21:48 PM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 248, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 55, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+ERROR: 03/17/2019 12:03:00 AM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 248, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 55, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+ERROR: 03/17/2019 12:11:26 AM Internal Server Error: /Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 43, in verAgentes
+    interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+INFO: 03/17/2019 12:11:30 AM Testing Log
+ERROR: 03/17/2019 12:11:39 AM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 248, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 55, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+INFO: 03/17/2019 12:15:04 AM Testing Log
+ERROR: 03/17/2019 12:15:08 AM Internal Server Error: /Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 43, in verAgentes
+    interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+WARNING: 03/17/2019 12:15:12 AM Not Found: /second.jpg
+ERROR: 03/17/2019 12:15:12 AM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 248, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 55, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+WARNING: 03/17/2019 12:15:17 AM Not Found: /second.jpg
+WARNING: 03/17/2019 12:15:22 AM Not Found: /second.jpg
+WARNING: 03/17/2019 12:15:27 AM Not Found: /second.jpg
+WARNING: 03/17/2019 12:15:32 AM Not Found: /second.jpg
+WARNING: 03/17/2019 12:15:37 AM Not Found: /second.jpg
+WARNING: 03/17/2019 12:15:42 AM Not Found: /second.jpg
+WARNING: 03/17/2019 12:15:47 AM Not Found: /second.jpg
+WARNING: 03/17/2019 12:15:52 AM Not Found: /second.jpg
+INFO: 03/17/2019 12:15:52 AM Testing Log
+ERROR: 03/17/2019 12:16:01 AM Internal Server Error: /Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 136, in verProyeccion
+    lanzarProyecciones("CPU",trend)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 248, in lanzarProyecciones
+    proyeccion.prediccionCPU()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Thrend.py", line 55, in prediccionCPU
+    carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+INFO: 03/17/2019 12:25:29 AM Testing Log
+INFO: 03/17/2019 12:26:17 AM Testing Log
+WARNING: 03/17/2019 12:26:32 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 12:26:37 AM Not Found: /assets/DiegoEGCPU.png
+INFO: 03/17/2019 12:26:40 AM La CPU supero el primer umbral READY
+INFO: 03/17/2019 12:26:41 AM La CPU supero el primer umbral READY
+WARNING: 03/17/2019 12:26:42 AM Not Found: /assets/DiegoEGCPU.png
+INFO: 03/17/2019 12:26:46 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/17/2019 12:26:46 AM Correo Electronico enviado a jorgecast29@gmail.com
+WARNING: 03/17/2019 12:26:47 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 12:26:52 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 12:26:57 AM Not Found: /assets/DiegoEGCPU.png
+INFO: 03/17/2019 12:27:00 AM La CPU supero el segundo umbral SET
+INFO: 03/17/2019 12:27:01 AM La CPU supero el segundo umbral SET
+WARNING: 03/17/2019 12:27:02 AM Not Found: /assets/DiegoEGCPU.png
+INFO: 03/17/2019 12:27:03 AM Testing Log
+INFO: 03/17/2019 12:27:05 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/17/2019 12:27:05 AM Correo Electronico enviado a jorgecast29@gmail.com
+WARNING: 03/17/2019 12:27:12 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 12:27:18 AM Not Found: /assets/DiegoEGCPU.png
+INFO: 03/17/2019 12:27:20 AM La CPU supero el primer umbral READY
+WARNING: 03/17/2019 12:27:22 AM Not Found: /assets/DiegoEGCPU.png
+INFO: 03/17/2019 12:27:25 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/17/2019 12:27:25 AM La CPU supero el segundo umbral SET
+INFO: 03/17/2019 12:27:26 AM Correo Electronico enviado a jorgecast29@gmail.com
+WARNING: 03/17/2019 12:27:27 AM Not Found: /assets/DiegoEGCPU.png
+INFO: 03/17/2019 12:27:31 AM La CPU supero el tercer umbral GO
+INFO: 03/17/2019 12:27:32 AM Correo Electronico enviado a jorgecast29@gmail.com
+WARNING: 03/17/2019 12:39:58 AM Not Found: /api-auth/
+WARNING: 03/17/2019 01:03:22 AM Not Found: /monitor/images
+WARNING: 03/17/2019 01:05:13 AM Not Found: /monitor/images
+WARNING: 03/17/2019 01:05:41 AM Not Found: /monitor/images
+WARNING: 03/17/2019 01:06:15 AM Not Found: /monitor/images
+WARNING: 03/17/2019 01:08:33 AM Not Found: /monitor/images
+WARNING: 03/17/2019 01:08:36 AM Not Found: /images
+WARNING: 03/17/2019 01:09:09 AM Not Found: /api.auth
+WARNING: 03/17/2019 01:09:22 AM Not Found: /api-auth/
+WARNING: 03/17/2019 01:12:07 AM Not Found: /api-auth/
+DEBUG: 03/17/2019 01:12:10 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:12:10 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+DEBUG: 03/17/2019 01:12:20 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:12:20 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+ERROR: 03/17/2019 01:12:21 AM Internal Server Error: /images/
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 400, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 338, in get_url
+    return self.reverse(view_name, kwargs=kwargs, request=request, format=format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 50, in reverse
+    url = _reverse(viewname, args, kwargs, request, format, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 63, in _reverse
+    url = django_reverse(viewname, args=args, kwargs=kwargs, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'agent-detail' not found. 'agent-detail' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 154, in _get_response
+    response = response.render()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/response.py", line 72, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 733, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 704, in get_context
+    'post_form': self.get_rendered_html_form(data, view, 'POST', request),
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 522, in get_rendered_html_form
+    return self.render_form_for_serializer(serializer)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 532, in render_form_for_serializer
+    {'style': {'template_pack': 'rest_framework/horizontal'}}
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 383, in render
+    return template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/templatetags/rest_framework.py", line 90, in render_field
+    return renderer.render_field(field, style)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 362, in render_field
+    return template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/defaulttags.py", line 161, in render
+    values = self.sequence.resolve(context, ignore_failures=True)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 858, in _resolve_lookup
+    current = current()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 222, in iter_options
+    self.get_choices(cutoff=self.html_cutoff),
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 209, in get_choices
+    for item in queryset
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 209, in <listcomp>
+    for item in queryset
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 415, in to_representation
+    raise ImproperlyConfigured(msg % self.view_name)
+django.core.exceptions.ImproperlyConfigured: Could not resolve URL for hyperlinked relationship using view name "agent-detail". You may have failed to include the related model in your API, or incorrectly configured the `lookup_field` attribute on this field.
+DEBUG: 03/17/2019 01:12:33 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:12:33 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+ERROR: 03/17/2019 01:12:34 AM Internal Server Error: /images/
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 400, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 338, in get_url
+    return self.reverse(view_name, kwargs=kwargs, request=request, format=format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 50, in reverse
+    url = _reverse(viewname, args, kwargs, request, format, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 63, in _reverse
+    url = django_reverse(viewname, args=args, kwargs=kwargs, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'agent-detail' not found. 'agent-detail' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 156, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 154, in _get_response
+    response = response.render()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/response.py", line 106, in render
+    self.content = self.rendered_content
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/response.py", line 72, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 733, in render
+    context = self.get_context(data, accepted_media_type, renderer_context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 704, in get_context
+    'post_form': self.get_rendered_html_form(data, view, 'POST', request),
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 522, in get_rendered_html_form
+    return self.render_form_for_serializer(serializer)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 532, in render_form_for_serializer
+    {'style': {'template_pack': 'rest_framework/horizontal'}}
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 383, in render
+    return template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/defaulttags.py", line 209, in render
+    nodelist.append(node.render_annotated(context))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/defaulttags.py", line 309, in render
+    return nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/templatetags/rest_framework.py", line 90, in render_field
+    return renderer.render_field(field, style)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/renderers.py", line 362, in render_field
+    return template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/defaulttags.py", line 161, in render
+    values = self.sequence.resolve(context, ignore_failures=True)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 671, in resolve
+    obj = self.var.resolve(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 858, in _resolve_lookup
+    current = current()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 222, in iter_options
+    self.get_choices(cutoff=self.html_cutoff),
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 209, in get_choices
+    for item in queryset
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 209, in <listcomp>
+    for item in queryset
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 415, in to_representation
+    raise ImproperlyConfigured(msg % self.view_name)
+django.core.exceptions.ImproperlyConfigured: Could not resolve URL for hyperlinked relationship using view name "agent-detail". You may have failed to include the related model in your API, or incorrectly configured the `lookup_field` attribute on this field.
+INFO: 03/17/2019 01:13:52 AM Testing Log
+DEBUG: 03/17/2019 01:18:18 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:18:18 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+INFO: 03/17/2019 01:18:28 AM Testing Log
+INFO: 03/17/2019 01:18:31 AM Testing Log
+INFO: 03/17/2019 01:18:33 AM Testing Log
+DEBUG: 03/17/2019 01:18:36 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:18:36 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+WARNING: 03/17/2019 01:19:51 AM Not Found: /monitor/api-auth/
+DEBUG: 03/17/2019 01:19:56 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:19:56 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+DEBUG: 03/17/2019 01:19:58 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:19:58 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+DEBUG: 03/17/2019 01:22:56 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:22:56 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+DEBUG: 03/17/2019 01:25:58 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:25:58 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+INFO: 03/17/2019 01:26:04 AM Testing Log
+WARNING: 03/17/2019 01:26:18 AM Not Found: /monitor/assets/DiegoEGCPU.png
+ERROR: 03/17/2019 01:26:19 AM Internal Server Error: /monitor/images/
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 400, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 338, in get_url
+    return self.reverse(view_name, kwargs=kwargs, request=request, format=format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 50, in reverse
+    url = _reverse(viewname, args, kwargs, request, format, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 63, in _reverse
+    url = django_reverse(viewname, args=args, kwargs=kwargs, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'agent-detail' not found. 'agent-detail' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/viewsets.py", line 116, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/mixins.py", line 45, in list
+    return self.get_paginated_response(serializer.data)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super(ListSerializer, self).data
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 686, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 530, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 415, in to_representation
+    raise ImproperlyConfigured(msg % self.view_name)
+django.core.exceptions.ImproperlyConfigured: Could not resolve URL for hyperlinked relationship using view name "agent-detail". You may have failed to include the related model in your API, or incorrectly configured the `lookup_field` attribute on this field.
+INFO: 03/17/2019 01:28:17 AM Testing Log
+DEBUG: 03/17/2019 01:28:22 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:28:22 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+ERROR: 03/17/2019 01:28:29 AM Internal Server Error: /monitor/images/
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 400, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 338, in get_url
+    return self.reverse(view_name, kwargs=kwargs, request=request, format=format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 50, in reverse
+    url = _reverse(viewname, args, kwargs, request, format, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 63, in _reverse
+    url = django_reverse(viewname, args=args, kwargs=kwargs, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'agent-detail' not found. 'agent-detail' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/viewsets.py", line 116, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/mixins.py", line 45, in list
+    return self.get_paginated_response(serializer.data)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super(ListSerializer, self).data
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 686, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 530, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 415, in to_representation
+    raise ImproperlyConfigured(msg % self.view_name)
+django.core.exceptions.ImproperlyConfigured: Could not resolve URL for hyperlinked relationship using view name "agent-detail". You may have failed to include the related model in your API, or incorrectly configured the `lookup_field` attribute on this field.
+DEBUG: 03/17/2019 01:41:26 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:41:26 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+DEBUG: 03/17/2019 01:41:28 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:41:28 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+DEBUG: 03/17/2019 01:41:30 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:41:30 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+INFO: 03/17/2019 01:41:37 AM Testing Log
+DEBUG: 03/17/2019 01:41:44 AM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 01:41:44 AM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+ERROR: 03/17/2019 01:41:51 AM Internal Server Error: /monitor/images/
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/viewsets.py", line 116, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/mixins.py", line 45, in list
+    return self.get_paginated_response(serializer.data)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super(ListSerializer, self).data
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 686, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 513, in to_representation
+    fields = self._readable_fields
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/utils/functional.py", line 37, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 376, in _readable_fields
+    field for field in self.fields.values()
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 363, in fields
+    for key, value in self.get_fields().items():
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 1025, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 1126, in get_field_names
+    serializer_class=self.__class__.__name__
+AssertionError: The field 'url' was declared on serializer ImageSerializer, but has not been included in the 'fields' option.
+ERROR: 03/17/2019 01:42:29 AM Internal Server Error: /monitor/images/
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 75, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'api'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 400, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 338, in get_url
+    return self.reverse(view_name, kwargs=kwargs, request=request, format=format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 50, in reverse
+    url = _reverse(viewname, args, kwargs, request, format, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 63, in _reverse
+    url = django_reverse(viewname, args=args, kwargs=kwargs, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 86, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'api' is not a registered namespace
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/viewsets.py", line 116, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/mixins.py", line 45, in list
+    return self.get_paginated_response(serializer.data)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super(ListSerializer, self).data
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 686, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 530, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 415, in to_representation
+    raise ImproperlyConfigured(msg % self.view_name)
+django.core.exceptions.ImproperlyConfigured: Could not resolve URL for hyperlinked relationship using view name "api:agent-detail". You may have failed to include the related model in your API, or incorrectly configured the `lookup_field` attribute on this field.
+ERROR: 03/17/2019 01:43:44 AM Internal Server Error: /monitor/images/
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 75, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'Image'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 400, in to_representation
+    url = self.get_url(value, self.view_name, request, format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 338, in get_url
+    return self.reverse(view_name, kwargs=kwargs, request=request, format=format)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 50, in reverse
+    url = _reverse(viewname, args, kwargs, request, format, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/reverse.py", line 63, in _reverse
+    url = django_reverse(viewname, args=args, kwargs=kwargs, **extra)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 86, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'Image' is not a registered namespace
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/viewsets.py", line 116, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 495, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 455, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/views.py", line 492, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/mixins.py", line 45, in list
+    return self.get_paginated_response(serializer.data)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super(ListSerializer, self).data
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 262, in data
+    self._data = self.to_representation(self.instance)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    self.child.to_representation(item) for item in iterable
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 686, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/serializers.py", line 530, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/rest_framework/relations.py", line 415, in to_representation
+    raise ImproperlyConfigured(msg % self.view_name)
+django.core.exceptions.ImproperlyConfigured: Could not resolve URL for hyperlinked relationship using view name "Image:agent-detail". You may have failed to include the related model in your API, or incorrectly configured the `lookup_field` attribute on this field.
+WARNING: 03/17/2019 02:41:03 AM Not Found: /favicon.ico
+WARNING: 03/17/2019 02:41:14 AM Not Found: /monitor/{% url "Ajax/Proyeccion" %}
+WARNING: 03/17/2019 02:41:19 AM Not Found: /monitor/{% url "Ajax/Proyeccion" %}
+WARNING: 03/17/2019 02:41:24 AM Not Found: /monitor/{% url "Ajax/Proyeccion" %}
+WARNING: 03/17/2019 02:42:29 AM Not Found: /monitor/{% url "Ajax/Proyeccion" %}
+INFO: 03/17/2019 02:42:29 AM Testing Log
+WARNING: 03/17/2019 02:42:40 AM Not Found: /Ajax/Proyeccion/
+WARNING: 03/17/2019 02:42:45 AM Not Found: /Ajax/Proyeccion/
+WARNING: 03/17/2019 02:44:50 AM Not Found: /Ajax/Proyeccion/
+INFO: 03/17/2019 02:44:52 AM Testing Log
+WARNING: 03/17/2019 02:45:02 AM Not Found: /monitor/127.0.0.1:8000/monitor/Ajax/Proyeccion/
+INFO: 03/17/2019 02:52:56 AM Testing Log
+INFO: 03/17/2019 03:06:14 AM Testing Log
+WARNING: 03/17/2019 03:17:08 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:17:09 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:17:10 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:17:11 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:17:12 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:17:13 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:18:06 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:18:07 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:18:08 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:18:09 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:18:10 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:18:11 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:18:12 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:18:13 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:18:14 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:19:58 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:19:59 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:00 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:01 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:02 AM Not Found: /monitor/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:04 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:05 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:06 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:07 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:08 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:09 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:10 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:11 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:20:12 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:23:16 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:23:17 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:23:18 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:23:19 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+WARNING: 03/17/2019 03:23:20 AM Not Found: /home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/assets/DiegoEGCPU.png
+INFO: 03/17/2019 03:25:31 AM La CPU supero el primer umbral READY
+INFO: 03/17/2019 03:25:37 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/17/2019 03:25:51 AM La CPU supero el segundo umbral SET
+INFO: 03/17/2019 03:25:56 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/17/2019 03:43:23 AM Testing Log
+WARNING: 03/17/2019 03:43:23 AM Not Found: /favicon.ico
+ERROR: 03/17/2019 03:43:32 AM Internal Server Error: /monitor/Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 147, in verProyeccion
+    return render(request,'adminlte/verProyeccion.html',context=dic)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'js/updateImgThrend.js ' not found. 'js/updateImgThrend.js ' is not a valid view function or pattern name.
+INFO: 03/17/2019 03:44:40 AM Testing Log
+ERROR: 03/17/2019 03:44:42 AM Internal Server Error: /monitor/Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 147, in verProyeccion
+    return render(request,'adminlte/verProyeccion.html',context=dic)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '/js/updateImgThrend.js' not found. '/js/updateImgThrend.js' is not a valid view function or pattern name.
+INFO: 03/17/2019 03:45:22 AM La CPU supero el primer umbral READY
+INFO: 03/17/2019 03:45:26 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/17/2019 03:46:28 AM Testing Log
+ERROR: 03/17/2019 03:46:44 AM Internal Server Error: /monitor/Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 147, in verProyeccion
+    return render(request,'adminlte/verProyeccion.html',context=dic)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'js/updateImgThrend.js' not found. 'js/updateImgThrend.js' is not a valid view function or pattern name.
+INFO: 03/17/2019 03:47:45 AM Testing Log
+ERROR: 03/17/2019 03:47:47 AM Internal Server Error: /monitor/Proyeccion
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 147, in verProyeccion
+    return render(request,'adminlte/verProyeccion.html',context=dic)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 937, in render
+    bit = node.render_annotated(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/base.py", line 904, in render_annotated
+    return self.render(context)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/template/defaulttags.py", line 442, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/base.py", line 90, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/urls/resolvers.py", line 622, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'updateImgThrend.js' not found. 'updateImgThrend.js' is not a valid view function or pattern name.
+WARNING: 03/17/2019 03:49:24 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:25 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:26 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:27 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:28 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:29 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:30 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:31 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:32 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:34 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:34 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:35 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:36 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:37 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:38 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:39 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:40 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:41 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:42 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:43 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:44 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:45 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:47 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:47 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:48 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:49:49 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:18 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:19 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+INFO: 03/17/2019 03:57:19 AM Testing Log
+WARNING: 03/17/2019 03:57:23 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:24 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:25 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:26 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:27 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:28 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:29 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:30 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:31 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:32 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:33 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:34 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:35 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:36 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:37 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:38 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:40 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:40 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:41 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:42 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:57:43 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:59:25 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:59:26 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:59:27 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:59:28 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:59:29 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:59:30 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 03:59:39 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+INFO: 03/17/2019 03:59:39 AM Testing Log
+INFO: 03/17/2019 04:00:01 AM La CPU supero el primer umbral READY
+INFO: 03/17/2019 04:00:06 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/17/2019 04:03:10 AM Testing Log
+WARNING: 03/17/2019 04:03:15 AM Not Found: /monitor/static 'js/updateImgThrend.js'
+WARNING: 03/17/2019 04:03:15 AM Not Found: /monitor/static 'js/updateImgThrend.js'
+WARNING: 03/17/2019 04:03:15 AM Not Found: /monitor/static 'js/updateImgThrend.js'
+INFO: 03/17/2019 04:03:51 AM La CPU supero el primer umbral READY
+INFO: 03/17/2019 04:03:55 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/17/2019 04:04:02 AM La CPU supero el segundo umbral SET
+INFO: 03/17/2019 04:04:06 AM Correo Electronico enviado a jorgecast29@gmail.com
+INFO: 03/17/2019 04:08:00 AM Testing Log
+WARNING: 03/17/2019 04:08:04 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:08:05 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:08:06 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:08:07 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:08:08 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:08:09 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:08:10 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:08:11 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:10:18 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:10:19 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:10:20 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:10:21 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:10:22 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:10:23 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+WARNING: 03/17/2019 04:10:24 AM Not Found: /monitor/{% static 'DiegoEGCPU.png' %}
+INFO: 03/17/2019 04:10:24 AM Testing Log
+WARNING: 03/17/2019 04:10:38 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:39 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:40 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:41 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:42 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:43 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:44 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:45 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:46 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:47 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:48 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:49 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:50 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:10:51 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:11:34 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+INFO: 03/17/2019 04:11:35 AM Testing Log
+WARNING: 03/17/2019 04:11:35 AM Not Found: /monitor/{{ static 'DiegoEGCPU.png' }}
+WARNING: 03/17/2019 04:11:40 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:41 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:42 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:43 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:44 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:45 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:46 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:47 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:48 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:49 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:50 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:51 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:52 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:53 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:54 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:55 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:56 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:58 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:58 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:11:59 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:00 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:01 AM Not Found: /assets/DiegoEGCPU.png
+INFO: 03/17/2019 04:12:02 AM La CPU supero el primer umbral READY
+WARNING: 03/17/2019 04:12:02 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:03 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:04 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:05 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:07 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:08 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:08 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:09 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:10 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:11 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:12 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:13 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:14 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:15 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:16 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:17 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:18 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:19 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:20 AM Not Found: /assets/DiegoEGCPU.png
+INFO: 03/17/2019 04:12:21 AM La CPU supero el segundo umbral SET
+WARNING: 03/17/2019 04:12:21 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:22 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:23 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:24 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:25 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:26 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:27 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:28 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:29 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:30 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:31 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:32 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:56 AM Not Found: /assets/DiegoEGCPU.png
+WARNING: 03/17/2019 04:12:57 AM Not Found: /assets/DiegoEGCPU.png
+INFO: 03/17/2019 04:12:58 AM Testing Log
+INFO: 03/17/2019 04:13:12 AM La CPU supero el primer umbral READY
+INFO: 03/17/2019 04:13:31 AM La CPU supero el segundo umbral SET
+INFO: 03/17/2019 04:14:02 AM La CPU supero el tercer umbral GO
+INFO: 03/17/2019 04:19:31 AM La CPU supero el primer umbral READY
+INFO: 03/17/2019 04:19:41 AM La CPU supero el segundo umbral SET
+INFO: 03/17/2019 04:20:02 AM La CPU supero el tercer umbral GO
+INFO: 03/17/2019 04:22:13 AM Testing Log
+INFO: 03/17/2019 04:22:42 AM La CPU supero el primer umbral READY
+INFO: 03/17/2019 04:23:02 AM La CPU supero el segundo umbral SET
+INFO: 03/17/2019 04:25:02 AM La CPU supero el tercer umbral GO
+DEBUG: 03/17/2019 12:21:21 PM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 12:21:21 PM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+INFO: 03/17/2019 12:21:25 PM Testing Log
+INFO: 03/17/2019 08:01:00 PM Testing Log
+INFO: 03/17/2019 08:01:31 PM La CPU supero el primer umbral READY
+INFO: 03/17/2019 08:01:42 PM La CPU supero el segundo umbral SET
+INFO: 03/17/2019 08:02:01 PM La CPU supero el tercer umbral GO
+INFO: 03/17/2019 08:15:29 PM Testing Log
+INFO: 03/17/2019 08:16:11 PM La CPU supero el primer umbral READY
+WARNING: 03/17/2019 08:20:51 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:20:52 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:20:53 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:20:54 PM Not Found: /favicon.ico
+WARNING: 03/17/2019 08:21:01 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:01 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:02 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:03 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:04 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:05 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:06 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:07 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:08 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:09 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:10 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:11 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:12 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:13 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:14 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:15 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:16 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:17 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:18 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:19 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:20 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:21 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:22 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:23 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:24 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:25 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:26 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:27 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:28 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:29 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:30 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:31 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:32 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:33 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:34 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:35 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:36 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:37 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:38 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:39 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:40 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:41 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:42 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:43 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:44 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:45 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:46 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:47 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:48 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:49 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:50 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:51 PM Not Found: /monitor/Ajax/Proyeccion
+INFO: 03/17/2019 08:21:52 PM La CPU supero el primer umbral READY
+WARNING: 03/17/2019 08:21:52 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:53 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:54 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:55 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:56 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:57 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:58 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:21:59 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:22:00 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:22:01 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:22:02 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:16 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:18 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:19 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:27 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:28 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:28 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:28 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:28 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:28 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:31 PM Not Found: /monitor/Ajax/Proyeccion
+WARNING: 03/17/2019 08:25:32 PM Not Found: /monitor/Ajax/Proyeccion
+INFO: 03/17/2019 08:25:51 PM La CPU supero el primer umbral READY
+INFO: 03/17/2019 08:26:11 PM La CPU supero el segundo umbral SET
+WARNING: 03/17/2019 08:28:58 PM Not Found: /monitor/monitor/Actualiza
+INFO: 03/17/2019 08:35:50 PM La CPU supero el primer umbral READY
+INFO: 03/17/2019 08:35:50 PM La CPU supero el segundo umbral SET
+INFO: 03/17/2019 08:36:11 PM La CPU supero el tercer umbral GO
+INFO: 03/17/2019 08:36:11 PM La CPU supero el tercer umbral GO
+INFO: 03/17/2019 08:37:31 PM La CPU supero el primer umbral READY
+WARNING: 03/17/2019 10:39:44 PM Not Found: /favicon.ico
+ERROR: 03/17/2019 10:39:59 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 28, in index
+    if not init:
+UnboundLocalError: local variable 'init' referenced before assignment
+ERROR: 03/17/2019 11:17:19 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 28, in index
+    invoker = Invoker.getInsytance()
+AttributeError: module 'monitor.Invoker' has no attribute 'getInsytance'
+WARNING: 03/17/2019 11:17:20 PM Not Found: /favicon.ico
+ERROR: 03/17/2019 11:17:39 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 28, in index
+    invoker = Invoker.getInstance()
+AttributeError: module 'monitor.Invoker' has no attribute 'getInstance'
+ERROR: 03/17/2019 11:35:17 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 28, in index
+    invoker = Invoker()
+TypeError: 'module' object is not callable
+WARNING: 03/17/2019 11:35:18 PM Not Found: /favicon.ico
+ERROR: 03/17/2019 11:42:13 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 29, in index
+    invoker = Invoker()
+TypeError: 'module' object is not callable
+ERROR: 03/17/2019 11:45:58 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 29, in index
+    invoker = Invoker()
+TypeError: 'module' object is not callable
+DEBUG: 03/17/2019 11:46:23 PM Successfuly imported extension module "markdown.extensions.toc".
+DEBUG: 03/17/2019 11:46:23 PM Successfully loaded extension "markdown.extensions.toc.TocExtension".
+ERROR: 03/17/2019 11:46:27 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 29, in index
+    invoker = Invoker()
+TypeError: 'module' object is not callable
+ERROR: 03/17/2019 11:46:51 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 29, in index
+    invoker = Invoker()
+TypeError: 'module' object is not callable
+ERROR: 03/17/2019 11:47:48 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 29, in index
+    invoker = Invoker()
+TypeError: 'module' object is not callable
+ERROR: 03/17/2019 11:48:19 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 29, in index
+    invoker = Invoker()
+TypeError: 'module' object is not callable
+ERROR: 03/17/2019 11:49:11 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 29, in index
+    invoker = Invoker()
+TypeError: 'module' object is not callable
+ERROR: 03/17/2019 11:49:56 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 29, in index
+    invoker = Invoker()
+TypeError: 'module' object is not callable
+INFO: 03/17/2019 11:51:03 PM Invoker Creado
+INFO: 03/17/2019 11:51:25 PM Invoker Creado
+ERROR: 03/17/2019 11:51:25 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 30, in index
+    print("Instance = "+invoker)
+TypeError: must be str, not Invoker
+INFO: 03/17/2019 11:51:59 PM Invoker Creado
+ERROR: 03/17/2019 11:51:59 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 30, in index
+    print("Instance = "+str(invoker))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Invoker.py", line 15, in __str__
+    return "Self "+self
+TypeError: must be str, not Invoker
+INFO: 03/17/2019 11:52:29 PM Invoker Creado
+ERROR: 03/17/2019 11:52:30 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 30, in index
+    print("Instance = "+str(invoker))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Invoker.py", line 15, in __str__
+    return "Self "+ str(self)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Invoker.py", line 15, in __str__
+    return "Self "+ str(self)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Invoker.py", line 15, in __str__
+    return "Self "+ str(self)
+  [Previous line repeated 184 more times]
+RecursionError: maximum recursion depth exceeded while getting the str of an object
+INFO: 03/17/2019 11:54:59 PM Invoker Creado
+INFO: 03/17/2019 11:56:00 PM Invoker Creado
+ERROR: 03/17/2019 11:56:00 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 30, in index
+    print("Instance = "+str(invoker))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Invoker.py", line 15, in __str__
+    return 'self  '+ str(__instance)
+NameError: name '_Invoker__instance' is not defined
+INFO: 03/17/2019 11:56:24 PM Invoker Creado
+ERROR: 03/17/2019 11:56:24 PM Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 30, in index
+    print("Instance = "+str(invoker))
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/Invoker.py", line 15, in __str__
+    return 'self  '+ __instance
+NameError: name '_Invoker__instance' is not defined
+INFO: 03/17/2019 11:57:10 PM Invoker Creado
+INFO: 03/18/2019 12:01:19 AM Invoker Creado
+INFO: 03/18/2019 12:01:48 AM Invoker Creado
+INFO: 03/18/2019 12:03:39 AM Invoker Creado
+INFO: 03/18/2019 12:04:16 AM Invoker Creado
+INFO: 03/18/2019 12:04:38 AM Invoker Creado
+INFO: 03/18/2019 12:05:36 AM Invoker Creado
+INFO: 03/18/2019 12:06:06 AM Invoker Creado
+INFO: 03/18/2019 12:07:01 AM Invoker Creado
+INFO: 03/18/2019 12:07:09 AM Invoker Creado
+INFO: 03/18/2019 12:08:07 AM Invoker Creado
+INFO: 03/18/2019 12:08:43 AM Invoker Creado
+INFO: 03/18/2019 12:10:29 AM Invoker Creado
+INFO: 03/18/2019 12:10:29 AM Agente Detectectado 
+INFO: 03/18/2019 12:15:03 AM Invoker Creado
+INFO: 03/18/2019 12:15:03 AM Agente Detectectado 
+INFO: 03/18/2019 12:28:33 AM Invoker Creado
+INFO: 03/18/2019 12:28:33 AM Agente Detectectado DiegoEG 192.168.100.5  161
+INFO: 03/18/2019 12:29:47 AM Invoker Creado
+INFO: 03/18/2019 12:29:47 AM Agente Detectectado DiegoEG 192.168.100.5  161
+INFO: 03/18/2019 12:29:57 AM Invoker Creado
+INFO: 03/18/2019 12:29:57 AM Agente Detectectado DiegoEG 192.168.100.5  161
+INFO: 03/18/2019 12:30:29 AM Invoker Creado
+INFO: 03/18/2019 12:30:29 AM Agente Detectectado DiegoEG 192.168.100.5  161
+INFO: 03/18/2019 12:30:35 AM Invoker Creado
+INFO: 03/18/2019 12:30:35 AM Agente Detectectado DiegoEG 192.168.100.5  161
+INFO: 03/18/2019 12:31:21 AM Invoker Creado
+INFO: 03/18/2019 12:31:21 AM Agente Detectectado DiegoEG 192.168.100.5  161
+WARNING: 03/18/2019 12:40:15 AM Not Found: /favicon.ico
+INFO: 03/18/2019 12:41:35 AM Invoker Creado
+INFO: 03/18/2019 12:41:35 AM Agente Detectectado DiegoEG 192.168.100.5  161
+INFO: 03/18/2019 12:48:44 AM Invoker Creado
+INFO: 03/18/2019 12:48:44 AM Agente Detectectado DiegoEG 192.168.100.5  gr_4cm3

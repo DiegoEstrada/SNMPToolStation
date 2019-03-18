@@ -107,21 +107,21 @@ class Thrend:
 			if (ultimo_valor> 19 and not umbralCP1):
 				print("Sobrepasa Primer Umbral LOCAL")
 				views.logging.info("La CPU supero el primer umbral READY")
-				views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 1 Superado")
+				#views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 1 Superado")
 				umbralCP1 = True
 				#return 1
 
 			if (ultimo_valor> 24 and not umbralCP2):
 				print("Sobrepasa Segundo Umbral")
 				views.logging.info("La CPU supero el segundo umbral SET")
-				views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 2 Superado")
+				#views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 2 Superado")
 				umbralCP2 = True
 				#return 2
 
 			if (ultimo_valor> 30 and not umbralCP3):
 				print("Sobrepasa Tercer Umbral")
 				views.logging.info("La CPU supero el tercer umbral GO")
-				views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 3 Superado")
+				#views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 3 Superado")
 				umbralCP3 = True
 				#return 3
 

@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponse
+from monitor.models import Image
 from django.core import serializers
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.core.mail import send_mail
+from rest_framework import viewsets
+from monitor.serializers import ImageSerializer
 from . import SnmpGet
 from . import Grafica
 from . import Thrend
@@ -16,22 +19,16 @@ from . import forms
 from . import ObtenerInformacion
 from .models import *
 
-logging.basicConfig(filename='monitor/snmpTool.log',format='%(levelname)s: %(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p',level=logging.DEBUG)
+from . import Invoker
+invoker = Invoker.Invoker()
+print (hex(id(invoker)))
+invoker.startA()
+
+
 
 # Create your views here.
 def index(request):
-    
 
-    #grafica = Grafica.Grafica('localhost',2,161,'gr_4cm3','gr_4cm3localhost')
-    """
-    lanzarGrafica(1,grafica)
-    lanzarGrafica(2,grafica)
-    lanzarGrafica(3,grafica)
-    lanzarGrafica(4,grafica)
-    lanzarGrafica(5,grafica)
-    """
-
-    testLogInfo("Testing Log")
     return render(request, 'adminlte/index.html')
 
 def verAgentes(request):
@@ -131,9 +128,7 @@ def verProyeccion(request):
     #agents = getAgentsAvailable()
     agents  = ['DiegoEG']
 
-    trend = Thrend.Thrend('192.168.100.4',2,161,'gr_4cm3','DiegoEG')
-    trend.iniciarArchivos()
-    lanzarProyecciones("CPU",trend)
+    
     
     
     #lanzarProyecciones("RAM",trend)
@@ -142,6 +137,7 @@ def verProyeccion(request):
 
     dic = {'resCorreo':res, 'agentes':agents}
     return render(request,'adminlte/verProyeccion.html',context=dic)
+
 
 
 def deleteAgent(request, name):
@@ -158,27 +154,32 @@ def deleteAgent(request, name):
     context = {'success': success, 'entry': entry}
     return render(request,'adminlte/index.html',context=context)
 
+"""
+def getImage(request):
+    resource = request.GET.get('image', None)
+    print(resource)
+    data = {
+        'img' :  resource
+    }
+    return JsonResponse(data)
+
+"""
+
+
+class ImageViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Image.objects.all()
+    serializer_class = ImageSerializer
+
+
+
+
+
 
 ##Not used to HTTP ###
 
-def getAgentsAvailable():
-    agents = Agent.objects.all()
-    li = []
-    d = {}
-    for agent in agents:
-        d['name'] = agent.name
-        d['hostname'] = agent.hostname
-        d['version'] = agent.version
-        d['puerto'] = agent.puerto
-        d['grupo'] = agent.puerto
-        d['email'] = agent.email
-        li.append(d)
-        
-
-    print("Lista")
-    print(li)
-    
-    return li
 
 
 def sendEmail(email,subject,message):
@@ -198,39 +199,8 @@ def sendEmail(email,subject,message):
     
     return  
 
-def testLogInfo(message):
-    logging.info(message)
 
-def lanzarGrafica(id,grafica):
-    
-    pid=os.fork()
-    if pid:
-        # parent
-        print("I'm the parent, Django")   
-    else:
-        # child
-            print("I'm just a child Grafica ")
-            if int(id)==1:
-                #print("UNO")
-                grafica.getTraficoRed()
-            elif int(id)==2:
-                #print("DOS")
-                grafica.getICMP()
-            elif int(id)==3:
-                #print("TRES")
-                grafica.getSegmentosTCP()
-            elif int(id)==4:
-                #print("CUATRO")
-                grafica.getDatagramasIP()
-            elif int(id)==5:
-                #print("TRES")
-                grafica.getRespuestasPING()
-            else:
-                print("Opcion invalida")
-            
 
-    print("Sigo Adelante")
-    return
 
 
 
@@ -259,3 +229,4 @@ def lanzarProyecciones(id,proyeccion):
     
     print("Sigo Adelante")
     return
+
