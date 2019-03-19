@@ -58,6 +58,8 @@ class Invoker(object):
             logging.info("Agente Detectectado "+ str(name) + " " +str(hostname)+"  "+str(group))
             grafica = Grafica(hostname,version,port,group,name)
             thrend = Thrend(hostname,version,port,group,name)
+            #inmediatly create files
+            thrend.iniciarArchivos()
 
             graphs.append(grafica)
             thrends.append(thrend)
@@ -78,10 +80,14 @@ class Invoker(object):
 
         print("=== Starting Thrend Prediction ===")
         
-
+        for thrend in thrends:
+            Invoker.lanzarProyecciones("CPU",thrend) #Lanza liena base CPU
+            #Invoker.lanzarProyecciones("RAM",thrend) #Lanza liena base RAM
+            #Invoker.lanzarProyecciones("HD",thrend) #Lanza liena base HD
         
-        #trend.iniciarArchivos()
-        #lanzarProyecciones("CPU",trend)
+        print("=== Finished Thrend ===")
+        
+        
 
     def lanzarGrafica(id,grafica):
     
@@ -113,5 +119,31 @@ class Invoker(object):
 
         print("Sigo Adelante")
         return
+
+    def lanzarProyecciones(id,proyeccion):
+        pid=os.fork()
+        if pid:
+            # parent
+            print("I'm the parent, Django")   
         
+        else:
+            # child
+                print("I'm just a child Proyecion ")
+                if id=="CPU":
+                    #print("CPU")
+                    proyeccion.prediccionCPU()
+                elif id=="RAM":
+                    #print("RAM")
+                    proyeccion.prediccionRAM()
+                elif id=="HD":
+                    #print("HD")
+                    proyeccion.prediccionHD()
+            
+                else:
+                    print("Opcion invalida")
+                
+        
+        print("Sigo Adelante")
+        return
+            
         

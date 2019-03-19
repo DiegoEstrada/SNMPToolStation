@@ -17,18 +17,7 @@
     
 
     <h1>Proyecciones de Agentes</h1>
-    <!--
-        <section>
-            <p>Prueba Recepcion de Correo desde el cliente</p>
-                {% if resCorreo %}
-                <script>alert("Correo enviado a PASAPARAMETRO CORREO Exitosamente")</script>
-                {% else %}
-                <script>alert("No fue posible notificar  a PASAPARAMETRO CORREO sobre el estado de AGENTE")</script>
-                {% endif %}
-            
-        </section>
 
-    -->
 
         <div class="fluidcontainer">
             <h3 class="text-center">Proyecciones de Rendimiento</h3>
@@ -44,15 +33,17 @@
                                 <h1 class ="box-title text-center">Gráficas de Tendencia</h1>
                                 <hr>
 
-
+                                {% with elem.name|add:"CPU.png" as ruta %} 
                                 <div class="card text-center">
-                                        <img id="imgCPU" class="  center-block" src="{% static 'DiegoEGCPU.png' %}" alt="TendenciaCPU" style="width:50%">
+                                        <img id="imgCPU" class="  center-block" src="{% static ruta %}" alt="TendenciaCPU" style="width:50%">
                                         <div class="container ">
                                           <h5><b>Uso de CPU </b></h5>
                                           <button id="btnCPU" class="btn-primary">Actualizar Información</button>
                                           <p>Umbral máximo </p>
                                         </div>
                                 </div> 
+                                {% endwith %}
+
                                 <hr>
                     
                                 <div class="card text-center">

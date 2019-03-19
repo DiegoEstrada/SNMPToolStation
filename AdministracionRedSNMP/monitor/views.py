@@ -129,13 +129,19 @@ def obtenerInfo(request, name):
             imgICMPStatistics.save()
             
             images = Image.objects.filter(agent_id=name)[:5]
-        
-        traffic = images[0]
-        ping = images[1]
-        TCP = images[2]
-        IP = images[3]
-        ICMP = images[4]
-        detallesAgente = ObtenerInformacion.obtenerInfo(agent.hostname, agent.puerto, agent.version, agent.grupo)
+        try:
+            traffic = images[0]
+            ping = images[1]
+            TCP = images[2]
+            IP = images[3]
+            ICMP = images[4]
+            
+        except (IndexError) as e:
+            print("Some pictures missing")
+            
+        finally:
+            detallesAgente = ObtenerInformacion.obtenerInfo(agent.hostname, agent.puerto, agent.version, agent.grupo)
+
     except agent.DoesNotExist:
         raise Http404("Agente no encontrado!")
     
@@ -151,21 +157,10 @@ def obtenerInfo(request, name):
 
 
 def verProyeccion(request):
-    res = 0
-    #res = sendEmail('diegoestradag97@gmail.com')
-    print(res)
     
-    #agents = getAgentsAvailable()
-    agents  = ['DiegoEG']
-
-    
-    
-    
-    #lanzarProyecciones("RAM",trend)
-    #lanzarProyecciones("HD",trend)
     agents  = getAgentsAvailable()
 
-    dic = {'resCorreo':res, 'agentes':agents}
+    dic = { 'agentes':agents}
     return render(request,'adminlte/verProyeccion.html',context=dic)
 
 
@@ -183,17 +178,6 @@ def deleteAgent(request, name):
         entry = False
     context = {'success': success, 'entry': entry}
     return render(request,'adminlte/index.html',context=context)
-
-"""
-def getImage(request):
-    resource = request.GET.get('image', None)
-    print(resource)
-    data = {
-        'img' :  resource
-    }
-    return JsonResponse(data)
-
-"""
 
 
 class ImageViewSet(viewsets.ModelViewSet):
@@ -230,33 +214,21 @@ def sendEmail(email,subject,message):
     return  
 
 
+def getAgentsAvailable():
+
+        agents = Agent.objects.all()
+        li = []
+        d = {}
+        for agent in agents:
+            d['name'] = agent.name
+            d['hostname'] = agent.hostname
+            d['version'] = agent.version
+            d['puerto'] = agent.puerto
+            d['grupo'] = agent.grupo
+            d['email'] = agent.email
+            li.append(d)
+        
+        return li
 
 
-
-
-def lanzarProyecciones(id,proyeccion):
-    pid=os.fork()
-    if pid:
-        # parent
-        print("I'm the parent, Django")   
-       
-    else:
-        # child
-            print("I'm just a child Proyecion ")
-            if id=="CPU":
-                print("CPU")
-                proyeccion.prediccionCPU()
-            elif id=="RAM":
-                print("RAM")
-                proyeccion.prediccionRAM()
-            elif id=="HD":
-                print("HD")
-                proyeccion.prediccionHD()
-          
-            else:
-                print("Opcion invalida")
-            
-    
-    print("Sigo Adelante")
-    return
 
