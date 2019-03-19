@@ -68,7 +68,7 @@
             <hr>
 
             <div class="card text-center">
-                    <img id="imgTraficoRed" class="  center-block" src="{% static 'gr_4cm3localhostTraficoRed.png' %}" alt="Grafica" style="width:50%">
+                    <img id="imgTraficoRed" class="  center-block" src="{{imgTraffic.location}}" alt="Grafica" style="width:50%">
                     <div class="container ">
                       <h5><b>Trafico de red </b></h5>
                       <p>Bytes/s</p>
@@ -77,7 +77,7 @@
             <hr>
 
             <div class="card text-center">
-                    <img class="  center-block" src="{% static 'gr_4cm3localhostRespuestasPING.png' %}" alt="Grafica" style="width:50%">
+                    <img class="  center-block" src="{{imgPing.location}}" alt="Grafica" style="width:50%">
                     <div class="container ">
                       <h5><b>Respuestas Ping </b></h5>
                       <p>Respuestas/s</p>
@@ -86,7 +86,7 @@
             <hr>
 
             <div class="card text-center">
-                    <img class="  center-block" src="{% static 'gr_4cm3localhostSegmentosTCP.png' %}" alt="Grafica" style="width:50%">
+                    <img class="  center-block" src="{{imgTCP.location}}" alt="Grafica" style="width:50%">
                     <div class="container ">
                       <h5><b>Segmentos TCP </b></h5>
                       <p>Conexiones/s</p>
@@ -95,7 +95,7 @@
             <hr>
 
             <div class="card text-center">
-                    <img class="  center-block" src="{% static 'gr_4cm3localhostDatagramasIP.png' %}" alt="Grafica" style="width:50%">
+                    <img class="  center-block" src="{{imgIP.location}}" alt="Grafica" style="width:50%">
                     <div class="container ">
                       <h5><b>Datagramas IP </b></h5>
                       <p>Datagramas/s</p>
@@ -104,7 +104,7 @@
             <hr>
 
             <div class="card text-center">
-                    <img class="  center-block" src="{% static 'gr_4cm3localhostEstadisticaICMP.png' %}" alt="Grafica" style="width:50%">
+                    <img class="  center-block" src="{{imgICMP.location}}" alt="Grafica" style="width:50%">
                     <div class="container ">
                       <h5><b>Estadistica ICMP </b></h5>
                       <p>Paquetes/s</p>
