@@ -29,18 +29,18 @@ class Thrend:
                      "--start",'N',
                      "--step",'10',
                      "DS:CPUload:GAUGE:600:U:U",
-                     "RRA:AVERAGE:0.5:1:24")
+                     "RRA:AVERAGE:0.5:1:600")
 		retRAM = rrdtool.create("assets/"+self.idAgente+"RAM.rdd",
                      "--start",'N',
                      "--step",'10',
                      "DS:RAMload:GAUGE:600:U:U",
-                     "RRA:AVERAGE:0.5:1:24")
+                     "RRA:AVERAGE:0.5:1:600")
 
 		retHD = rrdtool.create("assets/"+self.idAgente+"HD.rdd",
                      "--start",'N',
                      "--step",'10',
                      "DS:HDload:GAUGE:600:U:U",
-                     "RRA:AVERAGE:0.5:1:24")		
+                     "RRA:AVERAGE:0.5:1:600")		
 
 
 
@@ -48,14 +48,15 @@ class Thrend:
 		umbralCP1 = False
 		umbralCP2 = False
 		umbralCP3 = False
+		
 		while 1:
 			tiempo_final = int(rrdtool.last("assets/"+self.idAgente+"CPU.rdd"))
 			tiempo_inicial = tiempo_final - 600
 
 			carga_CPU = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDCPU))
 			valor = "N:" + str(carga_CPU)
-			print (valor)
-			ret=rrdtool.update("assets/"+self.idAgente+"CPU.rdd", valor)
+			#print (valor) #DESCOMENTAR PARA VER VALORES SENSADOS
+			ret=rrdtool.updatev("assets/"+self.idAgente+"CPU.rdd", valor)
 			#rrdtool.dump(rrdpath+ rrdname,'trend.xml')
 			time.sleep(1)
 			ret = rrdtool.graphv("assets/"+self.idAgente+"CPU.png",
@@ -66,14 +67,20 @@ class Thrend:
 	                        '--lower-limit', '0',
 	                        '--upper-limit', '100',
 	                         "DEF:carga=assets/"+self.idAgente+"CPU.rdd:CPUload:AVERAGE",
+							 
 	                         "CDEF:umbral19=carga,19,LT,0,carga,IF",
 	                         "CDEF:umbral24=carga,24,LT,0,carga,IF",
 	                         "CDEF:umbral30=carga,30,LT,0,carga,IF",
+
+							
+
 	                         "VDEF:cargaMAX=carga,MAXIMUM",
 	                         "VDEF:cargaMIN=carga,MINIMUM",
 	                         "VDEF:cargaSTDEV=carga,STDEV",
 	                         "VDEF:CPUavg=carga,AVERAGE",
 	                         "VDEF:CPUlast=carga,LAST",
+
+							 
 	                         "AREA:carga#00FF00:Uso de CPU entre 0% y 19%",
 	                         "AREA:umbral19#236CE0:Uso de CPU entre 20% y 24%",
 	                         "AREA:umbral24#FFFF02:Uso de CPU entre 25% y 30%",
@@ -95,14 +102,27 @@ class Thrend:
 	                         "GPRINT:cargaMAX:%13.0lf%s",
 	                         "VDEF:m=carga,LSLSLOPE",
 	                         "VDEF:b=carga,LSLINT",
-	                         'CDEF:tendencia=carga,POP,m,COUNT,*,b,+',
-	                         "LINE2:tendencia#000000" 
+	                         "CDEF:tendencia=carga,POP,m,COUNT,*,b,+",
+
+							 "LINE2:tendencia#000000",
+
+							 "CDEF:comparacion=tendencia,30,GE,0,1,IF",
+
+							 "CDEF:comparacion2=comparacion,1,0,IF",
+
+							 "VDEF:pronosticoLast=comparacion2,LAST",
+							 "PRINT:pronosticoLast:%H\:%M\:%S:strftime"
+
 	                          )
 			#ATENCION -> 
 			#Si se desea ver solo los recuadros quitar todas las lineas despues de los espacios en la linea 75
 			#y quitar una coma al GPRINT
 
+			#print(ret)
+
 			ultimo_valor=float(ret['print[0]'])
+			tendencia = ret['print[1]']
+			print("Tendencia -> "+tendencia)
 
 			if (ultimo_valor> 19 and not umbralCP1):
 				print("Sobrepasa Primer Umbral LOCAL")
