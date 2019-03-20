@@ -27,11 +27,11 @@ class Invoker(object):
 
 
     def getAgentsAvailable():
-        print("Agentes Registrados \n")
         agents = Agent.objects.all()
         li = []
         d = {}
         for agent in agents:
+            d= {}
             d['name'] = agent.name
             d['hostname'] = agent.hostname
             d['version'] = agent.version
@@ -39,6 +39,12 @@ class Invoker(object):
             d['grupo'] = agent.grupo ##ESTO ME CAGO PARA ENCONTRARLO IBA PUERTO :,(
             d['email'] = agent.email
             li.append(d)
+        print("""
+
+        AGENTES REGISTRADOS
+
+        """)
+        print(li)
         
         return li
 
@@ -71,10 +77,10 @@ class Invoker(object):
 
         for graph in graphs:
             Invoker.lanzarGrafica(1,graph) ##Trafico de Red
-            #Invoker.lanzarGrafica(2,graph) ##ICMP
-            #Invoker.lanzarGrafica(3,graph) ##Segmentos TCP
-            #Invoker.lanzarGrafica(4,graph) ## Datagramas IP
-            #Invoker.lanzarGrafica(5,graph) ## Respuestas PING
+            Invoker.lanzarGrafica(2,graph) ##ICMP
+            Invoker.lanzarGrafica(3,graph) ##Segmentos TCP
+            Invoker.lanzarGrafica(4,graph) ## Datagramas IP
+            Invoker.lanzarGrafica(5,graph) ## Respuestas PING
 
         print("=== Graphing all Agents at current Time ===")
 

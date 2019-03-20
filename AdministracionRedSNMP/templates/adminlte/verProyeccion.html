@@ -33,9 +33,9 @@
                                 <h1 class ="box-title text-center">Gráficas de Tendencia</h1>
                                 <hr>
 
-                                {% with elem.name|add:"CPU.png" as ruta %} 
+                                {% with elem.name|add:"CPU.png" as rutaCPU %} 
                                 <div class="card text-center">
-                                        <img id="imgCPU" class="  center-block" src="{% static ruta %}" alt="TendenciaCPU" style="width:50%">
+                                        <img id="imgCPU" class="  center-block" src="{% static rutaCPU %}" alt="TendenciaCPU" style="width:50%">
                                         <div class="container ">
                                           <h5><b>Uso de CPU </b></h5>
                                           <button id="btnCPU" class="btn-primary">Actualizar Información</button>
@@ -45,23 +45,25 @@
                                 {% endwith %}
 
                                 <hr>
-                    
+                                {% with elem.name|add:"RAM.png" as rutaRAM %}
                                 <div class="card text-center">
-                                        <img class="  center-block" src="{% static 'DiegoEGRAM.png' %}" alt="TendenciaRAM" style="width:50%">
+                                        <img class="  center-block" src="{% static rutaRAM %}" alt="TendenciaRAM" style="width:50%">
                                         <div class="container ">
                                           <h5><b>Uso de Memoria RAM</b></h5>
                                           <p>Umbral máximo </p>
                                         </div>
-                                </div> 
+                                </div>
+                                {% endwith %}
                                 <hr>
-                    
+                                {% with elem.name|add:"HD.png" as rutaHD %}
                                 <div class="card text-center">
-                                        <img class="  center-block" src="{% static 'DiegoEGCPUHD.png' %}" alt="TendenciaHD" style="width:50%">
+                                        <img class="  center-block" src="{% static rutaHD %}" alt="TendenciaHD" style="width:50%">
                                         <div class="container ">
                                           <h5><b>Uso de Disco Duro</b></h5>
                                           <p>Umbral máximo </p>
                                         </div>
-                                </div> 
+                                </div>
+                                {% endwith %}
                                 <hr>
                     
                                 

@@ -110,48 +110,13 @@ def estadoAgente(request):
 def obtenerInfo(request, name):
     try:
         agent = Agent.objects.get(pk=name)
-        if (Image.objects.filter(agent_id=name).count() > 0):
-            # Get images Path
-            images = Image.objects.filter(agent_id=name)[:5]
-        else:
-            # Save the images into the DB
-            loc = "/static/" + name
-            imgTraffic = Image(location=loc + "TraficoRed.png", agent_id=name)
-            imgPingResponses = Image(location=loc + "RespuestasPING.png", agent_id=name)
-            imgTCPSegments = Image(location=loc + "SegmentosTCP.png", agent_id=name)
-            imgIPDatagrams = Image(location=loc + "DatagramasIP.png", agent_id=name)
-            imgICMPStatistics = Image(location=loc + "EstadisticaICMP.png", agent_id=name)
-            
-            imgTraffic.save()
-            imgPingResponses.save()
-            imgTCPSegments.save()
-            imgIPDatagrams.save()
-            imgICMPStatistics.save()
-            
-            images = Image.objects.filter(agent_id=name)[:5]
-        try:
-            traffic = images[0]
-            ping = images[1]
-            TCP = images[2]
-            IP = images[3]
-            ICMP = images[4]
-            
-        except (IndexError) as e:
-            print("Some pictures missing")
-            
-        finally:
-            detallesAgente = ObtenerInformacion.obtenerInfo(agent.hostname, agent.puerto, agent.version, agent.grupo)
+        detallesAgente = ObtenerInformacion.obtenerInfo(agent.hostname, agent.puerto, agent.version, agent.grupo)
 
     except agent.DoesNotExist:
         raise Http404("Agente no encontrado!")
     
     context = {'detallesAgente':detallesAgente,
-                'nombreHost': name,
-                'imgTraffic': traffic,
-                'imgPing': ping,
-                'imgTCP': TCP,
-                'imgIP': IP,
-                'imgICMP': ICMP}
+                'nombreHost': name}
 
     return render(request,'adminlte/verAgente.html',context)
 
@@ -220,6 +185,7 @@ def getAgentsAvailable():
         li = []
         d = {}
         for agent in agents:
+            d = {}
             d['name'] = agent.name
             d['hostname'] = agent.hostname
             d['version'] = agent.version
