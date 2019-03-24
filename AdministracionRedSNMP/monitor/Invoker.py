@@ -76,11 +76,12 @@ class Invoker(object):
         print("=== Starting RRD tool Graphing ===")
 
         for graph in graphs:
-            Invoker.lanzarGrafica(1,graph) ##Trafico de Red
-            Invoker.lanzarGrafica(2,graph) ##ICMP
-            Invoker.lanzarGrafica(3,graph) ##Segmentos TCP
-            Invoker.lanzarGrafica(4,graph) ## Datagramas IP
-            Invoker.lanzarGrafica(5,graph) ## Respuestas PING
+            variableX = 0
+            #Invoker.lanzarGrafica(1,graph) ##Trafico de Red
+            #Invoker.lanzarGrafica(2,graph) ##ICMP
+            #Invoker.lanzarGrafica(3,graph) ##Segmentos TCP
+            #Invoker.lanzarGrafica(4,graph) ## Datagramas IP
+            #Invoker.lanzarGrafica(5,graph) ## Respuestas PING
 
         print("=== Graphing all Agents at current Time ===")
 
@@ -88,8 +89,8 @@ class Invoker(object):
         
         for thrend in thrends:
             Invoker.lanzarProyecciones("CPU",thrend) #Lanza liena base CPU
-            #Invoker.lanzarProyecciones("RAM",thrend) #Lanza liena base RAM
-            #Invoker.lanzarProyecciones("HD",thrend) #Lanza liena base HD
+            Invoker.lanzarProyecciones("RAM",thrend) #Lanza liena base RAM
+            Invoker.lanzarProyecciones("HD",thrend) #Lanza liena base HD
         
         print("=== Finished Thrend ===")
         

@@ -89,36 +89,26 @@ class Thrend:
 	                         "HRULE:24#FFFF02:",
 	                         "HRULE:30#FF1900:",
 	                         "PRINT:cargaMAX:%6.2lf %S",
-	                         "GPRINT:cargaMIN:%6.2lf %SMIN",
-	                         "GPRINT:cargaSTDEV:%6.2lf %SSTDEV",
-	                         "GPRINT:CPUlast:%6.2lf %SLAST",
+							 "GPRINT:cargaMAX:%6.2lf %S MAX",
+	                         "GPRINT:cargaMIN:%6.2lf %S MIN",
+	                         #"GPRINT:cargaSTDEV:%6.2lf %SSTDEV",
+	                         #"GPRINT:CPUlast:LAST %6.2lf %S",
 
-
-
-	                         "COMMENT:Now          Min             Avg             Max",
-	                         "GPRINT:CPUlast:%12.0lf%s",
-	                         "GPRINT:cargaMIN:%10.0lf%s",
-	                         "GPRINT:CPUavg:%13.0lf%s",
-	                         "GPRINT:cargaMAX:%13.0lf%s",
+	                         "GPRINT:CPUavg:%6.2lf %S AVG",
+	                         
 	                         "VDEF:m=carga,LSLSLOPE",
 	                         "VDEF:b=carga,LSLINT",
 	                         "CDEF:tendencia=carga,POP,m,COUNT,*,b,+",
 
 							 "LINE2:tendencia#000000",
 
-							 "CDEF:comparacion=tendencia,30,GE,0,1,IF",
-
-							 "CDEF:comparacion2=comparacion,1,0,IF",
-
-							 "VDEF:pronosticoLast=comparacion2,LAST",
-							 "PRINT:pronosticoLast:%H\:%M\:%S:strftime"
+							 "CDEF:limite3=tendencia,30,50,LIMIT",
+                         	 "VDEF:primer=limite3,FIRST",
+                         	 "PRINT:primer:Tendencia a fallar el %A %d de %B del %Y a las %H\:%M\:%S:strftime",
+                         	 "GPRINT:primer: Tendencia a fallar el %A %d de %B del %Y a las %H\:%M\:%S:strftime"
 
 	                          )
-			#ATENCION -> 
-			#Si se desea ver solo los recuadros quitar todas las lineas despues de los espacios en la linea 75
-			#y quitar una coma al GPRINT
-
-			#print(ret)
+	
 
 			ultimo_valor=float(ret['print[0]'])
 			tendencia = ret['print[1]']
@@ -186,21 +176,23 @@ class Thrend:
 	                         "HRULE:100000#FFFF02:",
 	                         "HRULE:75000#FF1900:",
 	                         "PRINT:cargaMAX:%6.2lf %S",
-	                         "GPRINT:cargaMIN:%6.2lf %SMIN",
-	                         "GPRINT:cargaSTDEV:%6.2lf %SSTDEV",
-	                         "GPRINT:RAMlast:%6.2lf %SLAST",
+							"GPRINT:cargaMAX:%6.2lf %S MAX",
+	                         "GPRINT:cargaMIN:%6.2lf %S MIN",
+	                         #"GPRINT:cargaSTDEV:%6.2lf %SSTDEV",
+	                         #"GPRINT:RAMlast:LAST %6.2lf %S",
 
-
-
-	                         "COMMENT:Now          Min             Avg             Max",
-	                         "GPRINT:RAMlast:%12.0lf%s",
-	                         "GPRINT:cargaMIN:%10.0lf%s",
-	                         "GPRINT:RAMavg:%13.0lf%s",
-	                         "GPRINT:cargaMAX:%13.0lf%s",
+	                         "GPRINT:RAMavg:%6.2lf %S AVG",
+	                         
 	                         "VDEF:m=carga,LSLSLOPE",
 	                         "VDEF:b=carga,LSLINT",
-	                         'CDEF:tendencia=carga,POP,m,COUNT,*,b,+',
-	                         "LINE2:tendencia#000000" 
+	                         "CDEF:tendencia=carga,POP,m,COUNT,*,b,+",
+
+							"LINE2:tendencia#000000",
+
+							"CDEF:limite3=tendencia,55000,75000,LIMIT",
+                         	 "VDEF:primer=limite3,FIRST",
+                         	 "PRINT:primer:Tendencia a fallar el %A %d de %B del %Y a las %H\:%M\:%S:strftime",
+                         	 "GPRINT:primer: Tendencia a fallar el %A %d de %B del %Y a las %H\:%M\:%S:strftime"
 	                          )
 			#ATENCION -> 
 			#Si se desea ver solo los recuadros quitar todas las lineas despues de los espacios en la linea 75
@@ -245,7 +237,7 @@ class Thrend:
 		                         "--start",str(tiempo_inicial),
 		                         "--end",str(tiempo_final),
 		                        "--title","Estado del Disco Duro",
-		                         "--vertical-label=Memoria Disponible en el Disco",
+		                         "--vertical-label=Memoria Disponible",
 		                        '--lower-limit', '0',
 		                        '--upper-limit', '160000',
 		                         "DEF:carga=assets/"+self.idAgente+"HD.rdd:HDload:AVERAGE",
@@ -265,25 +257,24 @@ class Thrend:
 		                         "HRULE:132000#FFFF02:",
 		                         "HRULE:120000#FF1900:",
 		                         "PRINT:cargaMAX:%6.2lf %S",
-		                         "GPRINT:cargaMIN:%6.2lf %SMIN",
-		                         "GPRINT:cargaSTDEV:%6.2lf %SSTDEV",
-		                         "GPRINT:HDlast:%6.2lf %SLAST",
+								 "GPRINT:cargaMAX:%6.2lf %S MAX",
+	                         	 "GPRINT:cargaMIN:%6.2lf %S MIN",
+	                        	 #"GPRINT:cargaSTDEV:%6.2lf %SSTDEV",
+	                         	 #"GPRINT:HDlast:LAST %6.2lf %S",
 
+		                         "GPRINT:HDavg:%6.2lf %S AVG",
+	                         
+	                        	 "VDEF:m=carga,LSLSLOPE",
+	                        	 "VDEF:b=carga,LSLINT",
+	                         	 "CDEF:tendencia=carga,POP,m,COUNT,*,b,+",
 
+								 "LINE2:tendencia#000000",
 
-		                         "COMMENT:Now          Min             Avg             Max",
-		                         "GPRINT:HDlast:%12.0lf%s",
-		                         "GPRINT:cargaMIN:%10.0lf%s",
-		                         "GPRINT:HDavg:%13.0lf%s",
-		                         "GPRINT:cargaMAX:%13.0lf%s",
-		                         "VDEF:m=carga,LSLSLOPE",
-		                         "VDEF:b=carga,LSLINT",
-		                         'CDEF:tendencia=carga,POP,m,COUNT,*,b,+',
-		                         "LINE2:tendencia#000000" 
-		                          )
-				#ATENCION -> 
-				#Si se desea ver solo los recuadros quitar todas las lineas despues de los espacios en la linea 75
-				#y quitar una coma al GPRINT
+								 "CDEF:limite3=tendencia,110000,120000,LIMIT",
+                         	 	 "VDEF:primer=limite3,FIRST",
+                         	  	 "PRINT:primer:Tendencia a fallar el %A %d de %B del %Y a las %H\:%M\:%S:strftime",
+                         	 	 "GPRINT:primer: Tendencia a fallar el %A %d de %B del %Y a las %H\:%M\:%S:strftime"
+		                        )
 
 				if ( ret['print[0]'].find("k") != -1):
 					ultimo_valor=float(ret['print[0]'].split(".")[0])*1000
@@ -305,8 +296,6 @@ class Thrend:
 					umbralHD3 = True
 
 
-	def getUmbral(self, umbral):
-		return 1
 
 """
 def main():

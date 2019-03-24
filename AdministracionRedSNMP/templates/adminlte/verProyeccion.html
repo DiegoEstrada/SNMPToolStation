@@ -3,6 +3,7 @@
 
 {% block content %}
 <body>
+    <h6>{{ request.path }}</h6>
     <!-- 
         Seria bueno que se usuara jquery que usa AdminLTE  y no importar de nuevo el cdn para
         usarlo en scripts personales
@@ -39,7 +40,7 @@
                                         <div class="container ">
                                           <h5><b>Uso de CPU </b></h5>
                                           <button id="btnCPU" class="btn-primary">Actualizar Información</button>
-                                          <p>Umbral máximo </p>
+                                          <p>Porcentaje  usado en la CPU</p>
                                         </div>
                                 </div> 
                                 {% endwith %}
@@ -50,7 +51,7 @@
                                         <img class="  center-block" src="{% static rutaRAM %}" alt="TendenciaRAM" style="width:50%">
                                         <div class="container ">
                                           <h5><b>Uso de Memoria RAM</b></h5>
-                                          <p>Umbral máximo </p>
+                                          <p>Memoria RAM disponible </p>
                                         </div>
                                 </div>
                                 {% endwith %}
@@ -60,7 +61,7 @@
                                         <img class="  center-block" src="{% static rutaHD %}" alt="TendenciaHD" style="width:50%">
                                         <div class="container ">
                                           <h5><b>Uso de Disco Duro</b></h5>
-                                          <p>Umbral máximo </p>
+                                          <p>Memoria disponible en disco duro</p>
                                         </div>
                                 </div>
                                 {% endwith %}

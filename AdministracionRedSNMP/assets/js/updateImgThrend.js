@@ -5,8 +5,11 @@ $( document ).ready(function() {
     //alert("BEFORE")
     $.ajax({url: "Actualiza", success: function(result){
      // alert("AJAX" +result);
-      $("#imgCPU").attr("src","/static/DiegoEGCPU.png");
-      //$("#div1").html(result);
+     
+     //alert(result)
+     document.getElementById("imgCPU").src = "/static/DiegoEGCPU.png"
+      //$("#imgCPU").attr("src",result);
+      console.log("Inside AJAX A "+result)
     }});
   });
 

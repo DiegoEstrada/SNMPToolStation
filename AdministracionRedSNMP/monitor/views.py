@@ -3,8 +3,7 @@ from django.http import JsonResponse, HttpResponse
 from monitor.models import Image
 from django.core import serializers
 from django.conf import settings
-from django.conf.urls.static import static
-from django.contrib.staticfiles.storage import staticfiles_storage
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.core.mail import send_mail
 from rest_framework import viewsets
 from monitor.serializers import ImageSerializer
@@ -143,6 +142,15 @@ def deleteAgent(request, name):
         entry = False
     context = {'success': success, 'entry': entry}
     return render(request,'adminlte/index.html',context=context)
+
+def actualizaImg(request):
+    iStatic = static('DiegoEGCPU.png')
+    img = str(settings.STATICFILES_DIRS[0])+"/DiegoEGCPU.png"
+    i = "./assets/DiegoEGCPU.png"
+    image_data = open(img, "rb").read()
+    #image_data, mimetype="image/png"
+    return HttpResponse(iStatic)
+
 
 
 class ImageViewSet(viewsets.ModelViewSet):
