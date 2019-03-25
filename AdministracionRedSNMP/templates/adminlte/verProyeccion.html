@@ -66,8 +66,16 @@
                                 </div>
                                 {% endwith %}
                                 <hr>
-                    
-                                
+                                {% with elem.name|add:"NL.png" as rutaNL %}
+                                <div class="card text-center">
+                                        <img class="  center-block" src="{% static rutaNL %}" alt="Tendencia No Lineal" style="width:50%">
+                                        <div class="container ">
+                                          <h5><b>Predicción No Lineal </b></h5>
+                                          <p>Tráfico de Red Octetos de entrada</p>
+                                        </div>
+                                </div>
+                                {% endwith %}
+                                <hr>
                     
                                 
                         </div>

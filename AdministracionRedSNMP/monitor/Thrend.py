@@ -3,12 +3,14 @@ from . import views
 import time
 import rrdtool
 import os
+import tempfile
 
 """Class to steect possible failures in CPU RAM and HD"""
 OIDRAM = "1.3.6.1.4.1.2021.4.6.0"
 OIDCPU = "1.3.6.1.4.1.2021.11.9.0"
 #Examen usado OIDCPU = "1.3.6.1.2.1.25.3.3.1.2.1281"
 OIDHD = "1.3.6.1.2.1.25.2.3.1.6.6"
+OIDINTRAFFIC = "1.3.6.1.2.1.2.2.1.10.1"
 dicUmbrales = {'CPU1':0}
 
 class Thrend:
@@ -41,6 +43,31 @@ class Thrend:
                      "--step",'10',
                      "DS:HDload:GAUGE:600:U:U",
                      "RRA:AVERAGE:0.5:1:600")		
+
+		# greater alpha/beta ---> last values are important
+		# lower alpha/beta --> historical values are important
+		retNL = rrdtool.create("assets/"+self.idAgente+"NL.rdd",
+						"--start",'N',
+						"--step",'5',
+						"DS:inoctets:COUNTER:600:U:U",
+						"RRA:AVERAGE:0.5:1:2016",
+					#RRA:HWPREDICT:rows:alpha:beta:seasonal period[:rra - num]
+						"RRA:HWPREDICT:30:0.1:0.0035:10:3",
+					#RRA:SEASONAL:seasonal period:gamma:rra-num
+						"RRA:SEASONAL:10:0.1:2",
+					###### GRAPH USING AVERAGE, TEST AND SEASONAL FOR TESTING ######
+					#RRA:DEVSEASONAL:seasonal period:gamma:rra-num
+						"RRA:DEVSEASONAL:10:0.1:2",
+					#RRA:DEVPREDICT:rows:rra-num
+						"RRA:DEVPREDICT:30:4",
+					#RRA:FAILURES:rows:threshold:window length:rra-num
+						"RRA:FAILURES:10:5:7:4")
+					
+					#HWPREDICT rra-num is the index of the SEASONAL RRA.
+					#SEASONAL rra-num is the index of the HWPREDICT RRA.
+					#DEVPREDICT rra-num is the index of the DEVSEASONAL RRA.
+					#DEVSEASONAL rra-num is the index of the HWPREDICT RRA.
+					#FAILURES rra-num is the index of the DEVSEASONAL RRA.
 
 
 
@@ -295,6 +322,100 @@ class Thrend:
 					print("Sobrepasa Tercer Umbral")
 					umbralHD3 = True
 
+
+
+	
+	def prediccionNoLineal(self):
+		#title="Comportamiento anomalo, Alpha 0.1 Beta 0.0035"
+		title = "Comportamiento anomalo, Proyeccion No Lineal"
+		while 1:
+			tiempo_final = int(rrdtool.last("assets/"+self.idAgente+"NL.rdd"))
+			tiempo_inicial = tiempo_final - 600
+
+			input_traffic = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDINTRAFFIC))
+			valor = "N:" + str(input_traffic)
+			#print (valor)
+			ret=rrdtool.update("assets/"+self.idAgente+"NL.rdd", valor)
+			#rrdtool.dump(rrdpath+ rrdname,'trend.xml')
+			time.sleep(1)
+
+			# ---- UNCOMMENT TO FUCK UP THE APPLICATION :D ----
+			#print (check_aberration("assets/",self.idAgente+"NL.rdd"))
+			
+			# Changes alpha/beta/gamma value, useful under specific situations. verify functionallity 
+            #rrdtool.tune(loc, '--alpha', '0.1')
+			ret = rrdtool.graph(
+				"assets/"+self.idAgente+"NL.png",
+				'--start', str(tiempo_inicial), '--end', str(tiempo_final), '--title=' + title,
+				"--vertical-label=Bytes/s",
+				#'--slope-mode',
+				"DEF:obs=" + "assets/"+self.idAgente+"NL.rdd" + ":inoctets:AVERAGE",
+				#"DEF:outoctets=" + loc + ":outoctets:AVERAGE",
+				"DEF:pred=" + "assets/"+self.idAgente+"NL.rdd" + ":inoctets:HWPREDICT",
+				"DEF:dev=" + "assets/"+self.idAgente+"NL.rdd" + ":inoctets:DEVPREDICT",
+				"DEF:fail=" + "assets/"+self.idAgente+"NL.rdd" + ":inoctets:FAILURES",
+
+				#"RRA:DEVSEASONAL:1d:0.1:2",
+				#"RRA:DEVPREDICT:5d:5",
+				#"RRA:FAILURES:1d:7:9:5""
+				"CDEF:scaledobs=obs,8,*",
+				"CDEF:upper=pred,dev,2,*,+",
+				"CDEF:lower=pred,dev,2,*,-",
+				"CDEF:scaledupper=upper,8,*",
+				"CDEF:scaledlower=lower,8,*",
+				"CDEF:scaledpred=pred,8,*",
+				"TICK:fail#FDD017:1.0:Fallas",
+				"LINE3:scaledobs#00FF00:In traffic",
+				"LINE1:scaledpred#FF00FF:Prediccion\\n",
+				#"LINE1:outoctets#0000FF:Out traffic",
+				"LINE1:scaledupper#ff0000:Upper Bound Average bits in\\n",
+				"LINE1:scaledlower#0000FF:Lower Bound Average bits in"
+			)
+
+			
+			# It may be a good idea to call check_aberration() 
+			# in order to send email to the admin after graphing 
+			# if there is a return value of 1 or 2
+
+
+
+	# ---- UNCOMMENT TO FUCK UP THE APPLICATION :D x2 ----
+	"""def check_aberration(rrdpath, fname):
+     This will check for begin and end of aberration
+        in file. Will return:
+        0 if aberration not found.
+        1 if aberration begins
+        2 if aberration ends
+    
+    ab_status = 0
+    rrdfilename = rrdpath + fname
+
+    info = rrdtool.info(rrdfilename)
+    #print(info['filename'])
+    rrdstep = int(info['step'])
+    #print(rrdstep)
+    lastupdate = info['last_update']
+    previosupdate = str(lastupdate - rrdstep - 1)
+    graphtmpfile = tempfile.NamedTemporaryFile()
+    # Ready to get FAILURES  from rrdfile
+    # will process failures array values for time of 2 last updates
+    values = rrdtool.graph(graphtmpfile.name+'F',
+                           'DEF:f0=' + rrdfilename + ':inoctets:FAILURES:start=' + previosupdate + ':end=' + str(lastupdate),
+                           'PRINT:f0:MIN:%1.0lf',
+                           'PRINT:f0:MAX:%1.0lf',
+                           'PRINT:f0:LAST:%1.0lf')
+    print (values)
+    fmin = int(values[2][0])
+    fmax = int(values[2][1])
+    flast = int(values[2][2])
+    print ("fmin="+fmin+", fmax="+fmax+",flast="+flast)
+    # check if failure value had changed.
+    if (fmin != fmax):
+        if (flast == 1):
+            ab_status = 1
+        else:
+            ab_status = 2
+    return ab_status"""
 
 
 """

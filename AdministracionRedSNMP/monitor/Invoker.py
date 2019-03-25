@@ -88,9 +88,10 @@ class Invoker(object):
         print("=== Starting Thrend Prediction ===")
         
         for thrend in thrends:
-            Invoker.lanzarProyecciones("CPU",thrend) #Lanza liena base CPU
-            Invoker.lanzarProyecciones("RAM",thrend) #Lanza liena base RAM
-            Invoker.lanzarProyecciones("HD",thrend) #Lanza liena base HD
+            #Invoker.lanzarProyecciones("CPU",thrend) #Lanza liena base CPU
+            #Invoker.lanzarProyecciones("RAM",thrend) #Lanza liena base RAM
+            #Invoker.lanzarProyecciones("HD",thrend) #Lanza liena base HD
+            Invoker.lanzarProyecciones("NL",thrend) #Lanza proyección No Lineal
         
         print("=== Finished Thrend ===")
         
@@ -145,6 +146,9 @@ class Invoker(object):
                 elif id=="HD":
                     #print("HD")
                     proyeccion.prediccionHD()
+                elif id=="NL":
+                    #print("NL")
+                    proyeccion.prediccionNoLineal()
             
                 else:
                     print("Opcion invalida")
