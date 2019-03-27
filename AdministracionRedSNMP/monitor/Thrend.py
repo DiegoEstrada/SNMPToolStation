@@ -4,6 +4,7 @@ import time
 import rrdtool
 import os
 import tempfile
+from . import aberration
 
 """Class to steect possible failures in CPU RAM and HD"""
 OIDRAM = "1.3.6.1.4.1.2021.4.6.0"
@@ -328,95 +329,75 @@ class Thrend:
 	def prediccionNoLineal(self):
 		#title="Comportamiento anomalo, Alpha 0.1 Beta 0.0035"
 		title = "Comportamiento anomalo, Proyeccion No Lineal"
+		f = "assets/netP.rrd"
+		rrdtool.dump(f,'assets/predHistoric.xml')
 		while 1:
-			tiempo_final = int(rrdtool.last("assets/"+self.idAgente+"NL.rdd"))
-			tiempo_inicial = tiempo_final - 600
+			endDate = rrdtool.last(f)
+			begDate = endDate - 3000
+			InicioAyer = begDate - 86400
+			FinAyer = endDate - 86400
+			print("OK")
 
-			input_traffic = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,OIDINTRAFFIC))
-			valor = "N:" + str(input_traffic)
-			#print (valor)
-			ret=rrdtool.update("assets/"+self.idAgente+"NL.rdd", valor)
+			total_input_traffic = int(SnmpGet.consultaSNMP(self.comunidad, self.hostname, self.puerto, self.versionSNMP, OIDINTRAFFIC))
+			total_output_traffic = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,'1.3.6.1.2.1.2.2.1.16.1'))
+
+			"""
+            CAMBIAR EL VALOR DE 180 PARA UN DESPLAZAMIENTO MAS RÁPIDO DE LA GRAFICA O QUITAR EL VALOR PARA QUE VAYA CONFORME
+            AL STEP
+            """
+			valor = str(rrdtool.last(f) + 180) + ":" + str(total_input_traffic) + ":" + str(total_output_traffic)
+			print ("In Traffic:",valor, " bytes/s")
+			ret = rrdtool.update(f, valor)
 			#rrdtool.dump(rrdpath+ rrdname,'trend.xml')
-			time.sleep(1)
+			time.sleep(0.5)
 
-			# ---- UNCOMMENT TO FUCK UP THE APPLICATION :D ----
-			#print (check_aberration("assets/",self.idAgente+"NL.rdd"))
+			
 			
 			# Changes alpha/beta/gamma value, useful under specific situations. verify functionallity 
             #rrdtool.tune(loc, '--alpha', '0.1')
 			ret = rrdtool.graph(
 				"assets/"+self.idAgente+"NL.png",
-				'--start', str(tiempo_inicial), '--end', str(tiempo_final), '--title=' + title,
+				'--start', str(begDate), '--end', str(endDate), '--title=' + title,
 				"--vertical-label=Bytes/s",
-				#'--slope-mode',
-				"DEF:obs=" + "assets/"+self.idAgente+"NL.rdd" + ":inoctets:AVERAGE",
-				#"DEF:outoctets=" + loc + ":outoctets:AVERAGE",
-				"DEF:pred=" + "assets/"+self.idAgente+"NL.rdd" + ":inoctets:HWPREDICT",
-				"DEF:dev=" + "assets/"+self.idAgente+"NL.rdd" + ":inoctets:DEVPREDICT",
-				"DEF:fail=" + "assets/"+self.idAgente+"NL.rdd" + ":inoctets:FAILURES",
+				'--slope-mode',
+				"DEF:obs=" + f + ":inoctets:AVERAGE",
+				"DEF:obsAyer=" + f + ":inoctets:AVERAGE:start=" + str(InicioAyer) + ":end=" + str(FinAyer),
+				"DEF:pred=" + f + ":inoctets:HWPREDICT",
+				"DEF:dev=" + f + ":inoctets:DEVPREDICT",
+				"DEF:fail=" + f + ":inoctets:FAILURES",
+				"SHIFT:obsAyer:86400",
 
 				#"RRA:DEVSEASONAL:1d:0.1:2",
 				#"RRA:DEVPREDICT:5d:5",
 				#"RRA:FAILURES:1d:7:9:5""
 				"CDEF:scaledobs=obs,8,*",
+				"CDEF:scaledobsAyer=obsAyer,8,*",
 				"CDEF:upper=pred,dev,2,*,+",
 				"CDEF:lower=pred,dev,2,*,-",
 				"CDEF:scaledupper=upper,8,*",
 				"CDEF:scaledlower=lower,8,*",
 				"CDEF:scaledpred=pred,8,*",
-				"TICK:fail#FDD017:1.0:Fallas",
+				"VDEF:FALLA1=fail,FIRST",
+				"VDEF:FALLA2=fail,LAST",
+				"TICK:fail#FDD017:1.0: Fallas",
+				"AREA:scaledobsAyer#9C9C9C:Ayer",
 				"LINE3:scaledobs#00FF00:In traffic",
-				"LINE1:scaledpred#FF00FF:Prediccion\\n",
+				"LINE1:scaledpred#FF00FF:Prediccion",
 				#"LINE1:outoctets#0000FF:Out traffic",
-				"LINE1:scaledupper#ff0000:Upper Bound Average bits in\\n",
+				"LINE1:scaledupper#ff0000:Upper Bound Average bits in",
 				"LINE1:scaledlower#0000FF:Lower Bound Average bits in"
 			)
+			print (aberration.check_aberration(f))
 
 			
 			# It may be a good idea to call check_aberration() 
 			# in order to send email to the admin after graphing 
 			# if there is a return value of 1 or 2
-
-
-
-	# ---- UNCOMMENT TO FUCK UP THE APPLICATION :D x2 ----
-	"""def check_aberration(rrdpath, fname):
-     This will check for begin and end of aberration
-        in file. Will return:
-        0 if aberration not found.
-        1 if aberration begins
-        2 if aberration ends
-    
-    ab_status = 0
-    rrdfilename = rrdpath + fname
-
-    info = rrdtool.info(rrdfilename)
-    #print(info['filename'])
-    rrdstep = int(info['step'])
-    #print(rrdstep)
-    lastupdate = info['last_update']
-    previosupdate = str(lastupdate - rrdstep - 1)
-    graphtmpfile = tempfile.NamedTemporaryFile()
-    # Ready to get FAILURES  from rrdfile
-    # will process failures array values for time of 2 last updates
-    values = rrdtool.graph(graphtmpfile.name+'F',
-                           'DEF:f0=' + rrdfilename + ':inoctets:FAILURES:start=' + previosupdate + ':end=' + str(lastupdate),
-                           'PRINT:f0:MIN:%1.0lf',
-                           'PRINT:f0:MAX:%1.0lf',
-                           'PRINT:f0:LAST:%1.0lf')
-    print (values)
-    fmin = int(values[2][0])
-    fmax = int(values[2][1])
-    flast = int(values[2][2])
-    print ("fmin="+fmin+", fmax="+fmax+",flast="+flast)
-    # check if failure value had changed.
-    if (fmin != fmax):
-        if (flast == 1):
-            ab_status = 1
-        else:
-            ab_status = 2
-    return ab_status"""
-
+	
+	
+	
+	def check_aberration(a,b):
+		print("OK")
 
 """
 def main():
