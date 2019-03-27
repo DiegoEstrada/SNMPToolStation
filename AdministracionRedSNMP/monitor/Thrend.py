@@ -332,6 +332,10 @@ class Thrend:
 
 	
 	def prediccionNoLineal(self):
+
+		comienzoFalla = False
+		terminoFalla = False
+
 		#title="Comportamiento anomalo, Alpha 0.1 Beta 0.0035"
 		title = "Comportamiento anomalo, Proyeccion No Lineal"
 		f = "assets/netP.rrd"
@@ -393,6 +397,18 @@ class Thrend:
 				"LINE1:scaledlower#0000FF:Lower Bound Average bits in"
 			)
 			print (aberration.check_aberration(f))
+			if(aberration.check_aberration(f)['status']==1 and not comienzoFalla):
+				fechaInicio = aberration.check_aberration(f)['date']
+				Mail.sendEmail("jorcasjim29@gmail.com","Comienza Fallo","Fecha de inicio "+str(fechaInicio)+ " Fin de mensaje",str(self.idAgente)+"NL.png")
+
+				comienzoFalla = True
+
+			elif(aberration.check_aberration(f)['status']==2 and not terminoFalla):
+				fechaFin = aberration.check_aberration(f)['date']
+				Mail.sendEmail("jorcasjim29@gmail.com","Termino el Fallo","Fecha de termino "+str(fechaFin)+ " Fin de mensaje",str(self.idAgente)+"NL.png")
+
+				terminoFalla = True
+
 
 			
 			# It may be a good idea to call check_aberration() 
@@ -403,6 +419,7 @@ class Thrend:
 	
 	def check_aberration(a,b):
 		print("OK")
+		
 
 """
 def main():

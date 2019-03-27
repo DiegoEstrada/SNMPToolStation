@@ -88,10 +88,10 @@ class Invoker(object):
         print("=== Starting Thrend Prediction ===")
         
         for thrend in thrends:
-            Invoker.lanzarProyecciones("CPU",thrend) #Lanza liena base CPU
+            #Invoker.lanzarProyecciones("CPU",thrend) #Lanza liena base CPU
             #Invoker.lanzarProyecciones("RAM",thrend) #Lanza liena base RAM
             #Invoker.lanzarProyecciones("HD",thrend) #Lanza liena base HD
-            #Invoker.lanzarProyecciones("NL",thrend) #Lanza proyección No Lineal
+            Invoker.lanzarProyecciones("NL",thrend) #Lanza proyección No Lineal
         
         print("=== Finished Thrend ===")
         
