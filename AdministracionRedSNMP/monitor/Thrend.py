@@ -1,8 +1,10 @@
 from . import SnmpGet 
 from . import views
+from . import Mail
 import time
 import rrdtool
 import os
+import logging
 import tempfile
 
 """Class to steect possible failures in CPU RAM and HD"""
@@ -27,6 +29,8 @@ class Thrend:
 		
 
 	def iniciarArchivos(self):
+		
+
 		retCPU = rrdtool.create("assets/"+self.idAgente+"CPU.rdd",
                      "--start",'N',
                      "--step",'10',
@@ -143,22 +147,23 @@ class Thrend:
 
 			if (ultimo_valor> 19 and not umbralCP1):
 				print("Sobrepasa Primer Umbral LOCAL")
-				views.logging.info("La CPU supero el primer umbral READY")
-				#views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 1 Superado")
+				logging.info("La CPU supero el primer umbral READY")
+				Mail.sendEmail("jorcasjim29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 1 Superado",str(self.idAgente)+"CPU.png")
+				
 				umbralCP1 = True
 				#return 1
 
 			if (ultimo_valor> 24 and not umbralCP2):
 				print("Sobrepasa Segundo Umbral")
-				views.logging.info("La CPU supero el segundo umbral SET")
-				#views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 2 Superado")
+				logging.info("La CPU supero el segundo umbral SET")
+				#Mail.sendEmail("jorcasjim29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 1 Superado",str(self.idAgente)+"CPU.png")
 				umbralCP2 = True
 				#return 2
 
 			if (ultimo_valor> 30 and not umbralCP3):
 				print("Sobrepasa Tercer Umbral")
-				views.logging.info("La CPU supero el tercer umbral GO")
-				#views.sendEmail("jorgecast29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 3 Superado")
+				logging.info("La CPU supero el tercer umbral GO")
+				#Mail.sendEmail("jorcasjim29@gmail.com","Evidencia 3","Equipo 10 grupo 4CM3\n Umbral 1 Superado",str(self.idAgente)+"CPU.png")
 				umbralCP3 = True
 				#return 3
 
@@ -216,7 +221,7 @@ class Thrend:
 
 							"LINE2:tendencia#000000",
 
-							"CDEF:limite3=tendencia,55000,75000,LIMIT",
+							 "CDEF:limite3=tendencia,55000,75000,LIMIT",
                          	 "VDEF:primer=limite3,FIRST",
                          	 "PRINT:primer:Tendencia a fallar el %A %d de %B del %Y a las %H\:%M\:%S:strftime",
                          	 "GPRINT:primer: Tendencia a fallar el %A %d de %B del %Y a las %H\:%M\:%S:strftime"
@@ -237,7 +242,7 @@ class Thrend:
 				umbralRAM1 = True
 
 			if (ultimo_valor< 100000 and not umbralRAM2):
-				print("SObrepasa Segundo Umbral")
+				print("Sobrepasa Segundo Umbral")
 				umbralRAM2 = True
 
 			if (ultimo_valor< 75000 and not umbralRAM3):

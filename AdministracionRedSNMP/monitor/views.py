@@ -1,18 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponse
 from monitor.models import Image
-from django.core import serializers
-from django.conf import settings
 from django.contrib.staticfiles.templatetags.staticfiles import static
-from django.core.mail import send_mail
 from rest_framework import viewsets
-from monitor.serializers import ImageSerializer
 from . import SnmpGet
-from . import Grafica
-from . import Thrend
-import logging
-import json
 import os
+#import logging
 import time
 from . import forms
 from . import ObtenerInformacion
@@ -142,7 +135,7 @@ def deleteAgent(request, name):
         entry = False
     context = {'success': success, 'entry': entry}
     return render(request,'adminlte/index.html',context=context)
-
+"""
 def actualizaImg(request):
     iStatic = static('DiegoEGCPU.png')
     img = str(settings.STATICFILES_DIRS[0])+"/DiegoEGCPU.png"
@@ -150,41 +143,9 @@ def actualizaImg(request):
     image_data = open(img, "rb").read()
     #image_data, mimetype="image/png"
     return HttpResponse(iStatic)
+"""
 
-
-
-class ImageViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = Image.objects.all()
-    serializer_class = ImageSerializer
-
-
-
-
-
-
-##Not used to HTTP ###
-
-
-
-def sendEmail(email,subject,message):
-
-    #subject = 'Evidencia 3 '
-    #message = 'Equipo 10 Grupo 4CM3' 
-    email_from = settings.EMAIL_HOST_USER
-    recipient_list = []
-    recipient_list.append(str(email))
-    res = send_mail(subject,message,email_from,recipient_list,)
-    if res:
-        print("Correo Electronico enviado a "+email)
-        logging.info("Correo Electronico enviado a "+email)
-    else: 
-        print("Ocurrió un error al enviar el correo elcronico a "+email)
-        logging.info("Ocurrió un error al enviar el correo elcronico a "+email)
-    
-    return  
+###Not used to HTTP ###
 
 
 def getAgentsAvailable():
