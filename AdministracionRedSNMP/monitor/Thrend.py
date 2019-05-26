@@ -338,27 +338,26 @@ class Thrend:
 
 		#title="Comportamiento anomalo, Alpha 0.1 Beta 0.0035"
 		title = "Comportamiento anomalo, Proyeccion No Lineal"
-		f = "assets/netP.rrd"
-		rrdtool.dump(f,'assets/predHistoric.xml')
+		f = "assets/predict.rrd"
+		rrdtool.dump(f,'assets/examen.xml')
 		while 1:
 			endDate = rrdtool.last(f)
-			begDate = endDate - 3000
+			begDate = endDate - 60000
 			InicioAyer = begDate - 86400
 			FinAyer = endDate - 86400
-			print("OK")
 
-			total_input_traffic = int(SnmpGet.consultaSNMP(self.comunidad, self.hostname, self.puerto, self.versionSNMP, OIDINTRAFFIC))
-			total_output_traffic = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,'1.3.6.1.2.1.2.2.1.16.1'))
+			total_input_traffic = int(SnmpGet.consultaSNMP(self.comunidad, self.hostname, self.puerto, self.versionSNMP, "1.3.6.1.2.1.2.2.1.10.2"))
+			#total_output_traffic = int(SnmpGet.consultaSNMP(self.comunidad,self.hostname,self.puerto,self.versionSNMP,'1.3.6.1.2.1.2.2.1.16.1'))
 
 			"""
             CAMBIAR EL VALOR DE 180 PARA UN DESPLAZAMIENTO MAS RÁPIDO DE LA GRAFICA O QUITAR EL VALOR PARA QUE VAYA CONFORME
             AL STEP
             """
-			valor = str(rrdtool.last(f) + 180) + ":" + str(total_input_traffic) + ":" + str(total_output_traffic)
+			valor = "N:"+str(total_input_traffic) 
 			print ("In Traffic:",valor, " bytes/s")
 			ret = rrdtool.update(f, valor)
 			#rrdtool.dump(rrdpath+ rrdname,'trend.xml')
-			time.sleep(0.5)
+			time.sleep(1)
 
 			
 			
@@ -396,7 +395,19 @@ class Thrend:
 				"LINE1:scaledupper#ff0000:Upper Bound Average bits in",
 				"LINE1:scaledlower#0000FF:Lower Bound Average bits in"
 			)
-			print (aberration.check_aberration(f))
+
+			graphtmpfile = tempfile.NamedTemporaryFile()
+			values = rrdtool.graph(graphtmpfile.name+'F',
+            'DEF:f0=' + rrdfilename + ':inoctets:FAILURES:start=' + previosupdate + ':end=' + str(lastupdate),
+            'PRINT:f0:MIN:%1.0lf',
+            'PRINT:f0:MAX:%1.0lf' ,
+            'PRINT:f0:LAST:%1.0lf',
+            "VDEF:list=f0,LAST",
+            "PRINT:list:%A %d de %B del %Y %H\:%M\:%S:strftime")
+			print(values)
+			
+			#print (aberration.check_aberration(f))
+			"""
 			if(aberration.check_aberration(f)['status']==1 and not comienzoFalla):
 				fechaInicio = aberration.check_aberration(f)['date']
 				Mail.sendEmail("jorcasjim29@gmail.com","Comienza Fallo","Fecha de inicio "+str(fechaInicio)+ " Fin de mensaje",str(self.idAgente)+"NL.png")
@@ -408,7 +419,7 @@ class Thrend:
 				Mail.sendEmail("jorcasjim29@gmail.com","Termino el Fallo","Fecha de termino "+str(fechaFin)+ " Fin de mensaje",str(self.idAgente)+"NL.png")
 
 				terminoFalla = True
-
+			"""
 
 			
 			# It may be a good idea to call check_aberration() 

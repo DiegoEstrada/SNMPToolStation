@@ -29,9 +29,9 @@ def verAgentes(request):
         lista = []
         for agent in agents:
             oidINterfaces = '1.3.6.1.2.1.2.1.0'
-            interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
+            #interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
             #print(interfaces)
-            status = int(interfaces)
+            status = int(0)
             if status>0:
                 status="Up"
             else:
@@ -42,7 +42,7 @@ def verAgentes(request):
                         'version':str(agent.version),
                         'puerto':str(agent.puerto),
                         'status':str(status),
-                        'interfaces':str(interfaces),
+                        'interfaces':str(0),
                         'grupo':str(agent.grupo)}
 
             lista.append(diccionario)

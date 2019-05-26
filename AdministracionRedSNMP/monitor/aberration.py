@@ -27,12 +27,20 @@ def check_aberration(f):
             'PRINT:f0:MAX:%1.0lf' ,
             'PRINT:f0:LAST:%1.0lf',
             "VDEF:list=f0,LAST",
-            "PRINT:list:%Y\:%d\:%A\:%H\:%M\:%S:strftime")
-    #print (values)
-    fmin = int(values[2][0])
-    fmax = int(values[2][1])
-    flast = int(values[2][2])
-    date = str(values[2][3])
+            "PRINT:list:%A %d de %B del %Y %H\:%M\:%S:strftime")
+    print (values)
+    if(values[2][0]=="-nan"):
+        print("ASSDS")
+        pass
+    try:
+        
+        fmin = int(values[2][0])
+        fmax = int(values[2][1])
+        flast = int(values[2][2])
+        date = str(values[2][3])
+    except UnboundLocalError as ex:
+        print("Nans")
+    
     #print ("fmin="+str(fmin)+", fmax="+str(fmax)+",flast="+str(flast) + ", date=" + date)
     # check if failure value had changed.
     if (fmin != fmax):
