@@ -36,7 +36,7 @@ class Invoker(object):
             d['hostname'] = agent.hostname
             d['version'] = agent.version
             d['puerto'] = agent.puerto
-            d['grupo'] = agent.grupo ##ESTO ME CAGO PARA ENCONTRARLO IBA PUERTO :,(
+            d['grupo'] = agent.grupo 
             d['email'] = agent.email
             li.append(d)
         print("""
@@ -63,12 +63,12 @@ class Invoker(object):
             print("Agent ->" +str(name) + " IP -> "+str(hostname)+" Group -> "+str(group))
             logging.info("Agente Detectectado "+ str(name) + " " +str(hostname)+"  "+str(group))
             grafica = Grafica(hostname,version,port,group,name)
-            thrend = Thrend(hostname,version,port,group,name)
+            #thrend = Thrend(hostname,version,port,group,name)
             #inmediatly create files
-            thrend.iniciarArchivos()
+            #thrend.iniciarArchivos()
 
-            graphs.append(grafica)
-            thrends.append(thrend)
+            #graphs.append(grafica)
+            #thrends.append(thrend)
 
         print("=== Agent-Graphs Relationchip Succesfull ===")
 
@@ -88,10 +88,11 @@ class Invoker(object):
         print("=== Starting Thrend Prediction ===")
         
         for thrend in thrends:
+            variableY = 0
             #Invoker.lanzarProyecciones("CPU",thrend) #Lanza liena base CPU
             #Invoker.lanzarProyecciones("RAM",thrend) #Lanza liena base RAM
             #Invoker.lanzarProyecciones("HD",thrend) #Lanza liena base HD
-            Invoker.lanzarProyecciones("NL",thrend) #Lanza proyección No Lineal
+            #Invoker.lanzarProyecciones("NL",thrend) #Lanza proyección No Lineal
         
         print("=== Finished Thrend ===")
         

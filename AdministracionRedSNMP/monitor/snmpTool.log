@@ -323,3 +323,123 @@ Traceback (most recent call last):
 UnboundLocalError: local variable 'interfaces' referenced before assignment
 INFO: 03/27/2019 02:53:38 PM Invoker Creado
 INFO: 03/27/2019 02:53:38 PM Agente Detectectado DiegoEG 10.100.71.200  variation/virtualtable
+INFO: 05/26/2019 10:32:34 PM Invoker Creado
+INFO: 05/26/2019 10:32:34 PM Agente Detectectado DiegoEG 10.100.71.200  variation/virtualtable
+INFO: 05/26/2019 10:36:13 PM Invoker Creado
+INFO: 05/26/2019 10:36:13 PM Agente Detectectado DiegoEG 10.100.71.200  variation/virtualtable
+INFO: 05/26/2019 10:36:22 PM Invoker Creado
+INFO: 05/26/2019 10:36:22 PM Agente Detectectado DiegoEG 10.100.71.200  variation/virtualtable
+WARNING: 05/26/2019 10:37:33 PM Not Found: /favicon.ico
+ERROR: 05/26/2019 10:37:37 PM Internal Server Error: /monitor/Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 45, in verAgentes
+    'interfaces':str(interfaces),
+UnboundLocalError: local variable 'interfaces' referenced before assignment
+WARNING: 05/26/2019 10:37:37 PM Not Found: /favicon.ico
+ERROR: 05/26/2019 10:39:14 PM Internal Server Error: /monitor/Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 45, in verAgentes
+    'interfaces':str(interfaces),
+UnboundLocalError: local variable 'interfaces' referenced before assignment
+ERROR: 05/26/2019 10:40:41 PM Internal Server Error: /monitor/Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 45, in verAgentes
+    'interfaces':str(interfaces),
+UnboundLocalError: local variable 'interfaces' referenced before assignment
+ERROR: 05/26/2019 10:41:35 PM Internal Server Error: /monitor/Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 45, in verAgentes
+    'interfaces':str(interfaces),
+UnboundLocalError: local variable 'interfaces' referenced before assignment
+ERROR: 05/26/2019 10:41:37 PM Internal Server Error: /monitor/Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 45, in verAgentes
+    'interfaces':str(interfaces),
+UnboundLocalError: local variable 'interfaces' referenced before assignment
+INFO: 05/26/2019 10:42:10 PM Invoker Creado
+INFO: 05/26/2019 10:42:10 PM Agente Detectectado DiegoEG localhost  equipo2_4cm3
+ERROR: 05/26/2019 10:42:24 PM Internal Server Error: /monitor/Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 32, in verAgentes
+    interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+INFO: 05/26/2019 10:43:08 PM Invoker Creado
+INFO: 05/26/2019 10:43:08 PM Agente Detectectado DiegoEG localhost  equipo2_4cm3
+ERROR: 05/26/2019 10:44:05 PM Internal Server Error: /monitor/Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 32, in verAgentes
+    interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+INFO: 05/26/2019 10:46:01 PM Invoker Creado
+INFO: 05/26/2019 10:46:01 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+ERROR: 05/26/2019 10:46:15 PM Internal Server Error: /monitor/Agentes
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/views.py", line 32, in verAgentes
+    interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/AdministracionRedSNMP/monitor/SnmpGet.py", line 21, in consultaSNMP
+    return resultado
+UnboundLocalError: local variable 'resultado' referenced before assignment
+INFO: 05/26/2019 11:17:56 PM Invoker Creado
+INFO: 05/26/2019 11:17:56 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/26/2019 11:35:55 PM Invoker Creado
+INFO: 05/26/2019 11:35:55 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/26/2019 11:36:24 PM Invoker Creado
+INFO: 05/26/2019 11:36:24 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/26/2019 11:37:59 PM Invoker Creado
+INFO: 05/26/2019 11:37:59 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/26/2019 11:40:30 PM Invoker Creado
+INFO: 05/26/2019 11:40:30 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/26/2019 11:40:34 PM Invoker Creado
+INFO: 05/26/2019 11:40:34 PM Agente Detectectado DiegoEG localhost  gr_4cm3

@@ -1,0 +1,39 @@
+{% extends 'adminlte/base.html' %}
+
+{% block content %}
+    <!-- Default box -->
+    <div class="box">
+            <h1 class="box-title text-center">Administración de Archivos de Inventarios</h1>
+        <div class="container">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Hostname  (De poderse)</th>
+                            <th scope="col">Dirección ip</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                    <th scope="row">1</th>
+                                    <td>R1</td>
+                                    <td><a href="#">192.168.0.5</a></td>  
+                            </tr>
+                            <tr>
+                                    <th scope="row">2</th>
+                                    <td>R2</td>
+                                    <td><a href="#">192.168.0.6</a></td>
+                            </tr>
+                            <tr>
+                                    <th scope="row">3</th>
+                                    <td>R3</td>
+                                    <td><a href="#">192.168.0.19</a></td>
+                            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- /.box -->
+{% endblock %}

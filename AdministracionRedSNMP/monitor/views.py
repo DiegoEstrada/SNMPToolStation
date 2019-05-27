@@ -29,8 +29,8 @@ def verAgentes(request):
         lista = []
         for agent in agents:
             oidINterfaces = '1.3.6.1.2.1.2.1.0'
-            #interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
-            #print(interfaces)
+            interfaces = SnmpGet.consultaSNMP(str(agent.grupo),str(agent.hostname),int(agent.puerto),int(agent.version),oidINterfaces)
+            print(interfaces)
             status = int(0)
             if status>0:
                 status="Up"
@@ -42,7 +42,7 @@ def verAgentes(request):
                         'version':str(agent.version),
                         'puerto':str(agent.puerto),
                         'status':str(status),
-                        'interfaces':str(0),
+                        'interfaces':str(interfaces),
                         'grupo':str(agent.grupo)}
 
             lista.append(diccionario)
@@ -135,6 +135,17 @@ def deleteAgent(request, name):
         entry = False
     context = {'success': success, 'entry': entry}
     return render(request,'adminlte/index.html',context=context)
+
+def adminInventario(request):
+
+    return render(request,'adminlte/inventario.html')
+
+
+def cargarArchivosConf(request):
+
+    return render(request,'adminlte/configArchivos.html')
+
+
 """
 def actualizaImg(request):
     iStatic = static('DiegoEGCPU.png')

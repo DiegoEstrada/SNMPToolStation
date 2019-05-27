@@ -35,6 +35,12 @@
                         <i class="glyphicon glyphicon-eye-open"></i> <span>Ver Agentes</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{% url 'agregar' %}">
+                        <i class="glyphicon glyphicon-plus"></i> <span>Agregar Agente</span>
+                    </a>
+                </li>
                 
                 <li>
                     <a href="{% url 'proyeccion' %}">
@@ -43,21 +49,21 @@
                 </li>
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-gears"></i> <span>Configuraciones</span>
+                        <i class="fa fa-gears"></i> <span>Configuración</span>
                         <span class=" pull-right-container ">
                             <i class=" fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="{% url 'agregar' %}">
-                                <i class="glyphicon glyphicon-plus"></i> Agregar Agente
+                            <a href="{% url 'inventario' %}">
+                                <i class="glyphicon glyphicon-copy"></i> Administración de Inventarios
                             </a>
                             
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="glyphicon glyphicon-list-alt"></i> Modificar parametros
+                            <a href="{% url 'archivos' %}">
+                                <i class="glyphicon glyphicon-list-alt"></i>Archivos de Configuración
                             </a>
                         </li>
                     </ul>
