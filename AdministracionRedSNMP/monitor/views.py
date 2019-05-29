@@ -233,6 +233,21 @@ def subirArchivoConf(request):
         #print(str(fs.base_location()))
         if ret == 0:
             messages.success(request, 'Archivo '+config_file.name+" fue conigurado correctamente")
+            # Atualiza registro bd
+            
+            dicRout = ConfigurationAdmin.querySNMPInfo(ip)
+            
+            rout = Router.objects.get(pk=ip)
+            rout.hostname = dicRout['hostname']
+            rout.version = dicRout['version']
+            rout.puerto = dicRout['port']
+            rout.os = dicRout['os']
+            rout.interfaces = dicRout['interfaces']
+            rout.ubicacion = dicRout['location']
+            rout.contactto = dicRout['contact']
+            # LLenar mascara y gateway
+            rout.save()
+
         else:
             messages.error(request, "No fue posible  conigurar el archivo de manera correcta")
         return render(request, 'adminlte/configArchivos.html')
