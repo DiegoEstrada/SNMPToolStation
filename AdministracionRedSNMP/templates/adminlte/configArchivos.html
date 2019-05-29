@@ -11,15 +11,16 @@
                 <div class="row">
                         <div class="col">
                             <h5 >Formulario</h5>
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form method="post" action="{% url 'upload' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
                                 <div class="form-group">
                                     <label for="ip">Direccion IP</label>
-                                    <input id="ip" class="form-control" type="text" placeholder="192.168.0.5">
+                                    <input id="ip" class="form-control" type="text" placeholder="192.168.0.5" name="IP">
                                 </div>
                                 
                                 <div class="form-group">
                                         <label for="archivo">Archivo de configuración</label>
-                                        <input id="archivo" class="form-control-file" type="file">
+                                        <input id="archivo" class="form-control-file" type="file" name="config-file">
                                 </div>
 
                                 
@@ -27,6 +28,9 @@
                                 <button class="btn btn-primary" type="submit">Agregar</button>
                             </form>
                         </div>
+                        {% if uploaded_file_url %}
+                        <p>File uploaded at: <a href="#">{{ uploaded_file_url }}</a></p>
+                        {% endif %}
                         <div class="col">
                             <h5 >Tabla</h5>
                             <table class="table">

@@ -10,6 +10,7 @@ import time
 from . import forms
 from . import ObtenerInformacion
 from .models import *
+from django.core.files.storage import FileSystemStorage
 
 from . import Invoker
 invoker = Invoker.Invoker()
@@ -144,6 +145,19 @@ def adminInventario(request):
 def cargarArchivosConf(request):
 
     return render(request,'adminlte/configArchivos.html')
+
+
+def subirArchivoConf(request):
+    if request.method == 'POST' and request.FILES['config-file']:
+        # Usando IP actualizariamos tabla con info de Router!
+        print(request.POST['IP'])
+        config_file = request.FILES['config-file']
+        fs = FileSystemStorage(location='assets/')
+        filename = fs.save(config_file.name, config_file)
+        uploaded_file_url = fs.url(filename)
+        return render(request, 'adminlte/configArchivos.html', {
+            'uploaded_file_url': uploaded_file_url
+        })
 
 
 """

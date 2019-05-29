@@ -20,6 +20,7 @@ urlpatterns = [
     path('Ver/<name>/', views.obtenerInfo, name='ver'),
     path('<int:pk>/detalles/', views.estadoAgente, name='detalle'),
     path('Borrar/<name>', views.deleteAgent, name='borrar'),
+    path('SubirArchivo', views.subirArchivoConf, name='upload')
     #path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     
