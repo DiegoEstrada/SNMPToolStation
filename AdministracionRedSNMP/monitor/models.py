@@ -17,6 +17,7 @@ class Image(models.Model):
 
 class Router(models.Model):
     ip = models.CharField(primary_key=True, max_length=200, null=False)
+    getway = models.CharField( max_length=200, null=False,)
     hostname = models.CharField(max_length=100, null=True)
     version = models.PositiveSmallIntegerField(null=True)
     puerto = models.IntegerField(null=True)
@@ -24,5 +25,6 @@ class Router(models.Model):
     os = models.CharField(max_length=250, null=True)
     interfaces = models.PositiveSmallIntegerField(null=True)
     ubicacion = models.TextField(null=True)
+    contacto = models.TextField(null=True)
     # Cadena con el contenido del archivo de configuración
     archivo = models.TextField(null=True, default="")

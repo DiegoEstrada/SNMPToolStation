@@ -4,11 +4,12 @@ from monitor.models import Image
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from rest_framework import viewsets
 from . import SnmpGet
+from . import ConfigurationAdmin
 import os
 #import logging
 import time
 from . import forms
-from . import ObtenerInformacion
+#from . import ConfigurationAdmin
 from .models import *
 from django.core.files.storage import FileSystemStorage
 
@@ -113,6 +114,23 @@ def obtenerInfo(request, name):
 
     return render(request,'adminlte/verAgente.html',context)
 
+"""
+def obtenerInfoRouter(request, name):
+    try:
+        router = Router.objects.get(pk=name)
+
+        r = ConfigurationAdmin.ConfigurationAdmin(router.ip,router.getway,"tap0")
+        detallesRouter = r.querySNMPInfo()
+        #detallesAgente = ObtenerInformacion.obtenerInfo(agent.hostname, agent.puerto, agent.version, agent.grupo)
+
+    except router.DoesNotExist:
+        raise Http404("Agente no encontrado!")
+    
+    context = {'detallesRouter':detallesRouter,
+                'nombreHost': name}
+
+    return render(request,'adminlte/inventario.html',context)
+"""
 
 def verProyeccion(request):
     
@@ -190,5 +208,25 @@ def getAgentsAvailable():
         
         return li
 
+
+def getRoutersAvailable():
+
+        routers = Router.objects.all()
+        li = []
+        d = {}
+        for router in router:
+            d = {}
+            d['ip'] = router.ip
+            d['hostname'] = router.hostname
+            d['version'] = router.version
+            d['puerto'] = router.puerto
+            d['grupo'] = router.grupo
+            d['os'] = router.os
+            d['interfaces'] = router.interfaces
+            d['ubicacion'] = router.ubicacion
+            d['archivo'] = router.archivo
+            li.append(d)
+        
+        return li
 
 

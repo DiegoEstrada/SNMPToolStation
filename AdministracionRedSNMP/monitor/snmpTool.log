@@ -451,3 +451,36 @@ INFO: 05/28/2019 03:05:07 PM Invoker Creado
 INFO: 05/28/2019 03:05:07 PM Agente Detectectado DiegoEG localhost  gr_4cm3
 WARNING: 05/28/2019 03:06:10 PM Forbidden (CSRF token missing or incorrect.): /monitor/ConfiguracionArchivos
 WARNING: 05/28/2019 03:31:06 PM Forbidden (CSRF token missing or incorrect.): /monitor/ConfiguracionArchivos
+INFO: 05/28/2019 11:45:35 PM Invoker Creado
+INFO: 05/28/2019 11:45:36 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/28/2019 11:46:22 PM Invoker Creado
+INFO: 05/28/2019 11:46:22 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/28/2019 11:46:30 PM Invoker Creado
+INFO: 05/28/2019 11:46:30 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/28/2019 11:47:06 PM Invoker Creado
+INFO: 05/28/2019 11:47:06 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+WARNING: 05/28/2019 11:47:15 PM Not Found: /favicon.ico
+INFO: 05/28/2019 11:59:52 PM Invoker Creado
+INFO: 05/28/2019 11:59:52 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/29/2019 12:36:12 AM Invoker Creado
+INFO: 05/29/2019 12:36:12 AM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/29/2019 12:36:23 AM Invoker Creado
+INFO: 05/29/2019 12:36:23 AM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/29/2019 12:37:13 AM Invoker Creado
+INFO: 05/29/2019 12:37:13 AM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/29/2019 01:03:21 AM Invoker Creado
+INFO: 05/29/2019 01:03:21 AM Agente Detectectado DiegoEG localhost  gr_4cm3
+WARNING: 05/29/2019 01:03:31 AM Not Found: /favicon.ico
+ERROR: 05/29/2019 01:03:45 AM Internal Server Error: /monitor/Inventario
+Traceback (most recent call last):
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/diego/Documents/Administracion de Servicios en Red/Examen1/examen/lib/python3.6/site-packages/django/core/handlers/base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: obtenerInfoRouter() missing 1 required positional argument: 'name'
+INFO: 05/29/2019 01:06:21 AM Invoker Creado
+INFO: 05/29/2019 01:06:21 AM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/29/2019 01:06:47 AM Invoker Creado
+INFO: 05/29/2019 01:06:47 AM Agente Detectectado DiegoEG localhost  gr_4cm3
