@@ -443,3 +443,11 @@ INFO: 05/26/2019 11:40:30 PM Invoker Creado
 INFO: 05/26/2019 11:40:30 PM Agente Detectectado DiegoEG localhost  gr_4cm3
 INFO: 05/26/2019 11:40:34 PM Invoker Creado
 INFO: 05/26/2019 11:40:34 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/28/2019 11:41:31 AM Invoker Creado
+INFO: 05/28/2019 11:41:31 AM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/28/2019 02:18:53 PM Invoker Creado
+INFO: 05/28/2019 02:18:53 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+INFO: 05/28/2019 03:05:07 PM Invoker Creado
+INFO: 05/28/2019 03:05:07 PM Agente Detectectado DiegoEG localhost  gr_4cm3
+WARNING: 05/28/2019 03:06:10 PM Forbidden (CSRF token missing or incorrect.): /monitor/ConfiguracionArchivos
+WARNING: 05/28/2019 03:31:06 PM Forbidden (CSRF token missing or incorrect.): /monitor/ConfiguracionArchivos

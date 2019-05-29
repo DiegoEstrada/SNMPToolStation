@@ -15,12 +15,12 @@ import  telnetlib
 #if(int(sentpc[0][:-1])<=50):
 #    print("Conexion establecida")
 
-ip="192.168.203.5/24"
-getway="192.168.203.15"
-routerNetwork = "192.168.203.0/24" #Esto podria ser una lista para poder conectarse a las diferentes redes
+ip="192.168.202.5/24"
+getway="192.168.202.15"
+routerNetwork = "192.168.202.0/24" #Esto podria ser una lista para poder conectarse a las diferentes redes
 archivo = open("ospf-R3.startup-config.txt","r")
 #However subprocess module provides more powerful facilities for spawning new processes;
-"""
+
 print("Creando una interfaz virtual")
 sp = subprocess.Popen("tunctl -u diego",stdout=subprocess.PIPE,  stderr=subprocess.STDOUT, shell=True)
 
@@ -59,11 +59,11 @@ if( retval == 0):
             else:
                 print("\nConexion fallida ")
             
-"""
+
 ################Reiniciando el router via Telnet ##################
 
  #telnet = subprocess.Popen("telnet " + getway, stdin=subprocess.PIPE, stdout=subprocess.PIPE,  stderr=subprocess.STDOUT, universal_newlines=True)
-
+"""
 tn = telnetlib.Telnet(getway)
 
 tn.read_until(b"User: ")
@@ -72,7 +72,6 @@ tn.write(str("rcp" + "\n").encode("utf-8"))
 tn.read_until(b"Password: ")
 tn.write(str("rcp" + "\n").encode("utf-8"))
 
-tn.write(str("ena \nconfig \n\copy run start\nrestart \n").encode("utf-8"))
 #tn.write(str("config " + "\r\n").encode("utf-8"))
 #tn.write(b"restart\n")
 #tn.write(str("ena \n").encode("utf-8")")
@@ -80,6 +79,6 @@ tn.write(str("ena \nconfig \n\copy run start\nrestart \n").encode("utf-8"))
 tn.close()
 
 #print(telnetOut)
-
+"""
 
 
