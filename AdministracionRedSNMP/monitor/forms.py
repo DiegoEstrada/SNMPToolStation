@@ -7,4 +7,10 @@ class newAgentForm(forms.Form):
     puerto = forms.CharField(label='Puerto:', max_length=4, min_length=1, required=True)
     grupo = forms.CharField(label='Grupo:', max_length=100, min_length=1, required=True)
     email = forms.EmailField(label='Email:', max_length=254, min_length=13, required=True)
+
+
+class UploadFileForm(forms.Form):
+    ip = forms.CharField(max_length=50)
+    file = forms.FileField()
+
 # Display as_table or as_p

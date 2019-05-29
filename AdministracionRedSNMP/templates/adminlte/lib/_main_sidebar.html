@@ -57,15 +57,20 @@
                     <ul class="treeview-menu">
                         <li>
                             <a href="{% url 'inventario' %}">
-                                <i class="glyphicon glyphicon-copy"></i> Administración de Inventarios
+                                <i class="glyphicon glyphicon-list-alt"></i> Administración de Inventarios
                             </a>
                             
                         </li>
                         <li>
-                            <a href="{% url 'archivos' %}">
-                                <i class="glyphicon glyphicon-list-alt"></i>Archivos de Configuración
+                            <a href="{% url 'subir' %}">
+                                <i class="glyphicon glyphicon-open-file"></i>Actualizar Archivo 
                             </a>
                         </li>
+                        <li>
+                                <a href="{% url 'download' %}">
+                                    <i class="glyphicon glyphicon-save-file"></i>Descargar Archivo 
+                                </a>
+                            </li>
                     </ul>
                 </li>
                 <li>

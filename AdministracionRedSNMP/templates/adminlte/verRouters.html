@@ -13,7 +13,7 @@
                 <h1 class="box-title text-center"> Estado del Router </h1> <hr>
         </div>
         <div class="box-body">
-                <h3 class="box-title text-center"> {{ nombreHost }} </h3> <hr>
+                <h3 class="box-title text-center"> {{ detallesRouter.hostname }} </h3> <hr>
                 <table  class="table table-striped table-bordered table-hover ">
                         <thead class="text-center">
                             <tr>
@@ -26,45 +26,45 @@
                                 
                                 <tr>
                                         <td>Dirección IP</td>
-                                        <td>{{ detallesAgente.host }}</td>
+                                        <td>{{ detallesRouter.ip }}</td>
                                 </tr>
                                 <tr>
                                     <td>Nombre del host</td>
-                                    <td>{{ nombreHost }}</td>
+                                    <td>{{ detallesRouter.hostname }}</td>
                                 </tr>
                                 <tr>
                                     <td>Puerto</td>
-                                    <td>{{ nombreHost }}</td>
+                                    <td>{{ detallesRouter.port }}</td>
                                 </tr>
                                 <tr>
                                     <td>Comunidad</td>
-                                    <td>{{ nombreHost }}</td>
+                                    <td>{{ detallesRouter.community }}</td>
                                 </tr>
                                 
                                 <tr>
                                         <td>Sistema Operativo</td>
-                                        <td>{{ detallesAgente.so }}</td>
+                                        <td>{{ detallesRouter.os }}</td>
                                 </tr>
                                 <tr>
                                         <td>Numero de interfaces de red</td>
-                                        <td>{{ detallesAgente.interfaces }}</td>
+                                        <td>{{ detallesRouter.interfaces }}</td>
                                 </tr>
                                 
                                 <tr>
                                         <td>Ubicación</td>
-                                        <td>{{ detallesAgente.locacion }}</td>
+                                        <td>{{ detallesRouter.location }}</td>
                                 </tr>
                                 <tr>
                                         <td>Contacto</td>
-                                        <td>{{ detallesAgente.contacto }}</td>
+                                        <td>{{ detallesRouter.contact }}</td>
                                 </tr>
                                 <tr>
                                     <td>Archivo de configuración</td>
-                                    <td>{{ detallesAgente.contacto }}</td>
+                                    <td>{{ file }}</td>
                                 </tr>
                                 <tr>
                                     <td>Ultima Version</td>
-                                    <td>True</td>
+                                    <td>{{last}}</td>
                                 </tr>
 
                                 

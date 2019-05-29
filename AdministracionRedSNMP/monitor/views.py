@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponse
 from monitor.models import Image
 from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.contrib import messages
 from rest_framework import viewsets
 from . import SnmpGet
 from . import ConfigurationAdmin
@@ -9,7 +10,7 @@ import os
 #import logging
 import time
 from . import forms
-#from . import ConfigurationAdmin
+from . import ObtenerInformacion
 from .models import *
 from django.core.files.storage import FileSystemStorage
 
@@ -17,6 +18,14 @@ from . import Invoker
 invoker = Invoker.Invoker()
 print (hex(id(invoker)))
 invoker.startA()
+
+ipTapSalida = "192.168.202.5"
+interfaceControl = "tap0"
+master = Router.objects.get(pk=ipTapSalida)
+outAndConrol = ConfigurationAdmin.ConfigurationAdmin(master.ip,master.mascara,master.getway,interfaceControl)
+print("Master creado "+str(outAndConrol))
+
+
 
 
 
@@ -90,6 +99,33 @@ def verAgentes(request):
     
     return render(request, 'adminlte/agentes.html',context=retorno)
 
+def verRouters(request):
+    if request.method == 'GET':
+        #ipTapSalida = ipTapSalida[:-3] #Just the IP
+        
+
+
+        routers = Router.objects.all()
+        
+
+        ips = []
+        lista = []
+        for router in routers:
+            #print(router.ip[:-3]) ##PUEDE QUE LA MASCARA SEA MENOR Y QUIE EL ULTIMO DIGITO DEL ULTOMO OCTETO
+            ips.append(router.ip)
+        
+        ips.remove(ipTapSalida)
+        diccio = outAndConrol.querySNMPInfo() 
+        lista.append(diccio)
+
+        for ip in ips:
+            diccio = outAndConrol.querySNMPInfo(ip)
+            lista.append(diccio)
+
+        retorno = {'lista':lista}
+        #print(retorno)
+    return render(request, 'adminlte/inventario.html',context=retorno)
+
 def agregarAgente(request):
     agentForm = forms.newAgentForm()
     context = {'agentForm': agentForm}
@@ -114,23 +150,34 @@ def obtenerInfo(request, name):
 
     return render(request,'adminlte/verAgente.html',context)
 
-"""
+
 def obtenerInfoRouter(request, name):
     try:
-        router = Router.objects.get(pk=name)
+       
+       
+        r = Router.objects.get(pk=name)
+        print(r)
 
-        r = ConfigurationAdmin.ConfigurationAdmin(router.ip,router.getway,"tap0")
-        detallesRouter = r.querySNMPInfo()
-        #detallesAgente = ObtenerInformacion.obtenerInfo(agent.hostname, agent.puerto, agent.version, agent.grupo)
+        #print("Hera")  
+        if ipTapSalida == name:
+            print("CONTECTANDO AL GETWAY")
+            detallesRouter = outAndConrol.querySNMPInfo()
+        else:      
+            detallesRouter = outAndConrol.querySNMPInfo(r.ip) 
 
-    except router.DoesNotExist:
+        ultimo = outAndConrol.verifyLastVersion(r.archivo)
+        arch = r.archivo
+
+    except r.DoesNotExist:
         raise Http404("Agente no encontrado!")
-    
-    context = {'detallesRouter':detallesRouter,
-                'nombreHost': name}
+    finally:
+        context = {'detallesRouter':detallesRouter}
 
-    return render(request,'adminlte/inventario.html',context)
-"""
+        context.update({"file":str(arch)})
+        context.update({'last':str(ultimo)})
+
+    return render(request,'adminlte/verRouters.html', message = "Helo" )
+
 
 def verProyeccion(request):
     
@@ -169,13 +216,54 @@ def subirArchivoConf(request):
     if request.method == 'POST' and request.FILES['config-file']:
         # Usando IP actualizariamos tabla con info de Router!
         print(request.POST['IP'])
+        ip = str(request.POST['IP'])
         config_file = request.FILES['config-file']
+        #type(config_file)
         fs = FileSystemStorage(location='assets/')
-        filename = fs.save(config_file.name, config_file)
-        uploaded_file_url = fs.url(filename)
-        return render(request, 'adminlte/configArchivos.html', {
-            'uploaded_file_url': uploaded_file_url
-        })
+        if not fs.exists:
+            print("Tes")
+            filename = fs.save(config_file.name, config_file)
+            uploaded_file_url = fs.url(config_file)
+
+        tosend = fs.open(config_file.name,"rb")
+
+
+        ret = outAndConrol.uploadConfigFile(tosend,ip)
+        #fs.path()
+        #print(str(fs.base_location()))
+        if ret == 0:
+            messages.success(request, 'Archivo '+config_file.name+" fue conigurado correctamente")
+        else:
+            messages.error(request, "No fue posible  conigurar el archivo de manera correcta")
+        return render(request, 'adminlte/configArchivos.html')
+    elif request.method == 'GET':
+        return render(request,"'adminlte/configArchivos.html")
+def bajarArchivoConf(request):
+
+    if request.method == 'GET':
+        return render(request,'adminlte/descargaArchivo.html')
+        
+    elif request.method == 'POST':
+        print(request.POST['IP'])
+        ip = str(request.POST['IP'])
+        res = outAndConrol.downloadConfigFile(ip)
+        print(res.name)
+        dictiona = {"nothing":""}
+        messages.success(request, 'Archivo '+res.name+" descargado con éxito")
+        print("Guardando la informacion en la bd")
+
+        if ip == outAndConrol.getway:
+            di = outAndConrol.querySNMPInfo()
+        
+        else:
+            r = Router.objects.get(pk=ip)
+            di = outAndConrol.querySNMPInfo(ip)
+
+        
+        return render(request,'adminlte/descargaArchivo.html',context=dictiona)
+        
+
+    
 
 
 """

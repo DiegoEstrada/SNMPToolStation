@@ -1,0 +1,48 @@
+Crear particion en LInux
+fdisk -l, da un nombre, generalmnete /dev/sda
+fdisk nombre [/dev/sda]
+
+Pregunta por ayuda, m
+n
+p
+1
+ENTER
+ENTER
+
+despues guardar la config
+con w
+
+ver la particion creada
+fdisk -l 
+
+
+Crear el sistema de archivos /ext2 con
+
+mkfs.ex2 /dev/sda1
+
+ver que todo OK
+
+roboot 
+ir a consola de debian alt f5
+persist.sh
+1
+reboot
+
+
+
+GNS 
+
+Option 2 Run the topology 
+
+Path .> /home/diego/GNS3/projects/RCP
+
+APAGAR LAS MAQUINAS VIRTULES EN VBOX
+
+Agregar los enrutadores RCP al simulador 
+
+Start en GNS3 
+
+Y configurar los routers desde las maquinas virtuales creadas por GNS3 
+user rcp
+pass rcp
+

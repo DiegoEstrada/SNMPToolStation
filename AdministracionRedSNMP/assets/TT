@@ -1,0 +1,73 @@
+
+https://users.dcc.uchile.cl/~lmateu/CC60H/Trabajos/cmiddlet/introduccion.html
+
+
+
+Modelo de desarrollo de software evolutivo donde se conjuga la naturaleza de construcción de prototipos con los aspectos controlados 
+y sistemáticos del modelo lineal secuencial.
+
+Este modelo se divide en un número de actividades llamadas cuadrantes en las cuales son
+	Determinar objetivos. JUnto con e cliente analizar alternativas y especificar condiciones (SO,lenguajes...)
+	Análisis y evaluaciones de riesgo. Identificar y evaluar los riesgos potenciales, estos son registrados, y reducidos usando simulaciones, y sofware de analisis
+	Desarrollo y pruebas. Los prototipos se amplian y se añaden funcionalidades, el código es probado a un entorno de pruebas para ser implementado en un ambiente productivo
+	Planeación del siguiente ciclo. En caso de existir errores, se buscan las soluciones y si hay una mejor alternatia se implementa en la siguiente itearación
+
+
+
+Elegimos esta metodología de desarrollo debido a las facilidades que brinda para producir versiones cada vez más completas del sistema diseñado en cada iteración minimizando los riesgos en cada iteración.
+
+
+
+
+
+Su enfoque se centra en los principales aspectos que puedan causar incertidumbre para el software o para el proyecto.
+
+
+
+
+
+
+Como usuarios finales, existen muchas aplicaciones que nos brindan experiencias en realidad virtual, sin embargo, como  desarrolladores, es necesario contar con un equipo de cómputo de alta capacidad para desarrollar aplicaciones gráficas.
+
+La creación de mundos virtuales implica un alto consumo de recursos durante su ejecución y su contrucción, el cual, la gran mayoria de computadoras no poseen, como lo son tarjetas gráficas de alta capacidad para ejecutar procesos de renderizado que se requieren.
+
+El uso de un sistema distribuido permite sicronizar los recursos de hardware de múltiples computadoras, evitando adquirir un solo equipo de cómputo especializado. Para ello requiere del desarrollo de software especializado que se encarge de realizar esta tarea, El uso de un cluster de alto rendimiento permite controlar los recursos de sus nodos y optimizar la creación de mundos virtuales.
+
+
+Estas tres tecnologías elegidas fueron elegidas debido a que cumplen con algunos objetivos especificos para este prototipo, como lo la creación de mundos virtuales a partir de difernetes librerias basadas en OpenGL y además permitir la distribución de carga del proceso de renderización.
+La distribución de carga para usar estas tecnologías se basa en contar con objetos distribuidos que representen formas gráficas, los cuales sean generados en los diferentes nodos del clúster y sean accedidos en el nodo maestro para su integración y despliegue. 
+
+El API de Java 3D es un conjunto de clases  que sirven como interfaz a un sistema para desplegar gráficos tridimencionales y sonidos.
+Un universo virtual de Java 3D esta definido por un grafo, el cual contiene los objetos 3D en una estructura de árbol.
+COn este grafo se define la geometría, sonido, luz, ubicación, orientación y apariencia de los objetos.
+
+RMI es una tecnología exclusiva de Java que permite invocar un método de manera remota. La idea es tener acceso a una referencia de instancias que se encuentren en diferentes maquinas o jdk y poder llamar métodos desde ese objeto remoto.
+
+
+WebGL es un estándar web multiplataforma para un API de gráficos en 3D a bajo nivel basada en OPenGL. Trabaja bajo el elemeno Canvas de HTML5, por lo que puede ser accesible a traves de Javascript. Three.js es una libreria liviana que permite crear gráficos animados en 3D en un navegador web que puede ser usado en conjunto con WebGL.
+
+La API WebSackets es una tecnología que proporciona un canal de cominicación bidirecional, diseñada para ser implementada en navegadores y servidores web. Socket.io es una biblioteca para javascript que consta de una parte que en el servidor Node.js, y otra en el navegador.
+
+
+Pygame es un módulo para python que permite la creación de videojuegos en 2D en lenguaje Python, orientada al manejo de imagenes en ventanas, sin embargo, empleando la libreria de OpenGL para python es posible realizar animaciónes en 3D con esta tecnología.
+
+Pyro es la abrebiación para Python Remote Object, es un módulo para python que permite crear aplicaciones en la que los objetos puedan comunicarse entre si a través de la red. Pyro permite la creación de aplicaiones distribuidas de forma rápida 
+
+
+
+
+
+
+
+
+
+
+
+
+Justificación 1 Minuto
+Metodología 1 Minuto
+Graficos 3 Minutos
+Diagrama de bloques 1 Minuto 
+
+
+

@@ -17,6 +17,7 @@ class Image(models.Model):
 
 class Router(models.Model):
     ip = models.CharField(primary_key=True, max_length=200, null=False)
+    mascara = models.PositiveSmallIntegerField(null=False)
     getway = models.CharField( max_length=200, null=False,)
     hostname = models.CharField(max_length=100, null=True)
     version = models.PositiveSmallIntegerField(null=True)

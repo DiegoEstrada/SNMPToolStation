@@ -2,14 +2,16 @@
 
 {% block content %}
     <!-- Default box -->
+   
     <div class="box">
-            {% if messages %}
+        {% if messages %}
             <ul class="messages">
               {% for message in messages %}
                 <!--<li class="{{ message.tags }}">{{ message }}</li>-->
               {% endfor %}
             </ul>
-            {% endif %}
+        {% endif %}
+        
         <h1 class="box-title text-center">Administración de Archivos de Configuración</h1>
 
         
@@ -17,26 +19,18 @@
                 <div class="row">
                         <div class="col">
                             <h5 >Formulario</h5>
-                            <form method="post" action="{% url 'upload' %}" enctype="multipart/form-data">
+                            <form method="post" action="{% url 'download' %}" enctype="multipart/form-data">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <label for="ip">Direccion IP</label>
-                                    <input id="ip" required="true" class="form-control" type="text" placeholder="192.168.0.5" name="IP">
+                                    <input id="ip" class="form-control" type="text" placeholder="192.168.0.5" name="IP">
                                 </div>
-                                
-                                <div class="form-group">
-                                        <label for="archivo">Archivo de configuración</label>
-                                        <input id="archivo" required="true" class="form-control-file" type="file" name="config-file">
-                                </div>
+                            
 
-                                
-
-                                <button class="btn btn-primary" type="submit">Agregar</button>
+                                <button class="btn btn-primary" type="submit">Descargar</button>
                             </form>
                         </div>
-                        {% if uploaded_file_url %}
-                        <p>File uploaded at: <a href="#">{{ uploaded_file_url }}</a></p>
-                        {% endif %}
+                        
                         <!--<div class="col">
                             <h5 >Tabla</h5>
                             <table class="table">
